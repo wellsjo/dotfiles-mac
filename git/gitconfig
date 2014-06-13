@@ -1,0 +1,34 @@
+[user]
+    name  = wellsjo
+    email = wellsjohnston@gmail.com
+
+[alias]
+    st = status
+    co = checkout
+    com = commit
+    br = branch
+    hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    ctags = !.git/hooks/ctags
+
+[branch]
+    autosetuprebase = always
+
+[color]
+    ui = true
+
+[commit]
+    template = ~/.dotfiles/git/message_template
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+    pager = less
+
+[push]
+    default = tracking
+
+[web]
+    browser = google-chrome
+
+[init]
+    templatedir = ~/.git_template

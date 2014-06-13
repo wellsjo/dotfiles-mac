@@ -1,0 +1,54 @@
+# Autoload includes
+for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -name *.bash)
+do
+    . "${includeFile}"
+done
+
+hn=$(hostname | sed s/.spotify.net//g)
+R="\033[00m"
+M="\033[32m"
+P='$'
+
+[ "${USER}" = "root" ] && M="\033[31m" && P='#'
+
+set_ps1() {
+    GIT_BRANCH=""
+    if [ -r "$PWD/.git" ] ; then
+        GIT_COLOR="$GREEN"
+        [ $(git status --porcelain | wc -l) -gt 0 ] && GIT_COLOR="$RED"
+        GIT_BRANCH=" $GIT_COLOR$(git branch --abbr)$NORMAL"
+    fi
+    printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
+}
+
+export PATH="${PATH}:${HOME}/.rbenv/bin"
+
+PS1='$(set_ps1)'
+PS2=" > "
+EDITOR=vim
+TZ=America/New_York
+LANG=en_US.UTF-8
+HISTFILE="${HOME}/.history"
+HISTSIZE=1000
+# Darwinism
+CLICOLOR=1
+
+export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
+
+# Used by bash, unused by mksh
+if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
+    shopt -s expand_aliases
+    shopt -s checkwinsize
+    HISTFILESIZE=2000
+    HISTCONTROL=ignoredups:ignorespace
+    export HISTFILESIZE HISTCONTROL
+fi
+
+. "${HOME}/.dotfiles/bash/aliases"
+
+if type -p rbenv >/dev/null 2>&1 ; then
+    eval "$(rbenv init -)"
+fi
+
+# Load a local profile
+[ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
