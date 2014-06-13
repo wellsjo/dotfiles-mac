@@ -1,0 +1,76 @@
+set number  " show numbers
+let t_Co=256
+colorscheme monokai
+let mapleader=" "
+set nocompatible
+filetype off
+syntax on
+
+
+" Highlight cursorline
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+
+" Highlights extrawhitespace
+hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
+au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
+
+" cntrl-h highlights all words the cursor is over
+nnoremap <C-h> :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) <Cr>
+
+" easymotion
+map <Leader> <Plug>(easymotion-prefix)
+
+" Toggle Nerd Tree
+nnoremap \ :NERDTreeToggle<Cr><Cr>
+
+" I prefer gr to go back a tab
+nnoremap gr gT
+
+" CommantT is Ctrl-p
+nnoremap <C-p> :CommandT<Cr>
+
+nnoremap <Leader>h :GundoToggle<Cr>
+
+" ctrl-p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_working_path_mode = 'ra'
+
+" Tabs are 4 spaces
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+filetype on
+filetype plugin on
+filetype indent on
+
+" spaces under cursor
+set scrolloff=10
+
+" autocomplete after tab
+set wildmenu
+
+" better search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Powerline bindings
+set rtp+=/home/ec2-user/.local/lib/python2.6/site-packages/powerline/bindings/vim/
+set laststatus=2
+
+" show hidden files? (disabled by default)
+" let NERDTreeShowHidden=1
+
+" tab labels
+let g:taboo_modified_tab_flag="+"
+let g:taboo_tab_format=' %N %f %m '
+
+" Pathogen
+execute pathogen#infect()
+
+set term=screen-256color " so the background color isn't fucked

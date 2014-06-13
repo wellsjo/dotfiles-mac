@@ -1,0 +1,141 @@
+*taboo.txt* *taboo*
+
+                                   Taboo
+                                     ~
+                              Reference Manual
+
+
+==============================================================================
+CONTENTS                                                      *taboo-contents*
+
+    1. Overview ..............................|taboo-overview|
+    2. Installation ..........................|taboo-installation|
+    3. Commands ..............................|taboo-commands|
+    4. Options ...............................|taboo-options|
+    5. Changelog .............................|taboo-changelog|
+    6. Contributors ..........................|taboo-ontributors|
+
+
+==============================================================================
+1. Overview                                                   *taboo-overview*
+
+Taboo is a simple plugin that ease renaming vim tabs and customizing their
+appearance.
+
+
+==============================================================================
+2. Installation                                           *taboo-installation*
+
+You can either extract the content of the folder into the `$HOME/.vim`
+directory or use plugin managers such as Vundle or Pathogen.
+
+NOTE: tabs look different in terminal vim than in gui versions. If you wish
+having terminal style tabs even in gui versions you have to add the following
+line to your .vimrc file:
+>
+    set guioptions-=e
+<
+
+Taboo is able to remeber custom tab labels when you save the current session
+but you are required to set the following option in your .vimrc file
+>
+    set sessionoptions+=tabpages,globals
+<
+
+==============================================================================
+3. Commands                                                   *taboo-commands*
+
+------------------------------------------------------------------------------
+TabooRename <name>                                               *TabooRename*
+
+To rename the current tab. An argument (the new tab name) is required.
+
+
+------------------------------------------------------------------------------
+TabooOpen <name>                                                   *TabooOpen*
+
+To open a new tab next to active. An argument (the tab name) is required.
+
+
+------------------------------------------------------------------------------
+TabooReset                                                        *TabooReset*
+
+To reset the tab name to its original name.
+
+
+==============================================================================
+4. Options                                                     *taboo-options*
+
+
+------------------------------------------------------------------------------
+                                                      *g:taboo_open_empty_tab*
+
+If you set this option to 0, whenever you open a new tab Taboo will try to
+it with the current buffer
+
+Default: 1
+
+------------------------------------------------------------------------------
+                                                          *g:taboo_tab_format*
+
+With this option you can customize the way normal tabs (not renamed tabs) are
+displayed. Below all the available items that can be used:
+
+   %f -> file name
+   %F -> path relative to $HOME
+   %a -> absolute path
+   %[n]a -> custom level of path depth (e.g. %2a)
+   %n -> tab number only on the active tab
+   %N -> tab number one each tab
+   %m -> modified flag
+   %w -> number of windows opened into the tab
+
+   NOTE: in renamed tabs, the items %f, %F, %a and %[n]a will be avaluated to
+         the custom label associated to that tab.
+
+
+Default: " %f%m "
+
+
+------------------------------------------------------------------------------
+                                                  *g:taboo_renamed_tab_format*
+
+Same as |g:taboo_format| but for renamed tabs.
+
+Default: " [%f]%m "
+
+
+------------------------------------------------------------------------------
+                                                   *g:taboo_modified_tab_flag*
+
+This option controls how the modified flag looks like.
+
+Default: "*"
+
+
+------------------------------------------------------------------------------
+                                                    *g:taboo_close_tabs_label*
+
+Set this option if you want a flag on the tabline for closing the tabline
+itself when clicked. The flag will appear at the right side of the tabline.
+This position is fixed. When the value is an empty string nothing will be
+displayed.
+
+Default: ""
+
+
+------------------------------------------------------------------------------
+                                                   *g:taboo_unnamed_tab_label*
+
+Set this option if you prefer a different name for tabs containing an unnamed
+buffer.
+
+Default: "[no name]"
+
+
+==============================================================================
+6. Credits                                                     *taboo-credits*
+
+Developed by Giacomo Comitti
+
+Git repository: https://github.com/gcmt/taboo.vim

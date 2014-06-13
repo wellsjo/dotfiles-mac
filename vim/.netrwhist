@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/ec2-user/.vim'
+let g:netrw_dirhist_2='/home/ec2-user/.vim/plugin'
+let g:netrw_dirhist_3='/home/ec2-user/.vim'
+let g:netrw_dirhist_4='/home/ec2-user'
+let g:netrw_dirhist_5='/home'
+let g:netrw_dirhist_6='/home/ec2-user'
+let g:netrw_dirhist_7='/home/ec2-user/.vim'
+let g:netrw_dirhist_8='/home/ec2-user/.vim/plugin'
+let g:netrw_dirhist_9='/home/wells/.vim'
