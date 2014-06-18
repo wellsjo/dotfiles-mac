@@ -1,5 +1,5 @@
 # Autoload includes
-for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -name *.bash)
+for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -name *.bash)
 do
     . "${includeFile}"
 done
@@ -44,7 +44,7 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
-. "${HOME}/.dotfiles/bash/aliases"
+. "${HOME}/.wells_dotfiles/bash/aliases"
 
 if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"

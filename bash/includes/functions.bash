@@ -25,7 +25,7 @@ function h.symlink() {
 # Create symlinks in the $HOME directory to elements in the repo
 jpull() {
     local REPO='https://github.com/wellsjo/wells_dotfiles'
-    local SGITURL="https://github.com/jhuntwork/dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
+    local SGITURL="https://github.com/jhuntwork/.dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
     local SGIT=git
 
@@ -41,27 +41,27 @@ jpull() {
     fi
 
     # If the dotfiles dir already exists
-    if [ -d "${HOME}/.dotfiles" ] ; then
-        cd "${HOME}/.dotfiles"
+    if [ -d "${HOME}/.wells_dotfiles" ] ; then
+        cd "${HOME}/.wells_dotfiles"
         ${SGIT} reset --hard HEAD >/dev/null 2>&1
         ${SGIT} pull
         ${SGIT} submodule init
         ${SGIT} submodule update
     else
         cd "${HOME}"
-        ${SGIT} clone --depth 1 ${REPO} .dotfiles
-        cd "${HOME}/.dotfiles"
+        ${SGIT} clone --depth 1 ${REPO} .wells_dotfiles
+        cd "${HOME}/.wells_dotfiles"
         ${SGIT} submodule init
         ${SGIT} submodule update
     fi
 
-    h.symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
-    h.symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
-    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
-    h.symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
-    h.symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
-    h.symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-    h.symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
+    h.symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
+    h.symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
+    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
+    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bashrc"
+    h.symlink "${HOME}/.wells_dotfiles/bash" "${HOME}/.bash"
+    h.symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
+    h.symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
 
     cd "${HOME}"
 
@@ -90,4 +90,4 @@ jssh() {
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
 }
-alias ssj="jssh"
+alias wellssh="jssh"
