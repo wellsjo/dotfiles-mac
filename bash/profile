@@ -11,17 +11,6 @@ P='$'
 
 [ "${USER}" = "root" ] && M="\033[31m" && P='#'
 
-set_ps1() {
-    GIT_BRANCH=""
-    if [ -r "$PWD/.git" ] ; then
-        GIT_COLOR="$GREEN"
-        [ $(git status --porcelain | wc -l) -gt 0 ] && GIT_COLOR="$RED"
-        GIT_BRANCH=" $GIT_COLOR$(git branch --abbr)$NORMAL"
-    fi
-    printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
-}
-
-
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/> \1/"
 }
