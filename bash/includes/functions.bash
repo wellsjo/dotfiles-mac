@@ -72,6 +72,8 @@ jpull() {
     . "${HOME}/.profile"
 }
 
+alias wells_setup_init="jpull"
+
 # Simple wrapper for ssh which makes jpull() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
 jssh() {
