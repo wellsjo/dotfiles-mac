@@ -21,9 +21,13 @@ set_ps1() {
     printf "${hn} ${M}|\033[36m ${PWD}${R}${GIT_BRANCH}\n${P} "
 }
 
-export PATH="${PATH}:${HOME}/.rbenv/bin"
 
-PS1='$(set_ps1)'
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/> \1/"
+}
+
+PS1="\n${White}${Blue}\u${White} > ${Green}\w${White} \$(parse_git_branch)\n${Red}>> ${White}"
+
 PS2=" > "
 EDITOR=vim
 TZ=America/New_York
