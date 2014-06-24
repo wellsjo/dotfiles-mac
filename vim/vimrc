@@ -22,6 +22,9 @@ nnoremap <C-h> :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle <Cr>
 
+" fuzzy finder shortcut call
+nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
+
 " I prefer gr to go back a tab
 nnoremap gr gT
 
