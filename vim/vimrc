@@ -18,23 +18,11 @@ au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
 " cntrl-h highlights all words the cursor is over
 nnoremap <C-h> :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) <Cr>
 
-" easymotion
-map <Leader> <Plug>(easymotion-prefix)
-
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeToggle<Cr><Cr>
 
 " I prefer gr to go back a tab
 nnoremap gr gT
-
-" CommantT is Ctrl-p
-nnoremap <C-p> :CommandT<Cr>
-
-nnoremap <Leader>h :GundoToggle<Cr>
-
-" ctrl-p
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_working_path_mode = 'ra'
 
 " Tabs are 4 spaces
 set expandtab
@@ -58,10 +46,6 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
-" Powerline bindings
-set rtp+=/home/ec2-user/.local/lib/python2.6/site-packages/powerline/bindings/vim/
-set laststatus=2
 
 " show hidden files? (disabled by default)
 " let NERDTreeShowHidden=1
