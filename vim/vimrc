@@ -6,6 +6,7 @@ set nocompatible
 filetype off
 syntax on
 
+set rtp+=~/.fzf
 
 " Highlight cursorline
 set cursorline
@@ -19,7 +20,7 @@ au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
 nnoremap <C-h> :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) <Cr>
 
 " Toggle Nerd Tree
-nnoremap \ :NERDTreeToggle<Cr><Cr>
+nnoremap \ :NERDTreeTabsToggle <Cr>
 
 " I prefer gr to go back a tab
 nnoremap gr gT
