@@ -15,7 +15,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/> \1/"
 }
 
-PS0="\n${WHITE}${BLUE}\u${WHITE} > ${YELLOW}\w${WHITE} \$(parse_git_branch)\n${RED}>> ${WHITE}"
+PS0="\n${BLUE}\ulolol${WHITE} > ${YELLOW}\w${WHITE} \$(parse_git_branch)\n${RED}>> ${WHITE}"
 
 PS2=" > "
 EDITOR=vim

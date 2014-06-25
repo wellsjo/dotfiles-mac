@@ -26,8 +26,10 @@ wells_update() {
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        cd ~/.wells_dotfiles/ && git pull
-        cd ..
+        local cur_dir=${PWD}
+        cd ~/.wells_dotfiles/
+        git pull
+        cd ${PWD}
     fi
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
