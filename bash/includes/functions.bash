@@ -131,3 +131,5 @@ wellssh() {
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
 }
+
+alias wssh="wellssh"
