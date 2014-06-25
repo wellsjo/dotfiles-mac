@@ -15,7 +15,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/> \1/"
 }
 
-PS1="\n${White}${Blue}\u${White} > ${Green}\w${White} \$(parse_git_branch)\n${Red}>> ${White}"
+PS0="\n${WHITE}${BLUE}\u${WHITE} > ${YELLOW}\w${WHITE} \$(parse_git_branch)\n${RED}>> ${WHITE}"
 
 PS2=" > "
 EDITOR=vim
@@ -45,3 +45,4 @@ fi
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
+export PATH=$PATH:/home/wells/src/web-site/Symfony/app

@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/wells/src/web-site'
 let g:netrw_dirhist_2='/home/ec2-user/.vim'
 let g:netrw_dirhist_3='/home/ec2-user/.wells_dotfiles/vim'
+let g:netrw_dirhist_4='/home/wells/.wells_dotfiles/bash'
+let g:netrw_dirhist_5='/home/wells/.wells_dotfiles'

@@ -1,18 +1,18 @@
 #!/bin/bash
 
-wells_settings() {
+function wells_settings() {
 
     echo -e "${BLUE}\nSSH shortcuts"
-    echo "${YELLOW}wells | website vm"
+    echo "${WHITE}wells | website vm"
     echo "ppl   | dev vm"
     echo "vm    | spotify vm"
     echo "jump  | jumphost"
 
-    echo -e "\n${BLUE}Bash aliases${YELLOW}"
+    echo -e "\n${BLUE}Bash aliases${WHITE}"
     echo -e "..    | cd .."
     echo "ll    | la -la"
 
-    echo -e "${BLUE}\nFuzzy search shortcuts${YELLOW}"
+    echo -e "${BLUE}\nFuzzy search shortcuts${WHITE}"
     echo "fe    | open file in vim"
     echo "fd    | cd to directory"
     echo "fh    | repeat history"
@@ -28,6 +28,7 @@ wells_settings() {
     echo -e "${WHITE}This updates my dotfiles from the git repo then re-sources everything.\n"
     echo -e "${BLUE}wells_push | wpush"
     echo -e "${WHITE}This re-sources my dotfiles and optionally pushes any changes made to the wells_dotfiles repository"
+    echo
 }
 
 alias wsettings="wells_settings"
