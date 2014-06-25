@@ -32,7 +32,6 @@ wells_update() {
     cd ..
 
     echo -e "\nRe-sourcing wells_dotfiles..."
-
     . "${HOME}/.profile"
 
     echo -e "\nDone!"
