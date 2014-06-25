@@ -1,39 +1,23 @@
-" Pathogen
+" Load bundles
 execute pathogen#infect()
 
-set number  " show numbers
+set number
 let t_Co=256
 
-"colorscheme monokai
-let g:seoul256_background = 236
-colo seoul256
-set background=dark
-
 let mapleader=" "
-set nocompatible
-set term=screen-256color " so the background color isn't fucked
+set term=screen-256color
 filetype off
 syntax on
 
-set rtp+=~/.fzf
-
-" Highlight cursorline
-set cursorline
+set cursorline " Highlight cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Highlights extrawhitespace
 hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
 au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
 
-" cntrl-h highlights all words the cursor is over
-nnoremap <C-h> *N
-nnoremap * :set hlsearch!<Cr>
-
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle <Cr>
-
-" fuzzy finder shortcut call
-nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
 
 " I prefer gr to go back a tab
 nnoremap gr gT
@@ -52,9 +36,6 @@ filetype indent on
 " spaces under cursor
 set scrolloff=10
 
-" autocomplete after tab
-set wildmenu
-
 " better search options
 set incsearch
 set hlsearch
@@ -68,3 +49,11 @@ set smartcase
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N %f %m '
 
+colo seoul256
+set background=dark
+
+" Fuzzy search runtime path
+set rtp+=~/.fzf
+
+" fuzzy finder shortcut call
+nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
