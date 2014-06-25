@@ -10,7 +10,7 @@ function wells_settings() {
 
     echo -e "\n${BLUE}Bash aliases${WHITE}"
     echo -e "..    | cd .."
-    echo "ll    | la -la"
+    echo "ll    | ls -la"
 
     echo -e "${BLUE}\nFuzzy search shortcuts${WHITE}"
     echo "fe    | open file in vim"
