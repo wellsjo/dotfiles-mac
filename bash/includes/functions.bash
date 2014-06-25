@@ -21,14 +21,14 @@ function h.symlink() {
 }
 
 wells_update() {
-    read -p "Do you want to first update from the git repository? " -n 1 -r
+    echo
+    read -p "Do you want to update from the wells_dotfiles repository? " -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         cd ~/.wells_dotfiles/ && git pull
         cd ..
     fi
-
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
     echo -e "\nDone!"
@@ -37,23 +37,23 @@ wells_update() {
 alias wupdate="wells_update"
 
 wells_push() {
-
-    read -p "Do you want to update the git repository? " -n 1 -r
-    echo    # (optional) move to a new line
+    echo
+    echo "Showing diff..."
+    echo
+    cd ~/.wells_dotfiles
+    git diff
+    read -p "Do you want to update the remote git repository? " -n 1 -r
+    echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        cd ~/.wells_dotfiles
-        echo "Showing diff..."
-        git diff
+        echo "Updating repository..."
         git add .
         git commit -m "updated from running wells_push"
         git push
         cd ..
     fi
-
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
-
     echo -e "\nDone!"
 }
 
