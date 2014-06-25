@@ -20,12 +20,14 @@ wells_settings() {
 
     echo -e "\n${BLUE}wells_settings | wsettings"
     echo -e "${WHITE}The command you just ran. This shows all available commands\n"
-    echo -e "${BLUE}wells_update | wupdate"
-    echo -e "${WHITE}This re-sources my dotfiles and optionally pushes any changes made to the wells_dotfiles repository\n"
+    echo -e "${BLUE}wellssh | wssh"
+    echo -e "${WHITE}ssh into a remote server and runs wells_install\n"
     echo -e "${BLUE}wells_install | winstall"
     echo -e "${WHITE}This is the command used by wssh.  It clones the wells_dotfiles repo and then sets symlinks to bash, git, and vim\n"
-    echo -e "${BLUE}wellssh | wssh"
-    echo -e "${WHITE}ssh into a remote server and runs wells_install"
+    echo -e "${BLUE}wells_update | wupdate"
+    echo -e "${WHITE}This updates my dotfiles from the git repo then re-sources everything.\n"
+    echo -e "${BLUE}wells_push | wpush"
+    echo -e "${WHITE}This re-sources my dotfiles and optionally pushes any changes made to the wells_dotfiles repository"
 }
 
 alias wsettings="wells_settings"

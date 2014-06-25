@@ -21,9 +21,22 @@ function h.symlink() {
 }
 
 wells_update() {
+    read -p "Do you want to first update from the git repository? " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        cd ~/.wells_dotfiles/ && git pull
+        cd ..
+    fi
 
-    echo -e "\nUpdating git repo...\n"
-    echo -e "Applying changes...\n"
+    echo -e "\nRe-sourcing wells_dotfiles..."
+    . "${HOME}/.profile"
+    echo -e "\nDone!"
+}
+
+alias wupdate="wells_update"
+
+wells_push() {
 
     read -p "Do you want to update the git repository? " -n 1 -r
     echo    # (optional) move to a new line
@@ -44,7 +57,7 @@ wells_update() {
     echo -e "\nDone!"
 }
 
-alias wupdate="wells_update"
+alias wpush="wells_push"
 
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
