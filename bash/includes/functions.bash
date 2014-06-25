@@ -21,7 +21,7 @@ function h.symlink() {
 }
 
 wells_update() {
-    source ~/.wells_dotfiles/bash/profile
+    . "${HOME}/.profile"
     echo -e "\nRe-sourcing wells_dotfiles..."
     echo -e "Done!"
 }
@@ -30,6 +30,9 @@ alias wupdate="wells_update"
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
 wells_install() {
+
+    echo -e "\nInstalling wells_dotfiles..."
+
     local REPO='https://github.com/wellsjo/wells_dotfiles'
     local SGITURL="https://github.com/jhuntwork/.dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
@@ -37,6 +40,8 @@ wells_install() {
 
     # If not installed globally already
     if ! ${SGIT} --version >/dev/null 2>&1 ; then
+        echo "Git doesn't seem to be installed."
+        echo "Fixing that..."
         SGIT="${SGITPATH}/git --exec-path=${SGITPATH}/git-core"
 
         # If the static version isnt available
@@ -48,12 +53,15 @@ wells_install() {
 
     # If the dotfiles dir already exists
     if [ -d "${HOME}/.wells_dotfiles" ] ; then
+        echo "wells_dotfiles present..."
         cd "${HOME}/.wells_dotfiles"
         ${SGIT} reset --hard HEAD >/dev/null 2>&1
         ${SGIT} pull
         ${SGIT} submodule init
         ${SGIT} submodule update
     else
+        echo "wells_dotfiles not present"
+        echo -e "Cloning git repo from ${REPO}..."
         cd "${HOME}"
         ${SGIT} clone --depth 1 ${REPO} .wells_dotfiles
         cd "${HOME}/.wells_dotfiles"
@@ -61,6 +69,7 @@ wells_install() {
         ${SGIT} submodule update
     fi
 
+    echo "Setting symlinks..."
     h.symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
     h.symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
     h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
@@ -77,7 +86,11 @@ wells_install() {
 
     # Source the profile to get things going
     . "${HOME}/.profile"
+
+    echo "Done!"
+
 }
+alias winstall="wells_install"
 
 # Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
