@@ -39,6 +39,7 @@ set scrolloff=10
 " better search options
 set incsearch
 set hlsearch
+nnoremap <c-h> :set hlsearch!<Cr>
 set ignorecase
 set smartcase
 
