@@ -23,11 +23,11 @@ function h.symlink() {
 wells_update() {
     . "${HOME}/.profile"
     echo -e "\nRe-sourcing wells_dotfiles..."
-    echo -e "Updating git repo..."
+    echo -e "Updating git repo...\n"
     git add .
     git commit -m "updating from wupdate command"
     git push
-    echo -e "Done!"
+    echo -e "\nDone!"
 }
 alias wupdate="wells_update"
 
