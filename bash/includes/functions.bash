@@ -23,15 +23,18 @@ function h.symlink() {
 wells_update() {
 
     echo -e "\nUpdating git repo...\n"
+    echo -e "Applying changes...\n"
 
-    echo -e "${CYAN}Applying changes...\n"
-
+    read -p "Do you want to update the git repository? " -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
     cd ~/.wells_dotfiles
     git diff
     git add .
     git commit -m "updating from wells_update"
     git push
     cd ..
+    fi
 
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
