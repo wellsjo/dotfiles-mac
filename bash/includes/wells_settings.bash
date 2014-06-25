@@ -3,10 +3,10 @@
 wells_settings() {
 
     echo -e "${CYAN}\nSSH shortcuts"
-    echo "${YELLOW}wells | ssh to my website vm"
-    echo "ppl   | ssh to my dev vm"
-    echo "vm    | ssh to my spotify vm"
-    echo "jump  | ssh to jumphost"
+    echo "${YELLOW}wells | website vm"
+    echo "ppl   | dev vm"
+    echo "vm    | spotify vm"
+    echo "jump  | jumphost"
 
     echo -e "\n${CYAN}Bash aliases${YELLOW}"
     echo -e "..    | cd .."
@@ -17,7 +17,6 @@ wells_settings() {
     echo "fd    | cd to directory"
     echo "fh    | repeat history"
     echo "fkill | kill process"
-
 
     echo -e "\n${CYAN}Other commands${YELLOW}"
     echo "wells_settings | wsettings"

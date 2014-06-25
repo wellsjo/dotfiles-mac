@@ -101,6 +101,7 @@ wells_install() {
     . "${HOME}/.profile"
 
     echo -e "\nDone!"
+    echo -e "\nType 'wells_settings' to get a list of available commands"
 
 }
 alias winstall="wells_install"
