@@ -66,22 +66,7 @@ wells_install() {
     echo -e "\nInstalling wells_dotfiles..."
 
     local REPO='https://github.com/wellsjo/wells_dotfiles'
-    local SGITURL="https://github.com/jhuntwork/.dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
-    local SGITPATH="${HOME}/.git-static"
     local SGIT=git
-
-    # If not installed globally already
-    if ! ${SGIT} --version >/dev/null 2>&1 ; then
-        echo "Git doesn't seem to be installed."
-        echo "Fixing that..."
-        SGIT="${SGITPATH}/git --exec-path=${SGITPATH}/git-core"
-
-        # If the static version isnt available
-        if ! ${SGIT} --version >/dev/null 2>&1 ; then
-            cd ${HOME}
-            curl -sL ${SGITURL} | tar -xJf -
-        fi
-    fi
 
     # If the dotfiles dir already exists
     if [ -d "${HOME}/.wells_dotfiles" ] ; then
