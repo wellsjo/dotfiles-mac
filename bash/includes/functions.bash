@@ -25,6 +25,7 @@ wells_update() {
     echo -e "\nUpdating git repo...\n"
 
     cd ~/.wells_dotfiles
+    git diff
     git add .
     git commit -m "updating from wells_update"
     git push
