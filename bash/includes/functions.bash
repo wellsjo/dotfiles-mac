@@ -53,9 +53,10 @@ wells_install() {
 
     # If the dotfiles dir already exists
     if [ -d "${HOME}/.wells_dotfiles" ] ; then
-        echo "wells_dotfiles present..."
+        echo "wells_dotfiles are already present."
         cd "${HOME}/.wells_dotfiles"
         ${SGIT} reset --hard HEAD >/dev/null 2>&1
+        echo "Updating from git repo..."
         ${SGIT} pull
         ${SGIT} submodule init
         ${SGIT} submodule update
@@ -69,7 +70,7 @@ wells_install() {
         ${SGIT} submodule update
     fi
 
-    echo "Setting symlinks..."
+    echo -e "\nSetting symlinks..."
     h.symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
     h.symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
     h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
@@ -87,7 +88,7 @@ wells_install() {
     # Source the profile to get things going
     . "${HOME}/.profile"
 
-    echo "Done!"
+    echo -e "\nDone!"
 
 }
 alias winstall="wells_install"
