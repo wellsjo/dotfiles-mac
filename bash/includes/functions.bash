@@ -104,6 +104,7 @@ wells_install() {
     echo -e "\nType 'wells_settings' to get a list of available commands"
 
 }
+
 alias winstall="wells_install"
 
 # Simple wrapper for ssh which makes wells_update() available in the remote session
