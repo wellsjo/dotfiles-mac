@@ -20,10 +20,16 @@ function h.symlink() {
     ln -s $1 $2
 }
 
+wells_update() {
+    source ~/.wells_dotfiles/bash/profile
+    echo -e "\nRe-sourcing wells_dotfiles..."
+    echo -e "Done!"
+}
+alias wupdate="wells_update"
 
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
-jpull() {
+wells_install() {
     local REPO='https://github.com/wellsjo/wells_dotfiles'
     local SGITURL="https://github.com/jhuntwork/.dotfiles/raw/e374d0dbc1754b21a3d36b9df5742d351d7fe460/git-static-x86_64-linux-musl.tar.xz"
     local SGITPATH="${HOME}/.git-static"
@@ -73,19 +79,17 @@ jpull() {
     . "${HOME}/.profile"
 }
 
-alias wells_update="jpull"
-
-# Simple wrapper for ssh which makes jpull() available in the remote session
+# Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
-jssh() {
-    local func=$(typeset -f jpull)
+wellssh() {
+    local func=$(typeset -f wells_install)
     local func2=$(typeset -f symlink)
     ssh -A -t "$@" \
     "${func2} ;
     ${func} ;
     [ -r /etc/motd ] && cat /etc/motd ;
     [ -r \"\$HOME/.profile\" ] && . \"\$HOME/.profile\" ;
-    type jssh >/dev/null 2>&1 || jpull ;
+    type wellssh >/dev/null 2>&1 ||  wells_update;
     exec env -i SSH_AUTH_SOCK=\"\$SSH_AUTH_SOCK\" \
       SSH_CONNECTION=\"\$SSH_CONNECTION\" \
       SSH_CLIENT=\"\$SSH_CLIENT\" SSH_TTY=\"\$SSH_TTY\" \
@@ -93,4 +97,3 @@ jssh() {
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
 }
-alias wellssh="jssh"
