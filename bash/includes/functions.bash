@@ -28,7 +28,7 @@ wells_update() {
     git add .
     git commit -m "updating from wells_update"
     git push
-    ..
+    cd ..
 
     echo -e "\nRe-sourcing wells_dotfiles..."
 
