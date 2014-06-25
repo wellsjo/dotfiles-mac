@@ -24,6 +24,7 @@ wells_settings() {
     echo "wells_update   | wupdate"
     echo "wells_install  | winstall"
     echo "wellssh"
+
 }
 
 alias wsettings="wells_settings"

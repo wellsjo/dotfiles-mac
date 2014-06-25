@@ -22,16 +22,21 @@ function h.symlink() {
 
 wells_update() {
 
-    echo -e "Updating git repo...\n"
+    echo -e "\nUpdating git repo...\n"
+
+    cd ~/.wells_dotfiles
     git add .
-    git commit -m "updating from wupdate command"
+    git commit -m "updating from wells_update"
     git push
+    ..
 
     echo -e "\nRe-sourcing wells_dotfiles..."
+
     . "${HOME}/.profile"
 
     echo -e "\nDone!"
 }
+
 alias wupdate="wells_update"
 
 # Setup the dotfiles repo locally, or pull latest version from github.
