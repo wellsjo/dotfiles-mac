@@ -46,7 +46,7 @@ wells_push() {
         echo "Showing diff..."
         git diff
         git add .
-        git commit -m "updating from wells_update"
+        git commit -m "updated from running wells_update"
         git push
         cd ..
     fi
