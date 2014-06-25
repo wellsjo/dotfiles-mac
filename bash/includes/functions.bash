@@ -29,11 +29,11 @@ wells_update() {
         local cur_dir=${PWD}
         cd ~/.wells_dotfiles/
         git pull
-        cd ${PWD}
+        cd ${cur_dir}
     fi
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
-    echo -e "\nDone!"
+    echo -e "\nDone!\n"
 }
 
 alias wupdate="wells_update"
@@ -42,6 +42,7 @@ wells_push() {
     echo
     echo "Showing diff..."
     echo
+    local cur_dir=${PWD}
     cd ~/.wells_dotfiles
     git diff
     read -p "Do you want to update the remote git repository? " -n 1 -r
@@ -52,11 +53,11 @@ wells_push() {
         git add .
         git commit -m "updated from running wells_push"
         git push
-        cd ..
     fi
+    cd ${cur_dir}
     echo -e "\nRe-sourcing wells_dotfiles..."
     . "${HOME}/.profile"
-    echo -e "\nDone!"
+    echo -e "\nDone!\n"
 }
 
 alias wpush="wells_push"
