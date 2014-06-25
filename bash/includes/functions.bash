@@ -30,6 +30,7 @@ wells_update() {
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         cd ~/.wells_dotfiles
+        echo "Showing diff..."
         git diff
         git add .
         git commit -m "updating from wells_update"
@@ -131,5 +132,3 @@ wellssh() {
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
 }
-
-alias wssh="wellssh"
