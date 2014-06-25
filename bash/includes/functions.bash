@@ -24,7 +24,7 @@ wells_update() {
 
     echo -e "\nUpdating git repo...\n"
 
-    echo -e "Applying changes...\n"
+    echo -e "${CYAN}Applying changes...\n"
 
     cd ~/.wells_dotfiles
     git diff
