@@ -26,7 +26,8 @@ hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
 au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " cntrl-h highlights all words the cursor is over
-nnoremap <C-h> :exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')) <Cr>
+nnoremap <C-h> *N
+nnoremap * :set hlsearch!<Cr>
 
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle <Cr>
