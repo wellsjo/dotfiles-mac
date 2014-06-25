@@ -1,68 +1,64 @@
-" Load bundles
-execute pathogen#infect()
+**neocomplcache**
+=================
 
-let g:neocomplcache_enable_at_startup=1
+Description
+-----------
 
-set number
-let t_Co=256
+neocomplcache is the abbreviation of "neo-completion with cache". It
+provides keyword completion system by maintaining a cache of keywords in the
+current buffer. neocomplcache could be customized easily and has a lot more
+features than the Vim's standard completion feature.
 
-let mapleader=" "
-set term=screen-256color
-filetype off
-syntax on
+If you use Vim 7.3.885 or above with if\_lua feature, you should use
+neocomplete.  It is faster than neocomplcache.
 
-set cursorline " Highlight cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+https://github.com/Shougo/neocomplete.vim
 
-" Highlights extrawhitespace
-hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
-au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
+Installation
+============
 
-" Toggle Nerd Tree
-nnoremap \ :NERDTreeTabsToggle <Cr>
+* Extract the file and put files in your Vim directory
+   (usually ~/.vim/ or Program Files/Vim/vimfiles on Windows).
+* Execute `|:NeoComplCacheEnable|` command or
+`let g:neocomplcache_enable_at_startup = 1`
+in your `.vimrc`. Not in `.gvimrc`(`_gvimrc`)!
 
-" I prefer gr to go back a tab
-nnoremap gr gT
+Caution
+-------
 
-" Tabs are 4 spaces
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
-filetype on
-filetype plugin on
-filetype indent on
+Because all variable names were changed in neocomplcache Ver.5, it is not
+backwards compatible. If you want to upgrade, you should use the following
+script from Mr.thinca.
 
-" spaces under cursor
-set scrolloff=10
+http://gist.github.com/422503
 
-" better search options
-set incsearch
-set hlsearch
-nnoremap <c-h> :set hlsearch!<Cr>
-set ignorecase
-set smartcase
+Snippets feature(snippets\_complete source) was split from Ver.7.
+If you used it, please install neosnippet source manually.
 
-" show hidden files? (disabled by default)
-" let NERDTreeShowHidden=1
+https://github.com/Shougo/neosnippet
 
-" tab labels
-let g:taboo_modified_tab_flag="+"
-let g:taboo_tab_format=' %N %f %m '
+Screen shots
+============
 
-colo seoul256
-set background=dark
+Original filename completion.
+-----------
+![Original filename completion.](http://1.bp.blogspot.com/_ci2yBnqzJgM/TD1O5_bOQ2I/AAAAAAAAADE/vHf9Xg_mrTI/s1600/filename_complete.png)
 
-" Fuzzy search runtime path
-set rtp+=~/.fzf
+Omni completion.
+----------------
+![Omni completion.](http://2.bp.blogspot.com/_ci2yBnqzJgM/TD1PTolkTBI/AAAAAAAAADU/knJ3eniuHWI/s1600/omni_complete.png)
 
-" fuzzy finder shortcut call
-nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
+Completion with vimshell(http://github.com/Shougo/vimshell).
+------------------------------------------------------------
+![Completion with vimshell(http://github.com/Shougo/vimshell).](http://1.bp.blogspot.com/_ci2yBnqzJgM/TD1PLfdQrwI/AAAAAAAAADM/2pSFRTHwYOY/s1600/neocomplcache_with_vimshell.png)
 
-""""""" neocomplete settings
+Vim completion
+------------------------------------------------------------
+![Vim completion.](http://1.bp.blogspot.com/_ci2yBnqzJgM/TD1PfKTlwnI/AAAAAAAAADs/nOGWTRLuae8/s1600/vim_complete.png)
 
+Setting examples
+
+```vim
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -115,11 +111,24 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplcache_enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplcache_enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
 " Shell like behavior(not recommended).
 "set completeopt+=longest
 "let g:neocomplcache_enable_auto_select = 1
 "let g:neocomplcache_disable_auto_complete = 1
-inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -139,3 +148,4 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+```
