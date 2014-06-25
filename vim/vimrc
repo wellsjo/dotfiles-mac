@@ -1,8 +1,17 @@
+" Pathogen
+execute pathogen#infect()
+
 set number  " show numbers
 let t_Co=256
-colorscheme monokai
+
+"colorscheme monokai
+let g:seoul256_background = 236
+colo seoul256
+set background=dark
+
 let mapleader=" "
 set nocompatible
+set term=screen-256color " so the background color isn't fucked
 filetype off
 syntax on
 
@@ -58,7 +67,3 @@ set smartcase
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N %f %m '
 
-" Pathogen
-execute pathogen#infect()
-
-set term=screen-256color " so the background color isn't fucked
