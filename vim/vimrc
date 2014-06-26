@@ -15,10 +15,6 @@ set mouse=a
 set cursorline " Highlight cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
-" Highlights extrawhitespace
-hi ExtraWhitespace ctermbg=red guibg=red guifg=red guibg=red
-au CursorMoved * match ExtraWhitespace /\s\+\%#\@<!$/
-
 " Auto-closing pairs settings (delimitMate)
 let delimitMate_matchpairs = "(:),[:],{:}"
 
