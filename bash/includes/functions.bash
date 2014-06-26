@@ -23,7 +23,7 @@ function h.symlink() {
 wells_update() {
     echo
     read -p "Do you want to update from the wells_dotfiles repository? " -n 1 -r
-    echo    # (optional) move to a new line
+    echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         local cur_dir=${PWD}
