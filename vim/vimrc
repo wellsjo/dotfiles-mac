@@ -10,6 +10,7 @@ let mapleader=" "
 set term=screen-256color
 filetype off
 syntax on
+set mouse=a
 
 set cursorline " Highlight cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40

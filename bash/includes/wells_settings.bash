@@ -2,11 +2,15 @@
 
 function wells_settings() {
 
-    echo -e "${BLUE}\nSSH shortcuts"
+    echo -e "${BRIGHT}${BLUE}\nSSH shortcuts"
     echo "${WHITE}wells | website vm"
     echo "ppl   | dev vm"
     echo "vm    | spotify vm"
     echo "jump  | jumphost"
+
+    echo -e "\n${BLUE}Spotify.com shortcuts${WHITE}"
+    echo -e "d     | ./devify.sh --auto --skip-language"
+    echo -e "c     | cosole cache:clear"
 
     echo -e "\n${BLUE}Bash aliases${WHITE}"
     echo -e "..    | cd .."
