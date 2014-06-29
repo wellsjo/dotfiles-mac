@@ -1,33 +1,26 @@
 " Load bundles
 execute pathogen#infect()
 
+" Enable auto-complete
 let g:neocomplcache_enable_at_startup=1
+
+" Basic settings
+let g:seoul256_background=237
+colo seoul256
+set background=dark
 
 set number
 let t_Co=256
-
 let mapleader=" "
 set term=screen-256color
 filetype off
 syntax on
 set mouse=a
-
 set cursorline " Highlight cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
+set scrolloff=10 " spaces under cursor
 
-" Auto-closing pairs settings (delimitMate)
-let delimitMate_matchpairs = "(:),[:],{:}"
-
-" Easy motion settings
-map <Leader> <Plug>(easymotion-prefix)
-
-" Toggle Nerd Tree
-nnoremap \ :NERDTreeTabsToggle <Cr>
-
-" I prefer gr to go back a tab
-nnoremap gr gT
-
-" Tabs are 4 spaces
+" Tab settings
 set expandtab
 set tabstop=4
 set softtabstop=4
@@ -38,32 +31,40 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" spaces under cursor
-set scrolloff=10
-
-" better search options
+" Search Options
 set incsearch
 set hlsearch
 nnoremap <c-h> :set hlsearch!<Cr>
 set ignorecase
 set smartcase
 
-" show hidden files? (disabled by default)
+" Fuzzy search runtime path
+set rtp+=~/.fzf
+
+" fuzzy finder shortcut call
+nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
+
+" I prefer gr to go back a tab
+nnoremap gr gT
+
+" Auto-closing pairs settings (delimitMate)
+let delimitMate_matchpairs = "(:),[:],{:}"
+
+" Easy motion settings
+map <Leader> <Plug>(easymotion-prefix)
+
+" Toggle Nerd Tree
+nnoremap \ :NERDTreeTabsToggle<Cr>
+
+" Show hidden files? (disabled by default)
 " let NERDTreeShowHidden=1
 
 " tab labels
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N %f %m '
 
-let g:seoul256_background=237
-colo seoul256
-set background=dark
-
-" Fuzzy search runtime path
-set rtp+=~/.fzf
-
-" fuzzy finder shortcut call
-nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
+" MRU options
+let MRU_Window_Height = 30
 
 """""""""""""""""""""""""""""""""""
 """""""NEOCOMPLETE SETTINGS""""""""
