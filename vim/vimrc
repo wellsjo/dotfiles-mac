@@ -18,6 +18,9 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " Auto-closing pairs settings (delimitMate)
 let delimitMate_matchpairs = "(:),[:],{:}"
 
+" Easy motion settings
+map <Leader> <Plug>(easymotion-prefix)
+
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle <Cr>
 
