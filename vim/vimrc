@@ -56,7 +56,10 @@ map <Leader> <Plug>(easymotion-prefix)
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
 
-" Show hidden files? (disabled by default)
+" get rid of that annoying netrwhist file stuff
+let g:netrw_dirhistmax = 0
+
+" show hidden files? (disabled by default)
 " let NERDTreeShowHidden=1
 
 " tab labels
