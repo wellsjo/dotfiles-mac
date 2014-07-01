@@ -2,19 +2,15 @@
 
 function wells_help() {
 
-    echo -e "${BRIGHT}${YELLOW}\nSSH shortcuts"
-    echo "${WHITE}wells | website vm"
-    echo "ppl   | dev vm"
-    echo "vm    | spotify vm"
-    echo "jump  | jumphost"
+    echo -e "\n${YELLOW}Bash aliases${WHITE}"
+    echo -e "ta    | tmux -2 attach"
+    echo -e "t     | tmux -2"
+    echo -e "..    | cd .."
+    echo "ll    | ls -la"
 
     echo -e "\n${YELLOW}Spotify.com shortcuts${WHITE}"
     echo -e "d     | ./devify.sh --auto --skip-language"
     echo -e "c     | cosole cache:clear"
-
-    echo -e "\n${YELLOW}Bash aliases${WHITE}"
-    echo -e "..    | cd .."
-    echo "ll    | ls -la"
 
     echo -e "${YELLOW}\nFuzzy search shortcuts${WHITE}"
     echo "fe    | open file in vim"
@@ -22,7 +18,13 @@ function wells_help() {
     echo "fh    | repeat history"
     echo "fkill | kill process"
 
-    echo -e "\n${YELLOW}wells_settings | wsettings"
+    echo -e "${BRIGHT}${YELLOW}\nSSH shortcuts"
+    echo "${WHITE}wells | wellsjohnston.com"
+    echo "ppl   | developemnt"
+    echo "vm    | spotify dev"
+    echo "jump  | spotify jumphost"
+
+    echo -e "\n${YELLOW}wells_help | whelp"
     echo -e "${WHITE}The command you just ran. This shows all available commands\n"
     echo -e "${YELLOW}wellssh | wssh"
     echo -e "${WHITE}ssh into a remote server and runs wells_install\n"
