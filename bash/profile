@@ -1,28 +1,15 @@
 # Autoload includes
-for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -name *.bash)
+for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
 do
     . "${includeFile}"
 done
 
-hn=$(hostname | sed s/.spotify.net//g)
-R="\033[00m"
-M="\033[32m"
-P='$'
-
-[ "${USER}" = "root" ] && M="\033[31m" && P='#'
-
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/> \1/"
-}
-
-PS1="\n${CYAN}\u${WHITE} | ${BRIGHT}${YELLOW}\w${WHITE} \$(parse_git_branch)\n${GREEN}>> ${WHITE}"
-
-PS2=" > "
 EDITOR=vim
 TZ=America/New_York
 LANG=en_US.UTF-8
 HISTFILE="${HOME}/.history"
 HISTSIZE=1000
+
 # Darwinism
 CLICOLOR=1
 
@@ -37,12 +24,12 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     export HISTFILESIZE HISTCONTROL
 fi
 
-. "${HOME}/.wells_dotfiles/bash/aliases"
-
 if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
 fi
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
+
+# for spotify.com website
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app
