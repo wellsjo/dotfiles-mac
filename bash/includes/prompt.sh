@@ -10,13 +10,13 @@ local BB="\[\033[1;34m\]"
 BW="\[\033[1;37m\]"
 
 function parse_git_dirty {
-[[ $(git status 2> /dev/null | tail -n1) != "(clean)" ]] && echo " [+]"
+[[ $(git status 2> /dev/null | tail -n1) != "(clean)" ]] && echo "*"
 }
 
 function parse_git_branch {
 local BW="\[\033[1;37m\]"
-git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1)$(parse_git_dirty)/"
 }
 
-export PS1="${BG}\u ${BW}| ${BY}\W ${BW}| ${BC}\$(parse_git_branch)\n${BR}>> ${BW}"
+export PS1="${BC}\u ${BW}| ${BY}\W ${BG}\$(parse_git_branch)\n${BR}>> ${BW}"
 export PS2="continue > "
