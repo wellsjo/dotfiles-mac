@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This file sets up my bash shell prompt
+
 # emphasized (bolded) colors
 BC="\[\033[1;36m\]"
 BR="\[\033[1;31m\]"
@@ -19,5 +21,8 @@ fi
 git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/μ\1${gitdirty}/"
 }
 
+# bash shell prompt
 export PS1="\n${BC}\u ${BW}| ${BY}\W ${BG}\$(git_info)\n${BR}>> ${BW}"
+
+# continue message
 export PS2="    continue > "
