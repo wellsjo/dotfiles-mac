@@ -12,7 +12,7 @@ BW="\[\033[1;37m\]"
 # bash shell prompt:
 # @user_name | @current_directory μ @git_branch [+]
 # >>
-PS1="\n${BC}\u ${BW}| ${BY}\W ${BG}\$(git_info)\n${BW}>> "
+PS1="\n${BC}\u@\h ${BW}| ${BY}\W ${BG}\$(git_info)\n${BW}>> "
 
 # [+] indicates whether the git branch is dirty
 
