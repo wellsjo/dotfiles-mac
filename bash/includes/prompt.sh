@@ -25,4 +25,4 @@ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/μ\1${gitd
 export PS1="\n${BC}\u ${BW}| ${BY}\W ${BG}\$(git_info)\n${BR}>> ${BW}"
 
 # continue message
-export PS2="    continue > "
+export PS2="  continue > "
