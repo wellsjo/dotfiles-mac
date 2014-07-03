@@ -9,7 +9,6 @@ BG="\[\033[1;32m\]"
 BY="\[\033[1;33m\]"
 BW="\[\033[1;37m\]"
 
-
 # bash shell prompt:
 # @user_name | @current_directory μ @git_branch [+]
 # >>
@@ -19,7 +18,6 @@ export PS1="\n${BC}\u ${BW}| ${BY}\W ${BG}\$(git_info)\n${BR}>> ${BW}"
 
 # continue message
 export PS2="  continue > "
-
 
 function git_info {
 if [ -d ".git" ]; then
@@ -32,4 +30,3 @@ if [ -d ".git" ]; then
 fi
 git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/μ\1${gitdirty}/"
 }
-
