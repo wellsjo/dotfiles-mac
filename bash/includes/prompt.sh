@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# This file sets up my bash shell prompt
+# This file sets up my bash shell prompt as:
+# @name | @current_directory μ @git_branch [+]
+# *[+] indicates whether the git branch is diry
 
 # emphasized (bolded) colors
 BC="\[\033[1;36m\]"
