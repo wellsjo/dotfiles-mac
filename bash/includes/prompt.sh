@@ -24,14 +24,15 @@ if [ -d ".git" ]; then
     local BW='\033[37m'
     local BR='\033[31m'
     local BG='\033[32m'
+    local BO='\033[35m'
     gitstatus=$(git status | grep clean)
     if [[ ${#gitstatus} == 0 ]]; then
-        gitdirty="[+]"
+        gitdirty="+"
     else
         gitdirty="✓"
     fi
     local gitbranch=$(git branch | grep \* | tr -d "* ")
-    echo -e "${BW}| μ${gitbranch} ${BG}${gitdirty}"
+    echo -e "${BW}μ${BO}${gitbranch} ${BG}${gitdirty}"
 fi
 
 }
