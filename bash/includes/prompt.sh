@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # emphasized (bolded) colors
-local BC="\[\033[1;36m\]"
-local BR="\[\033[1;31m\]"
-local BG="\[\033[1;32m\]"
-local BY="\[\033[1;33m\]"
-local BW="\[\033[1;37m\]"
+BC="\[\033[1;36m\]"
+BR="\[\033[1;31m\]"
+BG="\[\033[1;32m\]"
+BY="\[\033[1;33m\]"
+BW="\[\033[1;37m\]"
 
 function parse_git_dirty {
 [[ $(git status 2> /dev/null | tail -n1) != "(clean)" ]] && echo "*"
