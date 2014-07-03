@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # This file sets up my bash shell prompt as:
-# @name | @current_directory μ @git_branch [+]
-# *[+] indicates whether the git branch is diry
+# @user_name | @current_directory μ @git_branch [+]
+# >>
+
+# [+] indicates whether the git branch is dirty
 
 # emphasized (bolded) colors
 BC="\[\033[1;36m\]"
