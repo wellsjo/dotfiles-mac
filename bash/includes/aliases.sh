@@ -16,3 +16,4 @@ alias ta="tmux -2 attach"
 alias ..="cd .."
 [ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
 alias ll='ls -la'
+alias l='ll'
