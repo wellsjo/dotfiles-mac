@@ -13,6 +13,9 @@ function wells_help() {
     echo -e "\n${YELLOW}Bash aliases${WHITE}"
     echo -e "ta    | tmux -2 attach"
     echo -e "t     | tmux -2"
+    echo -e "gs    | git status"
+    echo -e "gl    | git log"
+    echo -e "gco    | git commit -m"
     echo -e "..    | cd .."
     echo "ll    | ls -la"
 
