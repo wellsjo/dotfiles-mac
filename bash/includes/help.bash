@@ -14,6 +14,7 @@ function wells_help() {
     echo -e "ta    | tmux -2 attach"
     echo -e "t     | tmux -2"
     echo -e "gs    | git status"
+    echo -e "gp    | git pull"
     echo -e "gl    | git log"
     echo -e "gco    | git commit -m"
     echo -e "..    | cd .."
