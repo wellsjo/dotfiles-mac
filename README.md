@@ -8,15 +8,15 @@ It clones this repository and then sets symlinks to the bash, vim, and git dotfi
 ###Available Functions and Commands
 ####Bash
 <pre>
-ta # tmux -2 attach
-t  # tmux -2
-.. # cd ..
-ll # ls -la
+ta         # tmux -2 attach
+t          # tmux -2
+..         # cd ..
+ll         # ls -la
 
-fe    # fuzzy find & open file in vim
-fd    # fuzzy find & go to directory
-fh    # fuzzy search repeat history
-fkill # fuzzy search & kill process(es)
+fe         # fuzzy find & open file in vim
+fd         # fuzzy find & go to directory
+fh         # fuzzy search repeat history
+fkill      # fuzzy search & kill process(es)
 
 whelp      # get a list of available commands
 wssh       # ssh into a remote server and installs my dotfile setup from this repository
