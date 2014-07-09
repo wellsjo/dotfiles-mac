@@ -5,7 +5,7 @@ git clone git@github.com:wellsjo/wells_dotfiles.git && mv wells_dotfiles .wells_
 
 It clones this repository and then sets symlinks to the bash, vim, and git dotfiles.  Type 'whelp' to get a list of functions and commands available.  Enjoy
 
-####Available bash aliases & functions
+####Bash aliases & functions that come with install
 <pre>
 ta         # tmux -2 attach
 t          # tmux -2
