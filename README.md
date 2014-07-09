@@ -26,3 +26,23 @@ fd         # fuzzy find & go to directory
 fh         # fuzzy search repeat history
 fkill      # fuzzy search & kill process(es)
 </pre>
+
+####Vim plugins, settings, and shortcuts
+<pre>
+# plugins
+
+:MRU            # recently opened files
+:FixWhitespace  # trims all unnecessary whitespace
+
+# (visual mode)
+S(char)         # surround with (char)
+gc              # toggle comment
+
+# fzf
+cntrl-t         # fuzzy file search
+cntrl-h         # toggle highlight
+
+# fugitive.vim
+:Gblame         # git blame
+:Git (command)  # any git command
+</pre>
