@@ -33,7 +33,12 @@ fkill      # fuzzy search & kill process(es)
 S(char)         # surround with (char)
 gc              # toggle comment
 
-# fzf
+# EasyMotion
+<space>w        # search word forward
+<space>b        # search word back
+<space>s(char)  # search for (char) 
+
+# FZF
 cntrl-t         # fuzzy file search
 cntrl-h         # toggle highlight
 
