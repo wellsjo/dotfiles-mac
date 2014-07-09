@@ -29,12 +29,7 @@ fkill      # fuzzy search & kill process(es)
 
 ####Vim plugins, settings, and shortcuts
 <pre>
-# plugins
-
-:MRU            # recently opened files
-:FixWhitespace  # trims all unnecessary whitespace
-
-# (visual mode)
+# visual mode
 S(char)         # surround with (char)
 gc              # toggle comment
 
