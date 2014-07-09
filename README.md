@@ -27,11 +27,19 @@ fh         # fuzzy search repeat history
 fkill      # fuzzy search & kill process(es)
 </pre>
 
-####Vim plugins, settings, and shortcuts
+####Vim key mappings
 <pre>
-# visual mode
-S(char)         # surround with (char)
-gc              # toggle comment
+# Miscellaneous Shortcuts
+gt                # go forward a tab
+gr                # go back a tab
+gc                # toggle comment
+
+# surround.vim
+ysiw(char)        # surround selection with (char)
+yss(char)         # surround sentence with (char)
+cs(char1)(char2)  # change surrounding (char1) with (char2)
+ds(char)          # remove (char) from surrounding
+S(char)           # surround selection with (char) in visual mode
 
 # EasyMotion
 (space)w        # search word forward
@@ -42,7 +50,7 @@ gc              # toggle comment
 cntrl-t         # fuzzy file search
 cntrl-h         # toggle highlight
 
-# fugitive.vim
+# Fugitive
 :Gblame         # git blame
 :Git (command)  # any git command
 </pre>
