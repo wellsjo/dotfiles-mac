@@ -5,7 +5,7 @@ git clone git@github.com:wellsjo/wells_dotfiles.git && mv wells_dotfiles .wells_
 
 It clones this repository and then sets symlinks to the bash, vim, and git dotfiles.  Type 'whelp' to get a list of functions and commands available.  Enjoy
 
-####Bash aliases & functions that come with install
+####Bash aliases & functions
 <pre>
 whelp      # get a list of available commands
 wssh       # ssh into a remote server and installs my dotfile setup from this repository
