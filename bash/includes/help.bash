@@ -2,18 +2,13 @@
 
 function wells_help() {
 
-    echo -e "\n${YELLOW}wells_help | whelp"
-    echo -e "${WHITE}The command you just ran. This shows all available commands\n"
-    echo -e "${YELLOW}wells_vim | wvim"
-    echo -e "${WHITE}Show my custom vim settings\n"
-    echo -e "${YELLOW}wellssh | wssh"
-    echo -e "${WHITE}ssh into a remote server and runs wells_install\n"
-    echo -e "${YELLOW}wells_install | winstall"
-    echo -e "${WHITE}This is the command used by wssh.  It clones the wells_dotfiles repo and then sets symlinks to bash, git, and vim\n"
-    echo -e "${YELLOW}wells_update | wupdate"
-    echo -e "${WHITE}This updates my dotfiles from the git repo then re-sources everything.\n"
-    echo -e "${YELLOW}wells_push | wpush"
-    echo -e "${WHITE}This re-sources my dotfiles and optionally pushes any changes made to the wells_dotfiles repository"
+    echo -e "\n${YELLOW}Wells dotfile settings"
+    echo -e "${WHITE}whelp    | The command you just ran. This shows all available commands"
+    echo -e "${WHITE}wvim     | Show my custom vim settings"
+    echo -e "${WHITE}wssh     | ssh into a remote server and runs wells_install"
+    echo -e "${WHITE}winstall | This is the command used by wssh.  It clones the wells_dotfiles repo and then sets symlinks to bash, git, and vim"
+    echo -e "${WHITE}wupdate  | This updates my dotfiles from the git repo then re-sources everything"
+    echo -e "${WHITE}wpush    | This re-sources my dotfiles and optionally pushes any changes made to the wells_dotfiles repository"
 
     echo -e "\n${YELLOW}Bash aliases${WHITE}"
     echo -e "ta    | tmux -2 attach"
@@ -45,6 +40,7 @@ function wells_vim() {
 
     echo -e "\n${YELLOW}Vim settings${WHITE}"
     # surround
+    echo -e "gc                | toggle comments"
     echo -e "ysiw(char)        | surround selection with (char)"
     echo -e "yss(char)         | surround sentence with (char)"
     echo -e "cs(char1)(char2)  | change surrounding (char1) with (char2)"
