@@ -32,3 +32,5 @@
 
 [init]
     templatedir = ~/.git_template
+[hub]
+	host = ghe.spotify.net
