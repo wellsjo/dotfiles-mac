@@ -33,6 +33,7 @@ fkill      # fuzzy search & kill process(es)
 gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment
+cntrl-h           # toggle highlight
 
 # surround.vim
 ysiw(char)        # surround selection with (char)
@@ -48,7 +49,7 @@ S(char)           # surround selection with (char) in visual mode
 
 # FZF
 cntrl-t         # fuzzy file search
-cntrl-h         # toggle highlight
+
 
 # Fugitive
 :Gblame         # git blame
