@@ -1,6 +1,6 @@
 ###Setup script:
 <pre>
-git clone git@github.com:wellsjo/wells_dotfiles.git .wells_dotfiles && source .wells_dotfiles/bash/profile && wells_install
+git clone git@github.com:wellsjo/wells_dotfiles.git ~/.wells_dotfiles && source ~/.wells_dotfiles/bash/profile && wells_install
 </pre>
 
 It clones this repository and then sets symlinks to the bash, vim, and git dotfiles.  Type 'whelp' to get a list of functions and commands available.  Enjoy
