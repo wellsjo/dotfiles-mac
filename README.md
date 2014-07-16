@@ -33,6 +33,8 @@ fkill      # fuzzy search & kill process(es)
 gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment
+gS                # split code up
+gJ                # consolodate code to one line
 cntrl-h           # toggle highlight
 
 # surround.vim
