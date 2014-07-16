@@ -50,7 +50,6 @@ S(char)           # surround selection with (char) in visual mode
 # FZF
 cntrl-t         # fuzzy file search
 
-
 # Fugitive
 :Gblame         # git blame
 :Git (command)  # any git command
