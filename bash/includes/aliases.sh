@@ -12,7 +12,6 @@ alias jump="ssh -A jump1.lon.spotify.net"
 
 # General bash aliases
 alias gs="git status"
-alias gp="git pull"
 alias gl="git log"
 alias gco="git commit -m"
 alias t="tmux -2"
