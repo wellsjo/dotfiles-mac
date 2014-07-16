@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function wells_help() {
-    cat ~/.wells_dotfiles/README.md
+    # spit out the README while stripping ugly tags
+    cat .wells_dotfiles/README.md | sed -r 's/<\/?pre>//'
 }
 
 alias wsettings="wells_help"
