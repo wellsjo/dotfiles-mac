@@ -16,6 +16,10 @@ winstall   # this is used by wssh to install my dotfiles upon entering a remote 
 wupdate    # updates dotfile settings from this repo.  optionally just updates locally.
 wpush      # updates the remote repo.  you can fork this and go nuts, if you'd like.
 
+gs         # git status
+gl         # git log
+gco        # git commit -m
+
 ta         # tmux -2 attach
 t          # tmux -2
 ..         # cd ..
@@ -33,6 +37,8 @@ fkill      # fuzzy search & kill process(es)
 gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment
+gS                # split code up
+gJ                # consolodate code to one line
 cntrl-h           # toggle highlight
 
 # surround.vim
@@ -43,15 +49,14 @@ ds(char)          # remove (char) from surrounding
 S(char)           # surround selection with (char) in visual mode
 
 # EasyMotion
-(space)w        # search word forward
-(space)b        # search word back
-(space)s(char)  # search for (char) 
+(space)w          # search word forward
+(space)b          # search word back
+(space)s(char)    # search for (char) 
 
 # FZF
-cntrl-t         # fuzzy file search
-
+cntrl-t           # fuzzy file search
 
 # Fugitive
-:Gblame         # git blame
-:Git (command)  # any git command
+:Gblame           # git blame
+:Git (command)    # any git command
 </pre>
