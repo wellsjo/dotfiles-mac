@@ -16,6 +16,9 @@ winstall   # this is used by wssh to install my dotfiles upon entering a remote 
 wupdate    # updates dotfile settings from this repo.  optionally just updates locally.
 wpush      # updates the remote repo.  you can fork this and go nuts, if you'd like.
 
+gs         # git status
+gl         # git log
+
 ta         # tmux -2 attach
 t          # tmux -2
 ..         # cd ..
