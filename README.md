@@ -18,6 +18,7 @@ wpush      # updates the remote repo.  you can fork this and go nuts, if you'd l
 
 gs         # git status
 gl         # git log
+gco        # git commit -m
 
 ta         # tmux -2 attach
 t          # tmux -2
