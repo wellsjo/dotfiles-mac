@@ -66,7 +66,7 @@ nnoremap \ :NERDTreeTabsToggle<Cr>
 let g:netrw_dirhistmax = 0
 
 " show hidden files? (disabled by default)
-" let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 " tab labels
 let g:taboo_modified_tab_flag="+"
