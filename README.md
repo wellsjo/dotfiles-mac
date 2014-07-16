@@ -43,14 +43,14 @@ ds(char)          # remove (char) from surrounding
 S(char)           # surround selection with (char) in visual mode
 
 # EasyMotion
-(space)w        # search word forward
-(space)b        # search word back
-(space)s(char)  # search for (char) 
+(space)w          # search word forward
+(space)b          # search word back
+(space)s(char)    # search for (char) 
 
 # FZF
-cntrl-t         # fuzzy file search
+cntrl-t           # fuzzy file search
 
 # Fugitive
-:Gblame         # git blame
-:Git (command)  # any git command
+:Gblame           # git blame
+:Git (command)    # any git command
 </pre>
