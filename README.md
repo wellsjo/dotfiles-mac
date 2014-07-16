@@ -33,30 +33,31 @@ fkill             # fuzzy search & kill process(es)
 
 ####Vim key mappings
 <pre>
-# Miscellaneous Shortcuts
+### Miscellaneous Shortcuts ###
 gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment
 gS                # split code up
 gJ                # consolodate code to one line
-cntrl-h           # toggle highlight
+ctrl-h            # toggle highlight
+(ctrl-n)*v        # multi-search select
 
-# surround.vim
+### surround.vim ###
 ysiw(char)        # surround selection with (char)
 yss(char)         # surround sentence with (char)
 cs(char1)(char2)  # change surrounding (char1) with (char2)
 ds(char)          # remove (char) from surrounding
 S(char)           # surround selection with (char) in visual mode
 
-# EasyMotion
+### EasyMotion ###
 (space)w          # search word forward
 (space)b          # search word back
 (space)s(char)    # search for (char)
 
-# FZF
+### FZF ###
 cntrl-t           # fuzzy file search
 
-# Fugitive
+### Fugitive ###
 :Gblame           # git blame
 :Git (command)    # any git command
 </pre>
