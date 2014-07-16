@@ -20,18 +20,24 @@ PS1="\n${BC}\u@\h ${BW}| ${BY}\W ${BG}\$(git_info)\n${BW}>> "
 PS2="  continue > "
 
 function git_info {
-if [ $(git rev-parse --is-inside-work-tree) ]; then
-    local BW='\033[37m'
-    local BR='\033[31m'
-    local BG='\033[32m'
-    local BO='\033[35m'
-    gitstatus=$(git status | grep 'nothing to commit')
-    if [[ ${#gitstatus} > 0 ]]; then
-        gitdirty="✓"
+local d=${PWD}
+while [ "$d" != "" ]; do
+    if [ -d "$d"/.git ]; then
+        local BW='\033[37m'
+        local BR='\033[31m'
+        local BG='\033[32m'
+        local BO='\033[35m'
+        gitstatus=$(git status | grep 'nothing to commit')
+        if [[ ${#gitstatus} > 0 ]]; then
+            gitdirty="✓"
+        else
+            gitdirty="+"
+        fi
+        local gitbranch=$(git branch | grep \* | tr -d "* ")
+        echo -e "${BW}μ${BO} ${gitbranch} ${BG}${gitdirty}"
+        break;
     else
-        gitdirty="+"
+        d=${d%/*}
     fi
-    local gitbranch=$(git branch | grep \* | tr -d "* ")
-    echo -e "${BW}μ${BO} ${gitbranch} ${BG}${gitdirty}"
-fi
+done
 }
