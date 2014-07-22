@@ -53,6 +53,10 @@ nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
 " I prefer gr to go back a tab
 nnoremap gr gT
 
+" F2 and F3 for saving and loading sessions
+map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
+map <F3> :source ~/vim_session <cr>     " And load session with F3
+
 " Auto-closing pairs settings (delimitMate)
 let delimitMate_matchpairs = "(:),[:],{:}"
 
