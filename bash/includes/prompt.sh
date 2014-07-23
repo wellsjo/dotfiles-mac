@@ -3,29 +3,30 @@
 # This file sets up my bash shell prompt
 
 # emphasized (bolded) colors
-BC="\[\033[1;36m\]"
-BR="\[\033[1;31m\]"
-BG="\[\033[1;32m\]"
-BY="\[\033[1;33m\]"
-BW="\[\033[1;37m\]"
 
 # bash shell prompt:
-# @user_name | @current_directory μ @git_branch [+]
+# @time @user_name @computer_name /@current_directory μ @git_branch [+]
 # >>
-PS1="\n${BC}\u@\h ${BW}| ${BY}\W ${BG}\$(git_info)\n${BW}>> "
 
-# [+] indicates whether the git branch is dirty
+cyan="\[\033[1;36m\]"
+green="\[\033[1;32m\]"
+yellow="\[\033[1;33m\]"
+white="\[\033[1;37m\]"
+darkgrey="\[\033[1;30m\]"
+
+PS1="\n${darkgrey}[${time}]/[\u@\h] ${white}/${yellow}\W ${green}\$(git_info)\n${white}>> "
 
 # continue message
-PS2="  continue > "
+PS2="   continue > "
 
+# my git portion of the prompt
+# shows current branch and whether the working directory is clean
 function git_info {
 local d=${PWD}
 while [ "$d" != "" ]; do
     if [ -d "$d"/.git ]; then
-        local BW='\033[37m'
-        local BR='\033[31m'
-        local BG='\033[32m'
+        local white='\033[37m'
+        local green='\033[32m'
         local BO='\033[35m'
         gitstatus=$(git status | grep 'nothing to commit')
         if [[ ${#gitstatus} > 0 ]]; then
@@ -34,7 +35,7 @@ while [ "$d" != "" ]; do
             gitdirty="+"
         fi
         local gitbranch=$(git branch | grep \* | tr -d "* ")
-        echo -e "${BW}μ${BO}${gitbranch} ${BG}${gitdirty}"
+        echo -e "${white}μ${BO} ${gitbranch} ${green}${gitdirty}"
         break;
     else
         d=${d%/*}
