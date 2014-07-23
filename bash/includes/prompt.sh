@@ -14,7 +14,7 @@ yellow="\[\033[1;33m\]"
 white="\[\033[1;37m\]"
 darkgrey="\[\033[1;30m\]"
 
-PS1="\n${darkgrey}[${time}]/[\u@\h] ${white}/${yellow}\W ${green}\$(git_info)\n${white}>> "
+PS1="\n${darkgrey}[${time}][\u@\h]${white}:${yellow}\w ${green}\$(git_info)\n${white}>> "
 
 # continue message
 PS2="   continue > "
