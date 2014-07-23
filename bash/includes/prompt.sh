@@ -35,7 +35,7 @@ while [ "$d" != "" ]; do
             gitdirty="+"
         fi
         local gitbranch=$(git branch | grep \* | tr -d "* ")
-        echo -e "${white}μ${BO} ${gitbranch} ${green}${gitdirty}"
+        echo -e "${white}μ${BO}${gitbranch} ${green}${gitdirty}"
         break;
     else
         d=${d%/*}
