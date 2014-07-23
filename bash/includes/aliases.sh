@@ -11,6 +11,7 @@ alias vm="ssh -tA www.bananajams.cloud.spotify.net 'cd src/web-site && tmux -2 a
 alias jump="ssh -A jump1.lon.spotify.net"
 
 # General bash aliases
+alias h="cd ~"
 alias gs="git status"
 alias gl="git log"
 alias gco="git commit -m"
