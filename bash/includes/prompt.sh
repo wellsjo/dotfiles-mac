@@ -12,9 +12,8 @@ cyan="\[\033[1;36m\]"
 green="\[\033[1;32m\]"
 yellow="\[\033[1;33m\]"
 white="\[\033[1;37m\]"
-lightgray="\[\033[0;37m\]"
 
-PS1="\n${lightgray}$(date +'%l:%M%P' | sed -e 's/^[ \t ]*//') \u@\h${white} ${yellow}\w ${green}\$(git_info)\n${white}>> "
+PS1="\n${white}$(date +'%l:%M%P' | sed -e 's/^[ \t ]*//') \u@\h${white} ${yellow}\w ${green}\$(git_info)\n${white}>> "
 
 # continue message
 PS2="   continue > "
@@ -28,7 +27,7 @@ if [[ ${#g} > 0 ]]; then
 
     local white='\033[37m'
     local green='\033[32m'
-    local BO='\033[35m'
+    local purple='\033[35m'
 
     gitstatus=$(git status | grep 'nothing to commit')
 
@@ -40,7 +39,7 @@ if [[ ${#g} > 0 ]]; then
 
     local gitbranch=$(git branch | grep \* | tr -d "* ")
 
-    echo -e "${white}μ${BO}${gitbranch} ${green}${gitdirty}"
+    echo -e "${white}μ${purple}${gitbranch} ${green}${gitdirty}"
 
 fi
 
