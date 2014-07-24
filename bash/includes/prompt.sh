@@ -27,7 +27,7 @@ if [[ ${#g} > 0 ]]; then
 
     local white='\033[37m'
     local green='\033[32m'
-    local purple='\033[35m'
+    local blue='\033[34m'
 
     gitstatus=$(git status | grep 'nothing to commit')
 
@@ -39,7 +39,7 @@ if [[ ${#g} > 0 ]]; then
 
     local gitbranch=$(git branch | grep \* | tr -d "* ")
 
-    echo -e "${white}μ${purple}${gitbranch} ${green}${gitdirty}"
+    echo -e "${white}μ${blue}${gitbranch} ${green}${gitdirty}"
 
 fi
 
