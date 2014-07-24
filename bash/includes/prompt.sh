@@ -22,23 +22,26 @@ PS2="   continue > "
 # my git portion of the prompt
 # shows current branch and whether the working directory is clean
 function git_info {
-local d=${PWD}
-while [ "$d" != "" ]; do
-    if [ -d "$d"/.git ]; then
-        local white='\033[37m'
-        local green='\033[32m'
-        local BO='\033[35m'
-        gitstatus=$(git status | grep 'nothing to commit')
-        if [[ ${#gitstatus} > 0 ]]; then
-            gitdirty="✓"
-        else
-            gitdirty="+"
-        fi
-        local gitbranch=$(git branch | grep \* | tr -d "* ")
-        echo -e "${white}μ${BO}${gitbranch} ${green}${gitdirty}"
-        break;
+
+local g=`git rev-parse --blah 2> /dev/null`
+if [[ ${#g} > 0 ]]; then
+
+    local white='\033[37m'
+    local green='\033[32m'
+    local BO='\033[35m'
+
+    gitstatus=$(git status | grep 'nothing to commit')
+
+    if [[ ${#gitstatus} > 0 ]]; then
+        gitdirty="✓"
     else
-        d=${d%/*}
+        gitdirty="+"
     fi
-done
+
+    local gitbranch=$(git branch | grep \* | tr -d "* ")
+
+    echo -e "${white}μ${BO}${gitbranch} ${green}${gitdirty}"
+
+fi
+
 }
