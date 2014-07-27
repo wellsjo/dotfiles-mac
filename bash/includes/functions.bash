@@ -45,6 +45,7 @@ wells_push() {
     local cur_dir=${PWD}
     cd ~/.wells_dotfiles
     git diff
+    git status
     echo
     read -p "Do you want to update the remote git repository? " -n 1 -r
     echo
