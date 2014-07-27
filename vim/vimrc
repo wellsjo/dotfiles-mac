@@ -19,6 +19,9 @@ set cursorline " Highlight cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 set scrolloff=10 " spaces under cursor
 
+" Syntastic
+let g:syntastic_check_on_open=1
+
 " Tmux mouse fix (for resizing vim panes within tmux)
 set mouse+=a
 if &term =~ '^screen'
