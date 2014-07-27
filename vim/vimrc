@@ -44,6 +44,11 @@ nnoremap <c-h> :set hlsearch!<Cr>
 set ignorecase
 set smartcase
 
+" Smooth scroll
+nnoremap <CR> :call smooth_scroll#down(&scroll, 25, 3)<cr>
+nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 25, 3)<cr>
+nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 17, 3)<cr>
+
 " Fuzzy search runtime path
 set rtp+=~/.fzf
 
