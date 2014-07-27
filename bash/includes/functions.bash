@@ -96,6 +96,7 @@ wells_install() {
     h.symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
     h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
     h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bashrc"
+    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bash_profile"
     h.symlink "${HOME}/.wells_dotfiles/bash" "${HOME}/.bash"
     h.symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
     h.symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
