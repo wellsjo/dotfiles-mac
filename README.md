@@ -42,6 +42,11 @@ gJ                # consolodate code to one line
 ctrl-h            # toggle highlight
 (ctrl-n)*v        # multi-search select
 
+### Code folding
+za                # fold current indent level
+zM                # fold everything
+zR                # unfold everything
+
 ### surround.vim ###
 ysiw(char)        # surround selection with (char)
 yss(char)         # surround sentence with (char)
