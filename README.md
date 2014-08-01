@@ -41,6 +41,7 @@ gS                # split code up
 gJ                # consolodate code to one line
 ctrl-h            # toggle highlight
 (ctrl-n)*v        # multi-search select
+,,                # show function taglist
 
 ### Window management
 ctrl-L            # new auto-sized pane
