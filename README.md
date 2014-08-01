@@ -27,13 +27,13 @@ ll                # ls -la
 
 fe                # fuzzy find & open file in vim
 fd                # fuzzy find & go to directory
-fh                # fuzzy search repeat history
+fh / ctrl-r       # fuzzy search repeat history
 fkill             # fuzzy search & kill process(es)
 </pre>
 
 ####Vim key mappings
 <pre>
-### Miscellaneous Shortcuts ###
+### Miscellaneous Shortcuts
 gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment
@@ -52,22 +52,22 @@ za                # fold current indent level
 zM                # fold everything
 zR                # unfold everything
 
-### surround.vim ###
+### surround.vim
 ysiw(char)        # surround selection with (char)
 yss(char)         # surround sentence with (char)
 cs(char1)(char2)  # change surrounding (char1) with (char2)
 ds(char)          # remove (char) from surrounding
 S(char)           # surround selection with (char) in visual mode
 
-### EasyMotion ###
+### EasyMotion
 (space)w          # search word forward
 (space)b          # search word back
 (space)s(char)    # search for (char)
 
-### FZF ###
+### FZF
 cntrl-t           # fuzzy file search
 
-### Fugitive ###
+### Fugitive
 :Gblame           # git blame
 :Git (command)    # any git command
 </pre>
