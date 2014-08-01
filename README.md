@@ -42,6 +42,11 @@ gJ                # consolodate code to one line
 ctrl-h            # toggle highlight
 (ctrl-n)*v        # multi-search select
 
+### Window management
+ctrl-L            # new auto-sized pane
+ctrl-O            # next window
+ctrl-P            # previous window
+
 ### Code folding
 za                # fold current indent level
 zM                # fold everything
