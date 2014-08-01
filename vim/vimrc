@@ -40,6 +40,9 @@ nmap <silent> <C-L>  <Plug>GoldenViewSplit
 nmap <silent> <C-P>  <Plug>GoldenViewNext
 nmap <silent> <C-O>  <Plug>GoldenViewPrevious
 
+" tagbar
+nmap ,, :TagbarToggle<CR>
+
 " Tab settings
 set expandtab
 set tabstop=4
