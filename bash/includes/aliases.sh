@@ -15,8 +15,12 @@ alias h="cd ~"
 alias gs="git status"
 alias gl="git log"
 alias gco="git commit -m"
-alias t="tmux -2"
-alias ta="tmux -2 attach"
+
+# save the ssh config, start tmux session, restore the ssh config
+# this prevents you from having to kill your session to reload the ssh config
+alias t="ssh-save; tmux -2; ssh-restore"
+alias ta="ssh-save; tmux -2 attach; ssh-restore"
+
 alias ..="cd .."
 [ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
 alias ll='ls -la'
