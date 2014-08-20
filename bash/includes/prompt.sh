@@ -12,8 +12,9 @@ cyan="\[\033[1;36m\]"
 green="\[\033[1;32m\]"
 yellow="\[\033[1;33m\]"
 white="\[\033[1;37m\]"
+gray="\[\033[1;90m\]"
 
-PS1="\n${white}$(date +'%l:%M%P' | sed -e 's/^[ \t ]*//') \u@\h${white} ${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
+PS1="\n${gray}\@ \u@\h${white} ${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
 
 # continue message
 PS2="   continue > "

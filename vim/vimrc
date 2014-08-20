@@ -87,6 +87,8 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
+" Start with it open
+autocmd VimEnter * NERDTree
 
 let g:NERDTreeWinSize = 40
 
