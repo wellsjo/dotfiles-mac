@@ -1,9 +1,6 @@
 " Load bundles
 execute pathogen#infect()
 
-" Enable auto-complete
-let g:neocomplcache_enable_at_startup=1
-
 " Basic settings
 let g:seoul256_background=237
 colo seoul256
@@ -34,11 +31,6 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
-
-" Window management (GoldenView plugin)
-nmap <silent> <C-L>  <Plug>GoldenViewSplit
-nmap <silent> <C-P>  <Plug>GoldenViewNext
-nmap <silent> <C-O>  <Plug>GoldenViewPrevious
 
 " tagbar
 nmap ,, :TagbarToggle<CR>
@@ -87,10 +79,8 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " Toggle Nerd Tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
-" Start with it open
-autocmd VimEnter * NERDTree
 
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 50
 
 " show hidden files? (disabled by default)
 " let NERDTreeShowHidden=1
@@ -98,75 +88,9 @@ let g:NERDTreeWinSize = 40
 " get rid of that annoying netrwhist file stuff
 let g:netrw_dirhistmax = 0
 
-
 " tab labels
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N %f %m '
 
 " MRU options
 let MRU_Window_Height = 30
-
-"""""""""""""""""""""""""""""""""""
-"""""""NEOCOMPLETE SETTINGS""""""""
-"""""""""""""""""""""""""""""""""""
-
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
