@@ -14,7 +14,7 @@ yellow="\[\033[1;33m\]"
 white="\[\033[1;37m\]"
 gray="\[\033[1;90m\]"
 
-PS1="\n${green}\@ ${white}\u@\$(hostname_info) ${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
+PS1="\n${green}\@ ${cyan}\u@\$(hostname_info):${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
 
 # continue message
 PS2="  continue > "
