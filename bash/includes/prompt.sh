@@ -14,10 +14,10 @@ yellow="\[\033[1;33m\]"
 white="\[\033[1;37m\]"
 gray="\[\033[1;90m\]"
 
-PS1="\n${gray}\@ \u@\h${white} ${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
+PS1="\n${green}\@ ${white}\u@\$(hostname_info) ${yellow}\w ${green}\$(git_info)\n${green}>> ${white}"
 
 # continue message
-PS2="   continue > "
+PS2="  continue > "
 
 # my git portion of the prompt
 # shows current branch and whether the working directory is clean
@@ -43,5 +43,11 @@ if [[ ${#g} > 0 ]]; then
     echo -e "${white}μ${blue}${gitbranch} ${green}${gitdirty}"
 
 fi
+
+}
+
+function hostname_info {
+
+echo -e $(hostname)
 
 }
