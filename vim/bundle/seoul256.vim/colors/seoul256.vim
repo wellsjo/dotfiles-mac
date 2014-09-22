@@ -154,7 +154,7 @@ endif
 call s:hi('Normal', [252, 239], [s:dark_bg, s:light_bg])
 
 call s:hi('LineNr', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('Visual', ['', ''], [23, 152])
+call s:hi('Visual', [s:dark_bg + 1, 238], [220, 220])
 call s:hi('VisualNOS', ['', ''], [23, 152])
 
 call s:hi('Comment', [65, 65], ['', ''])
@@ -221,7 +221,7 @@ call s:hi('ColorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
 
 " set cursorline cursorcolumn
 call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
-call s:hi('CursorLineNr', [131, 131], [s:dark_bg - 1, s:light_bg - 1])
+call s:hi('CursorLineNr', [s:dark_bg + 1, 238], [220, 220])
 call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
 call s:hi('Directory', [187, 95], ['', ''])
@@ -237,7 +237,8 @@ call s:hi('Folded', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
 " set foldcolumn=1
 call s:hi('FoldColumn', [144, 94], [s:dark_bg + 1, s:light_bg - 2])
 
-call s:hi('MatchParen', ['', ''], [s:dark_bg + 3, s:light_bg - 3])
+" call s:hi('MatchParen', ['', ''], [s:dark_bg + 3, s:light_bg - 3])
+hi MatchParen cterm=none ctermfg=red ctermbg=none
 
 " -- INSERT --
 call s:hi('ModeMsg', [173, 173], ['', ''])
@@ -253,7 +254,7 @@ call s:hi('PmenuSel', [252, 252], [89, 89])
 call s:hi('PmenuSbar', ['', ''], [65, 65])
 call s:hi('PmenuThumb', ['', ''], [23, 23])
 
-call s:hi('Search', [252, 255], [24, 74])
+call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
 call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
 
 " String delimiter, interpolation
@@ -324,7 +325,7 @@ call s:hi('GitGutterChange', [65, 65], ['', ''])
 call s:hi('GitGutterDelete', [161, 161], ['', ''])
 call s:hi('GitGutterChangeDelete', [168, 168], ['', ''])
 
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces     
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " ---------------------------------------------------^^^^^
 call s:hi('ExtraWhitespace', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
 
