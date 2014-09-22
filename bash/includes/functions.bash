@@ -102,6 +102,11 @@ wells_install() {
     h.symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
     h.symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
     h.symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
+    h.symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
+
+    # source tmux
+    echo -e "\nSourcing tmux..."
+    tmux source ~/.tmux.conf
 
     cd "${HOME}"
 

@@ -83,7 +83,7 @@ nnoremap \ :NERDTreeTabsToggle<Cr>
 let g:NERDTreeWinSize = 45
 
 " show hidden files? (disabled by default)
-" let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 " get rid of that annoying netrwhist file stuff
 let g:netrw_dirhistmax = 0
