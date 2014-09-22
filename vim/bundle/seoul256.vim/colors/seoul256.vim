@@ -254,8 +254,10 @@ call s:hi('PmenuSel', [252, 252], [89, 89])
 call s:hi('PmenuSbar', ['', ''], [65, 65])
 call s:hi('PmenuThumb', ['', ''], [23, 23])
 
-call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
-call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
+" call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
+" call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
+hi Search ctermfg=black ctermbg=yellow
+hi IncSearch ctermfg=black ctermbg=yellow
 
 " String delimiter, interpolation
 call s:hi('Special', [216, 173], ['', ''])
