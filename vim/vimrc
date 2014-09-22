@@ -3,10 +3,10 @@ execute pathogen#infect()
 
 " Basic settings
 let g:seoul256_background=237
-colo seoul256-light
+" colo seoul256-light
 colo seoul256
 
-set background=light
+" set background=light
 set background=dark
 
 set number
@@ -15,6 +15,11 @@ let mapleader=" "
 set term=screen-256color
 filetype off
 syntax on
+set undolevels=1000
+
+" cntrl-o and p switch window splits
+nmap <silent> <C-o> :wincmd h<CR>
+nmap <silent> <C-p> :wincmd l<CR>
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -77,12 +82,9 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 " Easy motion settings
 map <Leader> <Plug>(easymotion-prefix)
 
-" Toggle Nerd Tree
+" Nerd Tree Settings
 nnoremap \ :NERDTreeTabsToggle<Cr>
-
 let g:NERDTreeWinSize = 45
-
-" show hidden files? (disabled by default)
 let NERDTreeShowHidden=1
 
 " get rid of that annoying netrwhist file stuff
@@ -94,3 +96,13 @@ let g:taboo_tab_format=' %N %f %m '
 
 " MRU options
 let MRU_Window_Height = 40
+
+" Smart indent when entering insert mode with i on empty lines
+function! IndentWithI()
+if len(getline('.')) == 0
+return "\"_ddO"
+else
+return "i"
+endif
+endfunction
+nnoremap <expr> i IndentWithI()
