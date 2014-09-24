@@ -67,6 +67,7 @@ set hlsearch
 nnoremap <c-h> :set hlsearch!<Cr>
 set ignorecase
 set smartcase
+noremap % v%
 
 " Smooth scroll
 nnoremap <CR> :call smooth_scroll#down(&scroll, 20, 2)<cr>
