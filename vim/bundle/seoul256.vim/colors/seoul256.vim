@@ -154,7 +154,8 @@ endif
 call s:hi('Normal', [252, 239], [s:dark_bg, s:light_bg])
 
 call s:hi('LineNr', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
-call s:hi('Visual', [s:dark_bg + 1, 238], [220, 220])
+" call s:hi('Visual', [s:dark_bg + 1, 238], [220, 220])
+hi Visual ctermfg=black ctermbg=yellow
 call s:hi('VisualNOS', ['', ''], [23, 152])
 
 call s:hi('Comment', [65, 65], ['', ''])
