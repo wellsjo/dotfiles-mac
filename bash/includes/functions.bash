@@ -22,21 +22,20 @@ function h.symlink() {
 
 wells_update() {
     echo
-    read -p "Do you want to update from the wells_dotfiles repository? " -n 1 -r
+    read -p "Do you want to update and re-source from the wells_dotfiles repository? " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        local cur_dir=${PWD}
-        cd ~/.wells_dotfiles/
-        git pull
-        cd ${cur_dir}
+        wells_install
     fi
-    echo -e "\nRe-sourcing wells_dotfiles..."
-    . "${HOME}/.profile"
-    echo -e "\nDone!\n"
 }
-
 alias wupdate="wells_update"
+
+wells_source() {
+    echo "Re-sourcing local dotfiles..."
+    source ~/.wells_dotfiles/bash/profile
+}
+alias wsource="wells_source"
 
 wells_push() {
     echo
