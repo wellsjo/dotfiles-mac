@@ -34,6 +34,9 @@ alias wupdate="wells_update"
 wells_source() {
     echo "Re-sourcing local dotfiles..."
     source ~/.wells_dotfiles/bash/profile
+    echo "Re-sourcing tmux config..."
+    echo
+    tmux source ~/.tmux.conf
 }
 alias wsource="wells_source"
 
