@@ -70,7 +70,7 @@ set smartcase
 noremap % v%
 
 " Smooth scroll
-nnoremap <CR> :call smooth_scroll#down(&scroll, 20, 2)<cr>
+nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
 nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
