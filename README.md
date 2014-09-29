@@ -18,12 +18,12 @@ wpush             # updates the remote repo.  you can fork this and go nuts, if 
 
 gs                # git status
 gl                # git log
-gco               # git commit -m
+gd                # git diff
 
 ta                # tmux -2 attach
 t                 # tmux -2
 ..                # cd ..
-ll                # ls -la
+l                 # ls -la
 
 fe                # fuzzy find & open file in vim
 fd                # fuzzy find & go to directory
@@ -44,9 +44,8 @@ ctrl-h            # toggle highlight
 ,,                # show function taglist
 
 ### Window management
-ctrl-L            # new auto-sized pane
-ctrl-O            # next window
-ctrl-P            # previous window
+ctrl-O            # previous window
+ctrl-P            # next window
 
 ### Code folding
 za                # fold current indent level

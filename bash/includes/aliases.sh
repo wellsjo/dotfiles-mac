@@ -10,11 +10,11 @@ alias ppl="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Serv
 alias vm="ssh -tA wells@www.bananajams.cloud.spotify.net 'cd src/web-site && tmux -2 attach; bash -l'"
 alias jump="ssh -A wells@jump1.lon.spotify.net"
 
-# General bash aliases
+# General bash/git aliases
 alias h="cd ~"
 alias gs="git status"
 alias gl="git log"
-alias gco="git commit -m"
+alias gd="git diff"
 
 # save the ssh config, start tmux session, restore the ssh config
 # this prevents you from having to kill your session to reload the ssh config
