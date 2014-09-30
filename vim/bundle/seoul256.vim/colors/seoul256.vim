@@ -257,7 +257,7 @@ call s:hi('PmenuThumb', ['', ''], [23, 23])
 
 " call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
 " call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
-hi Search ctermfg=black ctermbg=yellow
+hi Search ctermfg=yellow ctermbg=black
 hi IncSearch ctermfg=black ctermbg=yellow
 
 " String delimiter, interpolation
