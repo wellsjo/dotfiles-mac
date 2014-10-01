@@ -19,6 +19,7 @@ wpush             # updates the remote repo.  you can fork this and go nuts, if 
 gs                # git status
 gl                # git log
 gd                # git diff
+gb                # git branch
 
 ta                # tmux -2 attach
 t                 # tmux -2
@@ -36,6 +37,7 @@ fkill             # fuzzy search & kill process(es)
 ### Miscellaneous Shortcuts
 gt                # go forward a tab
 gr                # go back a tab
+ff                # fold current indent level
 gc                # toggle comment
 gS                # split code up
 gJ                # consolodate code to one line
@@ -46,11 +48,6 @@ ctrl-h            # toggle highlight
 ### Window management
 ctrl-O            # previous window
 ctrl-P            # next window
-
-### Code folding
-za                # fold current indent level
-zM                # fold everything
-zR                # unfold everything
 
 ### surround.vim
 ysiw(char)        # surround selection with (char)
