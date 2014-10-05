@@ -6,7 +6,8 @@ alias c="console cache:clear"
 
 # Custom ssh shortcuts
 alias wells="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
-alias ppl="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.27.53"
+alias passenger="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.164.53.196"
+
 alias vm="ssh -tA wells@www.bananajams.cloud.spotify.net 'cd src/web-site && tmux -2 attach; bash -l'"
 alias jump="ssh -A wells@jump1.lon.spotify.net"
 
@@ -23,6 +24,7 @@ alias t="ssh-save; tmux -2; ssh-restore"
 alias ta="ssh-save; tmux -2 attach; ssh-restore"
 
 alias ..="cd .."
+# color if supported
 [ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
 alias ll='ls -la'
 alias l='ll'
