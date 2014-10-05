@@ -7,6 +7,10 @@ let g:seoul256_background=237
 " colo seoul256-light
 colo seoul256
 
+" enable auto-complete plugin
+let g:neocomplcache_enable_at_startup = 1
+source ~/.wells_dotfiles/vim/neocomplete_settings " settings kept in seperate file
+
 " status bar
 set laststatus=2
 set statusline=%4*\ %<%F%*              " full path
