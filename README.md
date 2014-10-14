@@ -1,4 +1,4 @@
-This is my portable development setup.  I use a combination of vim, tmux, git, and shell scripts to get things done.  My dotfiles also come with a bunch of useful functions and aliases in bash.  For example, wellssh <address> will ssh into any machine and automaticaly install these settings. 
+This is my portable development setup.  I use a combination of vim, tmux, git, and shell scripts to get things done.  My dotfiles also come with a bunch of useful functions and aliases in bash. For example, wellssh <address> will ssh into any machine and automaticaly install these settings. 
 
 To install manually, simply clone this repo, source wells_dotfiles/bash/profile, then type ```wells_install```.  Or just copy this line:
 
