@@ -71,3 +71,9 @@ cntrl-t           # fuzzy file search
 :Gblame           # git blame
 :Git (command)    # any git command
 </pre>
+
+##Extra Setup Notes
+To enable Vi-mode, edit (or create) the file ~/.inputrc or /etc/inputrc and add the following lines:
+
+set editing-mode vi
+set keymap vi-command
