@@ -77,4 +77,5 @@ To enable Vi-mode, edit (or create) the file ~/.inputrc or /etc/inputrc and add 
 
 ```bash
 set editing-mode vi
-set keymap vi-command```
+set keymap vi-command
+```
