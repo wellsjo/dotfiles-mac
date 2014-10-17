@@ -23,7 +23,9 @@ set statusline +=%1*%=%5l%*             " current line
 set statusline +=%2*/%L%*               " total lines
 set statusline +=%1*%4v\ %*             " virtual column number
 hi StatusLine ctermbg=yellow
+
 set cursorline
+set nocursorcolumn
 
 " set background=light
 set background=dark
