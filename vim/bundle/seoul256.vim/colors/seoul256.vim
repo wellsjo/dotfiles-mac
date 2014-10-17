@@ -220,7 +220,7 @@ call s:hi('ColorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
 " hi Cursor ctermfg=
 " hi CursorIM ctermfg=
 
-set cursorline cursorcolumn
+set cursorline
 call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
 " hi CursorLine ctermbg=darkgray
