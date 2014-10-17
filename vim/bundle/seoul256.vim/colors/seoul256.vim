@@ -220,8 +220,10 @@ call s:hi('ColorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 2])
 " hi Cursor ctermfg=
 " hi CursorIM ctermfg=
 
-" set cursorline cursorcolumn
+set cursorline cursorcolumn
 call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
+
+" hi CursorLine ctermbg=darkgray
 call s:hi('CursorLineNr', [s:dark_bg + 1, 238], [220, 220])
 call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
@@ -276,11 +278,11 @@ call s:hi('SpellCap',   [252, 252], [95, 95])
 call s:hi('SpellLocal', [252, 252], [95, 95])
 call s:hi('SpellRare',  [252, 252], [95, 95])
 
-"
 call s:hi('StatusLine', [95, 95], [187, 187])
 call s:hi('StatusLineNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
 call s:hi('TabLineFill', [s:dark_bg + 2, s:light_bg - 2], ['', ''])
-call s:hi('TabLineSel', [187, 187], [23, 66])
+" call s:hi('TabLineSel', [187, 187], [23, 66])
+hi TabLineSel ctermfg=white ctermbg=red
 call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
 call s:hi('WildMenu', [95, 95], [184, 184])
 

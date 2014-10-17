@@ -1,15 +1,19 @@
 " Load bundles
 execute pathogen#infect()
 
-"
 " Basic settings
 let g:seoul256_background=237
 " colo seoul256-light
 colo seoul256
 
 " enable auto-complete plugin
+" settings kept in seperate file
 let g:neocomplcache_enable_at_startup = 1
-source ~/.wells_dotfiles/vim/neocomplete_settings " settings kept in seperate file
+source ~/.wells_dotfiles/vim/neocomplete_settings
+
+" session handling functions
+" vim will save your open tabs and re-open them on return
+source ~/.wells_dotfiles/vim/session_handling
 
 " status bar
 set laststatus=2
@@ -124,26 +128,3 @@ return "i"
 endif
 endfunction
 nnoremap <expr> i IndentWithI()
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
