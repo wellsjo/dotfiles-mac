@@ -115,7 +115,7 @@ let g:netrw_dirhistmax = 0
 
 " tab labels
 let g:taboo_modified_tab_flag="+"
-let g:taboo_tab_format=' %N %f %m '
+let g:taboo_tab_format=' %N. %f %m '
 
 " MRU options
 let MRU_Window_Height = 40

@@ -283,7 +283,8 @@ call s:hi('StatusLineNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
 call s:hi('TabLineFill', [s:dark_bg + 2, s:light_bg - 2], ['', ''])
 " call s:hi('TabLineSel', [187, 187], [23, 66])
 hi TabLineSel ctermfg=white ctermbg=red
-call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
+" call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
+hi TabLine ctermfg=black ctermbg=white
 call s:hi('WildMenu', [95, 95], [184, 184])
 
 " :set all
