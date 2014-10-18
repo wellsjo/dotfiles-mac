@@ -1,10 +1,22 @@
 " Load bundles
 execute pathogen#infect()
 
-" Basic settings
-let g:seoul256_background=237
+
+set number
+let t_Co=256
+let mapleader=" "
+set term=screen-256color
+filetype off
+syntax on
+set undolevels=1000
+
+set background=dark
+colorscheme monokai
+
+" Seoul settings
+" let g:seoul256_background=237
 " colo seoul256-light
-colo seoul256
+" colo seoul256
 
 " enable auto-complete plugin
 " settings kept in seperate file
@@ -25,17 +37,6 @@ set statusline +=%1*%4v\ %*             " virtual column number
 
 set cursorline
 set nocursorcolumn
-
-" set background=light
-set background=dark
-
-set number
-let t_Co=256
-let mapleader=" "
-set term=screen-256color
-filetype off
-syntax on
-set undolevels=1000
 
 " cntrl-o and p switch window splits
 nmap <silent> <C-o> :wincmd h<CR>
