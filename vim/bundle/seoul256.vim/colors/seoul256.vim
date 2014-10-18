@@ -154,8 +154,8 @@ endif
 call s:hi('Normal', [252, 239], [s:dark_bg, s:light_bg])
 
 call s:hi('LineNr', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
-" call s:hi('Visual', [s:dark_bg + 1, 238], [220, 220])
-hi Visual ctermfg=black ctermbg=yellow
+call s:hi('Visual', [s:dark_bg + 1, 238], [220, 220])
+" hi Visual ctermfg=black ctermbg=yellow
 call s:hi('VisualNOS', ['', ''], [23, 152])
 
 call s:hi('Comment', [65, 65], ['', ''])
@@ -240,8 +240,8 @@ call s:hi('Folded', [101, 101], [s:dark_bg + 1, s:light_bg - 2])
 " set foldcolumn=1
 call s:hi('FoldColumn', [144, 94], [s:dark_bg + 1, s:light_bg - 2])
 
-" call s:hi('MatchParen', ['', ''], [s:dark_bg + 3, s:light_bg - 3])
-hi MatchParen cterm=none ctermfg=red ctermbg=none
+call s:hi('MatchParen', ['', ''], [s:dark_bg + 3, s:light_bg - 3])
+" hi MatchParen cterm=none ctermfg=red ctermbg=none
 
 " -- INSERT --
 call s:hi('ModeMsg', [173, 173], ['', ''])
@@ -257,10 +257,10 @@ call s:hi('PmenuSel', [252, 252], [89, 89])
 call s:hi('PmenuSbar', ['', ''], [65, 65])
 call s:hi('PmenuThumb', ['', ''], [23, 23])
 
-" call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
-" call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
-hi Search ctermfg=black ctermbg=yellow
-hi IncSearch ctermfg=yellow ctermbg=black
+call s:hi('Search', [s:dark_bg + 1, 238], [220, 220])
+call s:hi('IncSearch', [220, 220], [s:dark_bg + 1, 238])
+" hi Search ctermfg=black ctermbg=yellow
+" hi IncSearch ctermfg=yellow ctermbg=black
 
 " String delimiter, interpolation
 call s:hi('Special', [216, 173], ['', ''])
@@ -281,10 +281,10 @@ call s:hi('SpellRare',  [252, 252], [95, 95])
 call s:hi('StatusLine', [95, 95], [187, 187])
 call s:hi('StatusLineNC', [s:dark_bg + 2, s:light_bg - 2], [187, 238])
 call s:hi('TabLineFill', [s:dark_bg + 2, s:light_bg - 2], ['', ''])
-" call s:hi('TabLineSel', [187, 187], [23, 66])
-hi TabLineSel ctermfg=white ctermbg=red
-" call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
-hi TabLine ctermfg=black ctermbg=white
+call s:hi('TabLineSel', [187, 187], [23, 66])
+" hi TabLineSel ctermfg=white ctermbg=red
+call s:hi('TabLine', [s:dark_bg + 12, s:light_bg - 12], [s:dark_bg + 4, s:light_bg - 4])
+" hi TabLine ctermfg=black ctermbg=white
 call s:hi('WildMenu', [95, 95], [184, 184])
 
 " :set all

@@ -22,7 +22,6 @@ set statusline +=%2*%m%*                " modified flag
 set statusline +=%1*%=%5l%*             " current line
 set statusline +=%2*/%L%*               " total lines
 set statusline +=%1*%4v\ %*             " virtual column number
-hi StatusLine ctermbg=yellow
 
 set cursorline
 set nocursorcolumn
@@ -57,7 +56,6 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=10        "this is just what i use
-nmap ff za
 
 " tagbar
 nmap ,, :TagbarToggle<CR>
@@ -119,6 +117,16 @@ let g:taboo_tab_format=' %N. %f %m '
 
 " MRU options
 let MRU_Window_Height = 40
+
+""" CUSTOM COLORS """
+"""
+hi Visual ctermfg=black ctermbg=yellow
+hi MatchParen cterm=none ctermfg=red ctermbg=none
+hi Search ctermfg=black ctermbg=yellow
+hi IncSearch ctermfg=yellow ctermbg=black
+hi TabLineSel ctermfg=white ctermbg=red
+hi TabLine ctermfg=black ctermbg=white
+hi StatusLine ctermbg=yellow
 
 """  CUSTOM SCRIPTS  """
 
