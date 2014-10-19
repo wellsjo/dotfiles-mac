@@ -38,6 +38,7 @@ fkill             # fuzzy search & kill process(es)
 ####Vim key mappings
 <pre>
 ### Miscellaneous Shortcuts
+m                 # open recently used filesc (MRU)
 gt                # go forward a tab
 gr                # go back a tab
 ff                # fold current indent level

@@ -47,6 +47,8 @@ fi
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
+. ~/.wells_dotfiles/bash/welcome_prompt.sh
+
 # for spotify.com website
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app
 export PATH=$PATH:/home/wells/src/web-site-translations/Symfony/app
