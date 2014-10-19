@@ -10,6 +10,8 @@ alias ppl="ssh -i ~/Google\ Drive/Important\ Documents\ And\ Pictures/Amazon\ We
 alias vm="ssh -tA www.bananajams.cloud.spotify.net 'cd src/web-site && tmux -2 attach; bash -l'"
 alias jump="ssh -A jump1.lon.spotify.net"
 
+alias test1="test"
+
 # General bash aliases
 alias ..="cd .."
 [ "$(uname -s)" = "Linux" ] && alias ls='ls --color'
