@@ -16,12 +16,13 @@ do
 done
 
 # source bash-git-prompt
+GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Solarized
-GIT_PROMPT_START="\n${BoldWhite}\u${ResetColor}${Black}@${BoldCyan}\H:${BoldYellow}${PathShort}${BoldWhite}"
-. bash-git-prompt/gitprompt.sh
+GIT_PROMPT_START="\n${BoldWhite}\u${ResetColor}${Black}@${BoldCyan}\H:${BoldYellow}\w${ResetColor}"
+. ~/.wells_dotfiles/bash/bash-git-prompt/gitprompt.sh
 
 # load my aliases
-. aliases.sh
+. ~/.wells_dotfiles/bash/aliases.sh
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
