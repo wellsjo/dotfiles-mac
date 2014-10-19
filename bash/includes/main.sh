@@ -112,6 +112,12 @@ wells_install() {
 }
 alias winstall="wells_install"
 
+wells_uninstall() {
+    cd ~
+    rm -rf .wells_dotfiles
+    rm .fzf .bash .bash_profile .bashrc .gitconfig .gitignore_global .profile .tmux.conf .vim .vimrc
+}
+
 # Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
 wellssh() {
