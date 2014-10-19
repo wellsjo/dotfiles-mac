@@ -18,7 +18,11 @@ done
 # source bash-git-prompt
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Solarized
+GIT_PROMPT_START='\n'
 . bash-git-prompt/gitprompt.sh
+
+# load my aliases
+. aliases.sh
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
