@@ -20,8 +20,8 @@ alias gb="git branch"
 
 # save the ssh config, start tmux session, restore the ssh config
 # this prevents you from having to kill your session to reload the ssh config
-alias t="ssh-save; tmux -2; ssh-restore"
-alias ta="ssh-save; tmux -2 attach; ssh-restore"
+alias t="tmux -2"
+alias ta="tmux -2 attach"
 
 alias ..="cd .."
 # color if supported
