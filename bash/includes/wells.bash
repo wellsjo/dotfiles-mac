@@ -1,25 +1,6 @@
 #!/bin/bash
 
-# Simple helper to remove and make symlinks
-function h.symlink() {
-    # If this isnt a symlink
-    if [ ! -L "$2" ]; then
-        # Backup the file
-        mv "$2" "$2.backup" >/dev/null 2>&1
-
-        # Now remove it, dirs too
-        rm -rf "$2" >/dev/null 2>&1
-    fi
-
-    # If the target is already a symlink
-    if [ -L "$2" ]; then
-        rm "$2" >/dev/null 2>&1
-    fi
-
-    # Create that symlink!
-    ln -s $1 $2
-}
-
+# re-source dotfiles from git repo
 wells_update() {
     echo
     read -p "Do you want to update and re-source from the wells_dotfiles repository? " -n 1 -r
@@ -31,19 +12,37 @@ wells_update() {
 }
 alias wupdate="wells_update"
 
+# re-source local dotfiles
 wells_source() {
-    echo "Re-sourcing local dotfiles..."
-    source ~/.wells_dotfiles/bash/profile
-    echo "Re-sourcing tmux config..."
     echo
-    tmux source ~/.tmux.conf
+    read -p "Re-source dotfiles? " -n 1 -r
+    echo
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "Re-sourcing local dotfiles..."
+        source ~/.wells_dotfiles/bash/profile
+    fi
+
+    echo
+    read -p "Re-load tmux config? " -n 1 -r
+    echo
+
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "Re-sourcing tmux config..."
+        tmux source ~/.tmux.conf
+    fi
+
 }
 alias wsource="wells_source"
 
+# push local dotfiles to repo
 wells_push() {
     echo
     echo "Showing diff..."
     echo
+
     local cur_dir=${PWD}
     cd ~/.wells_dotfiles
     git diff
@@ -59,11 +58,7 @@ wells_push() {
         git push
     fi
     cd ${cur_dir}
-    echo -e "\nRe-sourcing wells_dotfiles..."
-    . "${HOME}/.profile"
-    echo -e "\nDone!\n"
 }
-
 alias wpush="wells_push"
 
 # Setup the dotfiles repo locally, or pull latest version from github.
@@ -73,25 +68,19 @@ wells_install() {
     echo -e "\nInstalling wells_dotfiles..."
 
     local REPO='https://github.com/wellsjo/wells_dotfiles'
-    local SGIT=git
 
     # If the dotfiles dir already exists
     if [ -d "${HOME}/.wells_dotfiles" ] ; then
-        echo "wells_dotfiles are already present."
         cd "${HOME}/.wells_dotfiles"
-        ${SGIT} reset --hard HEAD >/dev/null 2>&1
+        git reset --hard HEAD >/dev/null 2>&1
         echo "Updating from git repo..."
-        ${SGIT} pull
-        ${SGIT} submodule init
-        ${SGIT} submodule update
+        git pull
     else
         echo "wells_dotfiles not present"
         echo -e "Cloning git repo from ${REPO}..."
         cd "${HOME}"
-        ${SGIT} clone --depth 1 ${REPO} .wells_dotfiles
+        git clone --depth 1 ${REPO} .wells_dotfiles
         cd "${HOME}/.wells_dotfiles"
-        ${SGIT} submodule init
-        ${SGIT} submodule update
     fi
 
     echo -e "\nSetting symlinks..."
@@ -116,13 +105,11 @@ wells_install() {
     find -L . -maxdepth 1 -type l -exec rm -- {} +
 
     # Source the profile to get things going
-    . "${HOME}/.profile"
+    . "${HOME}/.profile.sh"
 
     echo -e "\nDone!"
     echo -e "\nType 'wells_settings' to get a list of available commands"
-
 }
-
 alias winstall="wells_install"
 
 # Simple wrapper for ssh which makes wells_update() available in the remote session
@@ -142,4 +129,32 @@ wellssh() {
       HOME=\"\$HOME\" TERM=\"\$TERM\" \
       PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
       USER=\"\$USER\" \$SHELL -i"
+}
+
+# display available functions/readme
+function wells_help() {
+    # spit out the README while stripping ugly tags
+    cat ~/.wells_dotfiles/README.md | sed -r 's/<\/?pre>//'
+}
+alias wsettings="wells_help"
+alias whelp="wells_help"
+
+# Simple helper to remove and make symlinks
+function h.symlink() {
+    # If this isnt a symlink
+    if [ ! -L "$2" ]; then
+        # Backup the file
+        mv "$2" "$2.backup" >/dev/null 2>&1
+
+        # Now remove it, dirs too
+        rm -rf "$2" >/dev/null 2>&1
+    fi
+
+    # If the target is already a symlink
+    if [ -L "$2" ]; then
+        rm "$2" >/dev/null 2>&1
+    fi
+
+    # Create that symlink!
+    ln -s $1 $2
 }

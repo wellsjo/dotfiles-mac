@@ -1,8 +1,4 @@
-# Autoload includes
-for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
-do
-    . "${includeFile}"
-done
+#!/bin/bash
 
 EDITOR=vim
 TZ=America/New_York
@@ -12,6 +8,17 @@ HISTSIZE=1000
 
 # Darwinism
 CLICOLOR=1
+
+# Autoload includes
+for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
+do
+    . "${includeFile}"
+done
+
+# source bash-git-prompt
+GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_THEME=Solarized
+. bash-git-prompt/gitprompt.sh
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
