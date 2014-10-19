@@ -19,10 +19,15 @@ done
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Solarized
 GIT_PROMPT_START="\n\u${Black}@${BoldCyan}\H:${BoldYellow}\w${ResetColor}"
-. ~/.wells_dotfiles/bash/bash-git-prompt/gitprompt.sh
+
+cur_dir=${PWD}
+cd ~/.wells_dotfiles/bash/bash-git-prompt
+. gitprompt.sh
 
 # load my aliases
-. ~/.wells_dotfiles/bash/aliases.sh
+cd ~/.wells_dotfiles/bash
+. aliases.sh
+cd ${cur_dir}
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
