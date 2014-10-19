@@ -17,7 +17,7 @@ done
 
 # source bash-git-prompt
 GIT_PROMPT_THEME=Solarized
-GIT_PROMPT_START='\n\u@\H:\w'
+GIT_PROMPT_START="\n${BoldWhite}\u${ResetColor}${Black}@${BoldCyan}\H:${BoldYellow}${PathShort}${BoldWhite}"
 . bash-git-prompt/gitprompt.sh
 
 # load my aliases
