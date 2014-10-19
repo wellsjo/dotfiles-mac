@@ -21,7 +21,7 @@ wells_source() {
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         echo "Re-sourcing local dotfiles..."
-        source ~/.wells_dotfiles/bash/profile
+        source ~/.wells_dotfiles/bash/profile.sh
     fi
 
     echo

@@ -18,7 +18,7 @@ done
 # source bash-git-prompt
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Solarized
-GIT_PROMPT_START='\n'
+GIT_PROMPT_START='\n\u@\H:\w'
 . bash-git-prompt/gitprompt.sh
 
 # load my aliases
