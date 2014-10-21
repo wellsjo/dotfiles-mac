@@ -35,12 +35,12 @@ if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
 fi
 
+# Prompt
+source ~/.wells_dotfiles/bash/welcome_prompt.sh
+
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
-source ~/.wells_dotfiles/bash/welcome_prompt.sh
-
-# ~/.bashrc
 
 # automatically start tmux and pass along ssh credentials
 if [ -z "$TMUX" ]; then
