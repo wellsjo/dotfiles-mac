@@ -19,6 +19,9 @@ CLICOLOR=1
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
+# Profile
+PS1='\n\h:\w $(__git_ps1 " (%s)")\n\u$ '
+
 # Used by bash, unused by mksh
 if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
     shopt -s expand_aliases
