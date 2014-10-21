@@ -9,6 +9,7 @@ alias wells="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Se
 alias passenger="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ubuntu@54.164.53.196"
 
 alias vm="ssh -tA wells@www.bananajams.cloud.spotify.net"
+alias yir="ssh -A awseu3-webgate-a1.yirendpoint.cloud.spotify.net"
 alias jump="ssh -A wells@jump1.lon.spotify.net"
 
 # General bash/git aliases
