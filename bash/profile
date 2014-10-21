@@ -19,8 +19,10 @@ CLICOLOR=1
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
-# Profile
-PS1='\n\h:\w $(__git_ps1 " (%s)")\n\u$ '
+# Prompt
+GIT_PROMPT_START="${Yellow}${PathShort}${ResetColor}"
+GIT_PROMPT_END="\n > "
+source ~/.bash-git-prompt/gitprompt.sh
 
 # Used by bash, unused by mksh
 if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
@@ -35,7 +37,7 @@ if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
 fi
 
-# Prompt
+# Welcome Prompt
 source ~/.wells_dotfiles/bash/welcome_prompt.sh
 
 # Load a local profile
