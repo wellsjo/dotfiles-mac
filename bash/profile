@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Autoload includes
+for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
+do
+    . "${includeFile}"
+done
+
 EDITOR=vim
 TZ=America/New_York
 LANG=en_US.UTF-8
@@ -8,12 +14,6 @@ HISTSIZE=1000
 
 # auto enable colors for commands like 'ls'
 CLICOLOR=1
-
-# Autoload includes
-for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
-do
-    . "${includeFile}"
-done
 
 # source bash-git-prompt
 # GIT_PROMPT_ONLY_IN_REPO=1
@@ -39,7 +39,7 @@ fi
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
-. ~/.wells_dotfiles/bash/welcome_prompt.sh
+source ~/.wells_dotfiles/bash/welcome_prompt.sh
 
 # ~/.bashrc
 
