@@ -3,37 +3,33 @@
 # re-source dotfiles from git repo
 wells_update() {
     echo
-    read -p "Do you want to update and re-source from the wells_dotfiles repository? " -n 1 -r
+    read -p "Do you want to update and re-source from the remote wells_dotfiles repository? " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         wells_install
+    else
+        read -p "Do you want to re-source from the local wells_dotfiles repository? " -n 1 -r
+        if [[ $REPLY =~ ^[Yy]$ ]]
+        then
+            wells_source
+        fi
     fi
 }
 alias wupdate="wells_update"
 
 # re-source local dotfiles
 wells_source() {
-    echo
-    read -p "Re-source dotfiles? " -n 1 -r
-    echo
-
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        echo "Re-sourcing local dotfiles..."
-        source ~/.wells_dotfiles/bash/profile
-    fi
-
+    echo "Re-sourcing local dotfiles..."
+    source ~/.wells_dotfiles/bash/profile
     echo
     read -p "Re-load tmux config? " -n 1 -r
     echo
-
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         echo "Re-sourcing tmux config..."
         tmux source ~/.tmux.conf
     fi
-
 }
 alias wsource="wells_source"
 
@@ -42,7 +38,6 @@ wells_push() {
     echo
     echo "Showing diff..."
     echo
-
     local cur_dir=${PWD}
     cd ~/.wells_dotfiles
     git diff
@@ -94,6 +89,7 @@ wells_install() {
     h.symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
     h.symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
     h.symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
+    h.symlink "${HOME}/.wells_dotfiles/bash/bash-git-prompt" "${HOME}/.bash-git-prompt"
 
     # source tmux
     echo -e "\nSourcing tmux..."
