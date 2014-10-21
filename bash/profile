@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source main.sh
+
 # Autoload includes
 for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
 do
@@ -16,9 +18,10 @@ HISTSIZE=1000
 CLICOLOR=1
 
 # source bash-git-prompt
-# GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_THEME=Solarized
 GIT_PROMPT_START="\n\u${Black}@${BoldCyan}\H:${BoldYellow}\w${ResetColor}"
+GIT_PROMPT_END="\n > "
 source ~/.wells_dotfiles/bash/bash-git-prompt/gitprompt.sh
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
