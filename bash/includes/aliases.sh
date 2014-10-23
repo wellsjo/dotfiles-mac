@@ -13,6 +13,7 @@ alias yir="ssh -A awseu3-webgate-a1.yirendpoint.cloud.spotify.net"
 alias jump="ssh -A wells@jump1.lon.spotify.net"
 
 # General bash/git aliases
+alias colors="git_prompt_color_samples"
 alias h="cd ~"
 alias gs="git status"
 alias gl="git log"
