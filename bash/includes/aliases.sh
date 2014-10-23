@@ -14,6 +14,7 @@ alias jump="ssh -A wells@jump1.lon.spotify.net"
 
 # General bash/git aliases
 alias colors="git_prompt_color_samples"
+alias wells_colors="colors"
 alias h="cd ~"
 alias gs="git status"
 alias gl="git log"
