@@ -1,7 +1,3 @@
-[user]
-    name  = Wells Johnston
-    email = wellsjohnston@gmail.com
-
 [alias]
     st = status
     co = checkout
