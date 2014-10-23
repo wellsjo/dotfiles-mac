@@ -18,6 +18,7 @@ winstall          # this is used by wssh to install my dotfiles upon entering a 
 
 wupdate           # updates dotfile settings from this repo.  optionally just updates locally.
 wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
+wells_colors      # show list of available color variables
 
 gs                # git status
 gl                # git log

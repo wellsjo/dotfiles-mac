@@ -20,8 +20,9 @@ CLICOLOR=1
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Prompt
-GIT_PROMPT_START="${Yellow}${PathShort}${ResetColor}"
-GIT_PROMPT_END="\n\u > "
+GIT_PROMPT_THEME="Solarized"
+GIT_PROMPT_START="${BoldYellow}${PathShort}"
+GIT_PROMPT_END="\n${BoldCyan}\u > ${BoldWhite}${ResetColor}"
 source ~/.bash-git-prompt/gitprompt.sh
 
 # Used by bash, unused by mksh
