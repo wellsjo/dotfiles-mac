@@ -37,7 +37,7 @@ if type -p rbenv >/dev/null 2>&1 ; then
 fi
 
 # Welcome Prompt
-source ~/.wells_dotfiles/bash/welcome_prompt.sh
+# source ~/.wells_dotfiles/bash/welcome_prompt.sh
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
