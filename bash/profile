@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ~/.wells_dotfiles/bash/main.sh
-
 # Autoload includes
 for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
 do
@@ -24,7 +22,6 @@ GIT_PROMPT_THEME="Solarized"
 GIT_PROMPT_START="${BoldYellow}${PathShort}${ResetColor}"
 GIT_PROMPT_END="\n${BoldCyan}\u > ${BoldWhite}${ResetColor}"
 source ~/.bash-git-prompt/gitprompt.sh
-source ~/.bash-git-prompt/prompt-colors.sh
 
 # Used by bash, unused by mksh
 if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
