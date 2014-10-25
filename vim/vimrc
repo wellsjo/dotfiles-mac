@@ -1,7 +1,6 @@
 " Load bundles
 execute pathogen#infect()
 
-
 set number
 let t_Co=256
 let mapleader=" "

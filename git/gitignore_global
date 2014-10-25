@@ -33,13 +33,11 @@
 ehthumbs.db
 Icon?
 Thumbs.db
+xcuserdata
 
 # Vim generated files #
 #######################
 *.swp
 *.swo
 .ropeproject
-
-# Mac OSX generated files #
-###########################
-xcuserdata
+*.vimhook*

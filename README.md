@@ -20,7 +20,7 @@ wupdate           # updates dotfile settings from this repo.  optionally just up
 wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
 wells_colors      # show list of available color variables
 
-wells_sync        # wells_sync --(down|up) location destination
+wells_sync        # wells_sync --(down|up) remote local
                   # use rsync to sync remote files with local
 
 gs                # git status

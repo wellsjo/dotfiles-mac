@@ -2,21 +2,22 @@
 
 # @author Wells Johnston <w@wellsjohnston.com>
 
-# sync (--down|--up) location destionation
+website_sync() {
 
-wells_sync() {
     if [[ $1 = "--help" || $1 = '-h' || $1 = '' ]];
     then
         echo
-        echo "sync (--down|--up) <location> <destination>"
+        echo "sync <location> <destination>"
         echo
     fi
-    if [[ $1 = "--down" ]];
-    then
-        rsync --delete -avrz -e ssh -f"- .git/" -f"- .settings" -f"- .buildpath" -f"- .project" -f"- .DS_Store" -f"+ *" +$2 $3
-    elif [[ $1 = "--up" ]];
-    then
-        rsync --delete --exclude Symfony/app/cache --exclude Symfony/build -avrz -e ssh -f"- .git/" -f"- .settings" -f"- .build path" -f"- .project" -f"- .DS_Store" -f"+ *" $3 $2
-    fi
+
+    local file_excludes=( '*.png' '*.jpg' '*.jpeg' '*.mp4' '*/cache' '*.swp' '*.gif' '*/vendor' '*/.git' '*.zip' '*.pdf' '*.svg' '*.psd' '*.ttf' '*.woff' '*.pptx' '*.flv' '*/node_modules' )
+    local exclude_string=""
+    for i in "${file_excludes[@]}"
+    do
+        exclude_string="$exclude_string --exclude=$i"
+    done
+
+    rsync --delete $exclude_string -avrz -e ssh $1 $2
 }
-alias wsync="wells_sync"
+alias wsync="website_sync"
