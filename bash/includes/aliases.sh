@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Spotify dev aliases
-alias d="~/src/web-site/devify.sh --skip-language --auto"
+alias d="~/src/website/devify.sh --skip-language --auto"
 alias c="console cache:clear"
 
 # Custom ssh shortcuts
