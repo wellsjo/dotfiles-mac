@@ -2,7 +2,7 @@
 
 # Spotify dev aliases
 alias d="~/src/website/devify.sh --skip-language --auto"
-alias c="console cache:clear"
+alias c="clear"
 
 # Custom ssh shortcuts
 alias wells="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
