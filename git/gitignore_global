@@ -41,3 +41,6 @@ xcuserdata
 *.swo
 .ropeproject
 *.vimhook*
+
+# vendor stuff
+node_modules/
