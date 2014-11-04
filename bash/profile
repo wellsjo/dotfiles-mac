@@ -80,3 +80,6 @@ export PATH=$PATH:/home/wells/src/web-site-translations/Symfony/app
 export PATH=$PATH:/home/wells/src/web-site-translations/Symfony/Symfony/app
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app/Symfony/app
 export PATH=$PATH:/home/wells/Symfony/app
+export PATH=$PATH:/home/wells/src/website/Symfony/app
+export PATH=$PATH:/home/wells/src/website/Symfony/app
+export PATH=$PATH:/home/wells/src/website/Symfony/app
