@@ -27,6 +27,11 @@ alias gl="git log"
 alias gd="git diff"
 alias gb="git branch"
 
+# general dev shortcuts
+alias enablepuppet="sudo sppuppet enable-cron"
+alias disablepuppet="sudo sppuppet disable-cron"
+alias startpuppet="sudo sppuppet agent -vt"
+
 # save the ssh config, start tmux session, restore the ssh config
 # this prevents you from having to kill your session to reload the ssh config
 alias t="tmux -2"
