@@ -19,7 +19,7 @@ export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Prompt
 GIT_PROMPT_THEME="Solarized"
-GIT_PROMPT_START="${BoldYellow}${PathShort}${ResetColor}"
+GIT_PROMPT_START="\n${BoldYellow}${PathShort}${ResetColor}"
 GIT_PROMPT_END="\n${BoldCyan}\u > ${BoldWhite}${ResetColor}"
 source ~/.bash-git-prompt/gitprompt.sh
 
