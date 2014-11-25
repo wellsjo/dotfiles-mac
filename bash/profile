@@ -18,6 +18,9 @@ CLICOLOR=1
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Prompt
+export GITAWAREPROMPT=~/.wells_dotfiles/bash/git-aware-prompt
+source $GITAWAREPROMPT/main.sh
+export PS1="\n$txtwht\u@\h $txtylw\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\\n$bldwht>$txtrst$txtgrn "
 
 # Used by bash, unused by mksh
 if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
