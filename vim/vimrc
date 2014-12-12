@@ -10,12 +10,12 @@ syntax on
 set undolevels=1000
 
 set background=dark
-colorscheme monokai
+" colorscheme monokai
 
 " Seoul settings
 " let g:seoul256_background=237
 " colo seoul256-light
-" colo seoul256
+colo seoul256
 
 " enable auto-complete plugin
 " settings kept in seperate file
@@ -124,7 +124,7 @@ nnoremap m :MRU<cr>
 hi Visual ctermfg=black ctermbg=yellow
 hi MatchParen cterm=none ctermfg=red ctermbg=none
 hi Search ctermfg=white ctermbg=red
-hi IncSearch ctermfg=white ctermbg=red
+hi IncSearch ctermfg=red ctermbg=white
 hi TabLineSel ctermfg=white ctermbg=red
 hi TabLine ctermfg=black ctermbg=white
 hi StatusLine ctermbg=yellow
