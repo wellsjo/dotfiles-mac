@@ -58,7 +58,7 @@ set nofoldenable        "dont fold by default
 set foldlevel=10        "this is just what i use
 
 " tagbar
-nmap ,, :TagbarToggle<CR>
+nmap ,, :TlistToggle<CR>
 
 " Tab settings
 set expandtab
