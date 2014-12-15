@@ -10,8 +10,8 @@ syntax on
 set undolevels=1000
 
 " set background=dark
-" colorscheme monokai
-colorscheme spacegray
+colorscheme monokai
+" colorscheme spacegray
 
 " Seoul settings
 " let g:seoul256_background=237
@@ -124,8 +124,8 @@ nnoremap m :MRU<cr>
 """
 hi Visual ctermfg=black ctermbg=yellow
 hi MatchParen cterm=none ctermfg=red ctermbg=none
-hi Search ctermfg=white ctermbg=red
-hi IncSearch ctermfg=red ctermbg=white
+hi Search ctermfg=black ctermbg=yellow
+hi IncSearch ctermfg=black ctermbg=yellow
 hi TabLineSel ctermfg=white ctermbg=red
 hi TabLine ctermfg=black ctermbg=white
 hi StatusLine ctermbg=yellow
