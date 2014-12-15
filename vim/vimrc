@@ -9,13 +9,14 @@ filetype off
 syntax on
 set undolevels=1000
 
-set background=dark
+" set background=dark
 " colorscheme monokai
+colorscheme spacegray
 
 " Seoul settings
 " let g:seoul256_background=237
 " colo seoul256-light
-colo seoul256
+" colo seoul256
 
 " enable auto-complete plugin
 " settings kept in seperate file

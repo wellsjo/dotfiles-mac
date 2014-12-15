@@ -84,3 +84,11 @@ To enable Vi-mode, edit (or create) the file ~/.inputrc or /etc/inputrc and add 
 set editing-mode vi
 set keymap vi-command
 ```
+
+##ctags
+Install ctags to allow for better code browsing:
+```bash
+brew install ctags
+ctags -R .                # assuming this is the directory you want to index
+ctags -R -f ./.git/tags . # to install to a more appropriate location
+```
