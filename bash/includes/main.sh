@@ -90,6 +90,7 @@ wells_install() {
     h.symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
     h.symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
     h.symlink "${HOME}/.wells_dotfiles/bash/bash-git-prompt" "${HOME}/.bash-git-prompt"
+    h.symlink "${HOME}/.wells_dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
     # source tmux
     echo -e "\nSourcing tmux..."
