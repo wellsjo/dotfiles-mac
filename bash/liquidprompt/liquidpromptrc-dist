@@ -12,7 +12,8 @@
 # BEHAVIOUR #
 #############
 
-LP_MARK_PREFIX="\n"
+LP_PS1_PREFIX="\n"
+LP_PS1_POSTFIX="\n> "
 
 # Maximal value under which the battery level is displayed
 # Recommended value is 75
