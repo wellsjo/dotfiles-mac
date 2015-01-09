@@ -74,6 +74,7 @@ filetype indent on
 set incsearch
 set hlsearch
 nnoremap <c-h> :set hlsearch!<Cr>
+nnoremap # #N
 set ignorecase
 set smartcase
 noremap % v%
