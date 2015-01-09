@@ -12,6 +12,8 @@
 # BEHAVIOUR #
 #############
 
+LP_MARK_PREFIX="\n"
+
 # Maximal value under which the battery level is displayed
 # Recommended value is 75
 LP_BATTERY_THRESHOLD=75
