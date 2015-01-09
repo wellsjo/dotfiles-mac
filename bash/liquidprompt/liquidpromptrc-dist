@@ -85,15 +85,15 @@ LP_ENABLE_SVN=1
 
 # Do you want to use the Mercurial special features?
 # Recommended value is 1
-LP_ENABLE_HG=1
+LP_ENABLE_HG=0
 
 # Do you want to use the Fossil special features?
 # Recommended value is 1
-LP_ENABLE_FOSSIL=1
+LP_ENABLE_FOSSIL=0
 
 # Do you want to use the Bazaar special features?
 # Recommanded value is 1
-LP_ENABLE_BZR=1
+LP_ENABLE_BZR=0
 
 # Show time of the last prompt display
 # Recommended value is 0
@@ -116,7 +116,7 @@ LP_ENABLE_VIRTUALENV=1
 LP_ENABLE_SCLS=1
 
 # Show average system temperature
-LP_ENABLE_TEMP=1
+LP_ENABLE_TEMP=0
 
 # When showing time, use an analog clock instead of numeric values.
 # The analog clock is "accurate" to the nearest half hour.
