@@ -133,15 +133,3 @@ hi IncSearch ctermfg=black ctermbg=yellow
 hi TabLineSel ctermfg=black ctermbg=blue
 hi TabLine ctermfg=black ctermbg=white
 hi StatusLine ctermbg=yellow
-
-"""  CUSTOM SCRIPTS  """
-
-" Smart indent when entering insert mode with i on empty lines
-function! IndentWithI()
-if len(getline('.')) == 0
-return "\"_ddO"
-else
-return "i"
-endif
-endfunction
-nnoremap <expr> i IndentWithI()
