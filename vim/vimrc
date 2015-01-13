@@ -73,8 +73,9 @@ filetype indent on
 " Search Options
 set incsearch
 set hlsearch
-nnoremap <c-h> :set hlsearch!<Cr>
-nnoremap # #N
+
+" save with F
+nnoremap F :w<CR>
 set ignorecase
 set smartcase
 noremap % v%
@@ -125,7 +126,6 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 """ CUSTOM COLORS """
-"""
 hi Visual ctermfg=black ctermbg=yellow
 hi MatchParen cterm=none ctermfg=white ctermbg=green
 hi Search ctermfg=black ctermbg=yellow
@@ -133,3 +133,8 @@ hi IncSearch ctermfg=black ctermbg=yellow
 hi TabLineSel ctermfg=black ctermbg=green
 hi TabLine ctermfg=black ctermbg=white
 hi StatusLine ctermbg=yellow
+
+" you can press <CR>h to highlight all the words under the cursor
+nnoremap <c-h> :set hlsearch!<Cr>
+set updatetime=350
+au! CursorHold * set nohlsearch | let @/='\<'.expand("<cword>").'\>'
