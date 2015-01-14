@@ -76,7 +76,7 @@ set hlsearch
 
 " save shortcut with F
 nnoremap <c-f> :w<CR>
-nnoremap <leader><leader> :x<CR>
+nnoremap <leader><leader> :q<CR>
 
 set ignorecase
 set smartcase
