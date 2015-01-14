@@ -9,12 +9,12 @@ filetype off
 syntax on
 set undolevels=1000
 
-colorscheme monokai
+" colorscheme monokai
 
 " Seoul settings
-" let g:seoul256_background=237
-" colo seoul256-light
-" colo seoul256
+set background=dark
+let g:seoul256_background=236
+colo seoul256
 
 " enable auto-complete plugin
 " settings kept in seperate file
@@ -74,10 +74,13 @@ filetype indent on
 set incsearch
 set hlsearch
 
-" save with F
-nnoremap F :w<CR>
+" save shortcut with F
+nnoremap <c-f> :w<CR>
+
 set ignorecase
 set smartcase
+
+" % highlights scope
 noremap % v%
 
 " Smooth scroll
@@ -95,6 +98,7 @@ nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
 nnoremap gr gT
 
 " F2 and F3 for saving and loading sessions
+" TODO make this useful
 map <F2> :mksession! ~/vim_session <cr> " Quick write session with F2
 map <F3> :source ~/vim_session <cr>     " And load session with F3
 
@@ -104,7 +108,7 @@ map <Leader> <Plug>(easymotion-prefix)
 " Nerd Tree Settings
 nnoremap \ :NERDTreeTabsToggle<Cr>
 let g:NERDTreeWinSize = 45
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden=0
 
 " get rid of that annoying netrwhist file stuff
 let g:netrw_dirhistmax = 0
@@ -129,12 +133,24 @@ let g:airline_symbols.space = "\ua0"
 hi Visual ctermfg=black ctermbg=yellow
 hi MatchParen cterm=none ctermfg=white ctermbg=green
 hi Search ctermfg=black ctermbg=yellow
-hi IncSearch ctermfg=black ctermbg=yellow
-hi TabLineSel ctermfg=black ctermbg=green
+hi IncSearch ctermfg=yellow ctermbg=black
+hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
 hi StatusLine ctermbg=yellow
 
+nnoremap ;; :%s:::cg<Left><Left><Left><Left>
+
 " you can press <CR>h to highlight all the words under the cursor
-nnoremap <c-h> :set hlsearch!<Cr>
-set updatetime=350
-au! CursorHold * set nohlsearch | let @/='\<'.expand("<cword>").'\>'
+let ishighlighted=0
+function! ToggleHighlightUnderWord()
+    let g:ishighlighted = !g:ishighlighted
+    if g:ishighlighted
+        let @/='\<'.expand("<cword>").'\>'
+        set hlsearch
+    else
+        set nohlsearch
+    endif
+endfunction
+
+map <c-g> :call ToggleHighlightUnderWord()<CR>
+map <c-h> :set hlsearch!<CR>
