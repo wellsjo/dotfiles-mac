@@ -139,15 +139,9 @@ nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 
 " you can press <CR>g to highlight all the words under the cursor
 " or <CR>h to toggle highlighting
-let ishighlighted=0
 function! ToggleHighlightUnderWord()
-    let g:ishighlighted = !g:ishighlighted
-    if g:ishighlighted
         let @/='\<'.expand("<cword>").'\>'
         set hlsearch
-    else
-        set nohlsearch
-    endif
 endfunction
 
 map <c-g> :call ToggleHighlightUnderWord()<CR>
