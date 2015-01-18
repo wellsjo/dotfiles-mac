@@ -95,8 +95,10 @@ set rtp+=~/.fzf
 " fuzzy finder shortcut call
 nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
 
-" I prefer gr to go back a tab
+" I prefer gr to go back a tab, also left and right arrow keys
 nnoremap gr gT
+map <Left> gr
+map <Right> gt
 
 " Easy motion settings
 map <Leader> <Plug>(easymotion-prefix)
