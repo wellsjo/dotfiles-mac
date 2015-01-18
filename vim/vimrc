@@ -1,63 +1,24 @@
-" Load bundles
+" Load plugins from /bundles first
 execute pathogen#infect()
 
+" ======= Editor =======
+
 set number
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
 let t_Co=256
 let mapleader=" "
 set term=screen-256color
-filetype off
-syntax on
 set undolevels=1000
 
-" colorscheme monokai
-
-" Seoul settings
-set background=dark
-let g:seoul256_background=236
-colo seoul256
-
-" enable auto-complete plugin
-" settings kept in seperate file
-let g:neocomplcache_enable_at_startup = 1
-source ~/.wells_dotfiles/vim/neocomplete_settings.vim
-
-" session handling functions
-" vim will save your open tabs and re-open them on return
-source ~/.wells_dotfiles/vim/session_handling.vim
-
-" status bar
-set laststatus=2
-set statusline=%4*\ %<%F%*              " full path
-set statusline +=%2*%m%*                " modified flag
-set statusline +=%1*%=%5l%*             " current line
-set statusline +=%2*/%L%*               " total lines
-set statusline +=%1*%4v\ %*             " virtual column number
-
-set cursorline
-set nocursorcolumn
-
-" cntrl-o and p switch window splits
-nmap <silent> <C-o> :wincmd h<CR>
-nmap <silent> <C-p> :wincmd l<CR>
-
-" Syntastic
-let g:syntastic_check_on_open=1
-
-" Tmux mouse fix (for resizing vim panes within tmux)
-set mouse+=a
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
-
-" Code folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=10        "this is just what i use
-
-" tagbar
-nmap ,, :TlistToggle<CR>
+" Get rid of that annoying netrwhist file stuff
+let g:netrw_dirhistmax = 0
 
 " Tab settings
 set expandtab
@@ -66,31 +27,59 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 set smartindent
-filetype on
-filetype plugin on
-filetype indent on
 
-" Search Options
-set incsearch
-set hlsearch
+" Colorscheme
+set background=dark
+let g:seoul256_background=236
+colo seoul256
 
-" save shortcut with F
+" Status bar
+set laststatus=2
+set cursorline
+set nocursorcolumn
+
+" Code folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=10        "this is just what i use
+
+" Tmux mouse fix (for resizing vim panes within tmux)
+set mouse+=a
+if &term =~ '^screen'
+    set ttymouse=xterm2
+endif
+
+" ======= CUSTOM COLORS =======
+
+hi Visual ctermfg=black ctermbg=yellow
+hi MatchParen cterm=none ctermfg=white ctermbg=green
+hi Search ctermfg=black ctermbg=yellow
+hi IncSearch ctermfg=yellow ctermbg=black
+hi TabLineSel ctermfg=white ctermbg=black
+hi TabLine ctermfg=black ctermbg=white
+hi StatusLine ctermbg=yellow
+
+" ======= Mappings =======
+
+" Toggle comments with c-/
+map <c-/> <c-_><c-_>
+
+" Toggle tagbar with ,,
+nmap ,, :TlistToggle<CR>
+
+" navigate window splits with c-o and c-p
+map <silent> <C-o> :wincmd h<CR>
+map <silent> <C-p> :wincmd l<CR>
+
+" save with c-f
 nnoremap <c-f> :w<CR>
-nnoremap <leader><leader> :q<CR>
 
-set ignorecase
-set smartcase
+" save and exit file with space space
+nnoremap <leader><leader> :x<CR>
 
 " % highlights scope
 noremap % v%
-
-" Smooth scroll
-nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
-nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
-nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
-
-" Fuzzy search runtime path
-set rtp+=~/.fzf
 
 " fuzzy finder shortcut call
 nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
@@ -100,51 +89,58 @@ nnoremap gr gT
 map <Left> gr
 map <Right> gt
 
-" Easy motion settings
+" Activate EasyMotion with space
 map <Leader> <Plug>(easymotion-prefix)
 
-" Nerd Tree Settings
+" Open MRU with m
+nnoremap m :MRU<cr>
+
+" Search and replace shorthand with ;;
+nnoremap ;; :%s:::cg<Left><Left><Left><Left>
+
+" you can press c-g to highlight all the words under the cursor
+" and c-h to toggle highlighting
+function! ToggleHighlightUnderWord()
+        let @/='\<'.expand("<cword>").'\>'
+        set hlsearch
+endfunction
+map <c-g> :call ToggleHighlightUnderWord()<CR>
+map <c-h> :set hlsearch!<CR>
+
+" ======= Plugin Settings =======
+
+" Neocomplete
+" enable auto-complete plugin settings kept in seperate file
+let g:neocomplcache_enable_at_startup = 1
+source ~/.wells_dotfiles/vim/neocomplete_settings.vim
+
+" Syntastic
+let g:syntastic_check_on_open=1
+
+" FZF (fuzzy search)
+set rtp+=~/.fzf
+
+" Smooth scroll
+nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
+nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
+nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
+
+" Nerd Tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
 let g:NERDTreeWinSize = 45
 let NERDTreeShowHidden=0
 
-" get rid of that annoying netrwhist file stuff
-let g:netrw_dirhistmax = 0
-
-" tab labels
+" Taboo (tab labels)
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
 
 " MRU options
 let MRU_Window_Height = 40
-nnoremap m :MRU<cr>
 
-" status line
+" Status line plugin
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
-
-""" CUSTOM COLORS """
-hi Visual ctermfg=black ctermbg=yellow
-hi MatchParen cterm=none ctermfg=white ctermbg=green
-hi Search ctermfg=black ctermbg=yellow
-hi IncSearch ctermfg=yellow ctermbg=black
-hi TabLineSel ctermfg=white ctermbg=black
-hi TabLine ctermfg=black ctermbg=white
-hi StatusLine ctermbg=yellow
-
-" Shortcut for search/replace
-nnoremap ;; :%s:::cg<Left><Left><Left><Left>
-
-" you can press <CR>g to highlight all the words under the cursor
-" or <CR>h to toggle highlighting
-function! ToggleHighlightUnderWord()
-        let @/='\<'.expand("<cword>").'\>'
-        set hlsearch
-endfunction
-
-map <c-g> :call ToggleHighlightUnderWord()<CR>
-map <c-h> :set hlsearch!<CR>
