@@ -30,6 +30,12 @@ if type -p rbenv >/dev/null 2>&1 ; then
     eval "$(rbenv init -)"
 fi
 
+# Overrite "cd" to also run ls -la to show the directory contents
+function cd()
+{
+ builtin cd "$*" && ls -la
+}
+
 # liquid prompt
 source ~/.wells_dotfiles/bash/liquidprompt/liquidprompt
 
