@@ -75,8 +75,8 @@ map <silent> <C-p> :wincmd l<CR>
 " save with c-f
 nnoremap <c-f> :w<CR>
 
-" save and exit file with space space
-nnoremap <leader><leader> :x<CR>
+" save and exit file with Q
+nnoremap Q :x<CR>
 
 " % highlights scope
 noremap % v%
