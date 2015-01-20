@@ -63,7 +63,7 @@ hi StatusLine ctermbg=yellow
 " ======= Mappings =======
 
 " Toggle comments with c-/
-map <c-/> <c-_><c-_>
+map < <c-_><c-_>
 
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
