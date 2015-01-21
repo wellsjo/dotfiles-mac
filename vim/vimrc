@@ -86,8 +86,8 @@ nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
 
 " navigate window splits with c-o and c-p
-map <silent> <C-h> :wincmd u<CR>
-map <silent> <C-l> :wincmd i<CR>
+map <silent> <C-h> :wincmd o<CR>
+map <silent> <C-l> :wincmd p<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 
