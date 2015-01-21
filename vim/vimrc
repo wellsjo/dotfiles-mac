@@ -69,8 +69,9 @@ nmap ,, :TlistToggle<CR>
 map <silent> <C-o> :wincmd h<CR>
 map <silent> <C-p> :wincmd l<CR>
 
-" save with c-f
-nnoremap <c-s> :w<CR>
+" save with
+nnoremap w :w<CR>
+nnoremap W :x<CR>
 
 " save and exit file with Q
 nnoremap <Leader><Leader> :x<CR>
