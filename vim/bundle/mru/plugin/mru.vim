@@ -769,9 +769,9 @@ function! s:MRU_Open_Window(...)
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
     vnoremap <buffer> <silent> o
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
-    nnoremap <buffer> <silent> <S-CR>
+    nnoremap <buffer> <silent> h
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
-    vnoremap <buffer> <silent> <S-CR>
+    vnoremap <buffer> <silent> h
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
     nnoremap <buffer> <silent> s
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_vert')<CR>

@@ -62,9 +62,6 @@ hi StatusLine ctermbg=yellow
 
 " ======= Mappings =======
 
-" Toggle comments with c-/
-map < <c-_><c-_>
-
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
 
@@ -73,9 +70,10 @@ map <silent> <C-o> :wincmd h<CR>
 map <silent> <C-p> :wincmd l<CR>
 
 " save with c-f
-nnoremap <c-f> :w<CR>
+nnoremap <c-s> :w<CR>
 
 " save and exit file with Q
+nnoremap <Leader><Leader> :x<CR>
 nnoremap Q :x<CR>
 
 " % highlights scope
@@ -86,8 +84,12 @@ nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
 
 " I prefer gr to go back a tab, also left and right arrow keys
 nnoremap gr gT
-map <Left> gr
-map <Right> gt
+
+" resize windows with arrow keys
+nnoremap <Left> :vertical resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
+nnoremap <Up> :resize +5<CR>
+nnoremap <Down> :resize -5<CR>
 
 " Activate EasyMotion with space
 map <Leader> <Plug>(easymotion-prefix)
