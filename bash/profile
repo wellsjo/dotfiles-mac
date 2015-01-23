@@ -77,6 +77,8 @@ if [ -z "$TMUX" ]; then
     fi
 fi
 
+export PATH=$HOME/depot_tools:"$PATH"
+
 # for spotify.com website
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app
 export PATH=$PATH:/home/wells/src/web-site-translations/Symfony/app
