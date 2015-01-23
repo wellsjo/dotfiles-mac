@@ -53,7 +53,7 @@ endif
 " ======= CUSTOM COLORS =======
 
 hi Visual ctermfg=black ctermbg=yellow
-hi MatchParen cterm=none ctermfg=white ctermbg=green
+hi MatchParen cterm=none ctermfg=white ctermbg=blue
 hi Search ctermfg=black ctermbg=yellow
 hi IncSearch ctermfg=yellow ctermbg=black
 hi TabLineSel ctermfg=white ctermbg=black

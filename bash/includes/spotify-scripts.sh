@@ -1,6 +1,8 @@
 #!/bin/bash
 
 reload_cms() {
+cd ~/src/website/
+
 # cms
 console doctrine:database:drop --connection=cms --force
 console doctrine:database:create --connection=cms
