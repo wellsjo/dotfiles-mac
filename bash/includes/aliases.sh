@@ -5,8 +5,8 @@ alias d="~/src/website/devify.sh --skip-language --auto"
 alias c="clear"
 
 # Custom ssh shortcuts
-alias wells="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
-alias passenger="ssh -i ~/Google\ Drive/Important/Misc\ Saved\ Files/Amazon\ Web\ Services/wells_2.pem ubuntu@54.164.53.196"
+alias wells="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
+alias passenger="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ubuntu@54.164.53.196"
 
 alias vm="ssh -tA wells@www.captain-planet.cloud.spotify.net"
 alias yir="ssh -A awseu3-webgate-a1.yirendpoint.cloud.spotify.net"
