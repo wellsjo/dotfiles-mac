@@ -30,8 +30,9 @@ set smartindent
 
 " Colorscheme
 set background=dark
-let g:seoul256_background=236
-colo seoul256
+" let g:seoul256_background=236
+" colo seoul256
+colo plum
 
 " Status bar
 set laststatus=2
