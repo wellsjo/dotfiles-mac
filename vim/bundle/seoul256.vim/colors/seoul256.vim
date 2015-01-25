@@ -224,7 +224,7 @@ set cursorline
 call s:hi('CursorLine', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
 " hi CursorLine ctermbg=darkgray
-call s:hi('CursorLineNr', [s:dark_bg + 1, 238], [220, 220])
+" call s:hi('CursorLineNr', [s:dark_bg + 1, 238], [220, 220])
 " call s:hi('CursorColumn', ['', ''], [s:dark_bg - 1, s:light_bg - 1])
 
 call s:hi('Directory', [187, 95], ['', ''])

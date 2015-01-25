@@ -59,7 +59,8 @@ hi Search ctermfg=black ctermbg=yellow
 hi IncSearch ctermfg=yellow ctermbg=black
 hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
-hi StatusLine ctermbg=yellow
+hi LineNr ctermfg=gray
+hi CursorLineNr ctermfg=blue
 
 " ======= Mappings =======
 
