@@ -36,7 +36,7 @@ colo plum
 
 " Status bar
 set laststatus=2
-set cursorline
+set nocursorline
 set nocursorcolumn
 
 " Code folding settings
@@ -60,7 +60,7 @@ hi IncSearch ctermfg=yellow ctermbg=black
 hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
 hi LineNr ctermfg=gray
-hi CursorLineNr ctermfg=blue
+" hi CursorLineNr ctermfg=blue
 
 " ======= Mappings =======
 
