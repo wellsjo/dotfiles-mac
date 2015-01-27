@@ -67,6 +67,9 @@ hi LineNr ctermfg=gray
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
 
+" force write to read-only files with "sudow"
+cnoremap sudow w !sudo tee % >/dev/null
+
 " save and exit file with Q
 nnoremap <Leader><Leader> :x<CR>
 nnoremap Q :x<CR>

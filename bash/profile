@@ -10,7 +10,7 @@ EDITOR=vim
 TZ=America/New_York
 LANG=en_US.UTF-8
 HISTFILE="${HOME}/.history"
-HISTSIZE=1000
+HISTSIZE=10000
 
 # auto enable colors for commands like 'ls'
 CLICOLOR=1
@@ -46,7 +46,7 @@ source ~/.wells_dotfiles/bash/liquidprompt/liquidprompt
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
 
-# automatically start tmux and pass along ssh credentials
+# automatically start last tmux session if there was one and pass along ssh credentials
 if [ -z "$TMUX" ]; then
     # we're not in a tmux session
 
@@ -78,6 +78,9 @@ if [ -z "$TMUX" ]; then
 fi
 
 export PATH=$HOME/depot_tools:"$PATH"
+
+# better man pages
+export PAGER=most
 
 # for spotify.com website
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app

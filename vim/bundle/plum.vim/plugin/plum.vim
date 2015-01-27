@@ -10,9 +10,9 @@
 " Init
 " ----------------------------------------------------------------------------
 
-if !has('mac') || exists("g:plum_loaded")
+" if !has('mac') || exists("g:plum_loaded")
     finish
-endif
+" endif
 let g:plum_loaded = 1
 
 
