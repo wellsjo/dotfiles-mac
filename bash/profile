@@ -79,6 +79,9 @@ fi
 
 export PATH=$HOME/depot_tools:"$PATH"
 
+// better man pages
+export PAGER=most
+
 # for spotify.com website
 export PATH=$PATH:/home/wells/src/web-site/Symfony/app
 export PATH=$PATH:/home/wells/src/web-site-translations/Symfony/app
