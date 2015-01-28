@@ -27,6 +27,10 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 set smartindent
+scriptencoding utf-8
+set encoding=utf-8
+set list
+set listchars=tab:\|\ 
 
 " Colorscheme
 set background=dark
@@ -54,7 +58,7 @@ endif
 " ======= CUSTOM COLORS =======
 
 hi Visual ctermfg=black ctermbg=yellow
-hi MatchParen cterm=none ctermfg=red ctermbg=blue
+hi MatchParen cterm=none ctermfg=red ctermbg=none
 hi Search ctermfg=black ctermbg=yellow
 hi IncSearch ctermfg=yellow ctermbg=black
 hi TabLineSel ctermfg=white ctermbg=black
