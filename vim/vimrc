@@ -36,7 +36,8 @@ set listchars=tab:\|\
 set background=dark
 " let g:seoul256_background=236
 " colo seoul256
-colo plum
+" colo plum
+colo monokai
 
 " Status bar
 set laststatus=2
@@ -64,6 +65,7 @@ hi IncSearch ctermfg=yellow ctermbg=black
 hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
 hi LineNr ctermfg=gray
+" hi Normal ctermbg=grey
 " hi CursorLineNr ctermfg=blue
 
 " ======= Mappings =======
