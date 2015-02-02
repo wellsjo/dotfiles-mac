@@ -78,6 +78,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 export PATH=$HOME/depot_tools:"$PATH"
+export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # better man pages
 export PAGER=most
@@ -91,3 +92,4 @@ export PATH=$PATH:/home/wells/Symfony/app
 export PATH=$PATH:/home/wells/src/website/Symfony/app
 export PATH=$PATH:/home/wells/src/website/Symfony/app
 export PATH=$PATH:/home/wells/src/website/Symfony/app
+export PATH=$PATH:/home/wells/src/website/Symfony/app/Symfony/app
