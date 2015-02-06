@@ -61,12 +61,12 @@ endif
 hi Visual ctermfg=black ctermbg=yellow
 hi MatchParen cterm=none ctermfg=red ctermbg=none
 hi Search ctermfg=black ctermbg=yellow
-hi IncSearch ctermfg=yellow ctermbg=black
+hi IncSearch ctermfg=black ctermbg=yellow
 hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
 hi LineNr ctermfg=gray
 " hi Normal ctermbg=grey
-" hi CursorLineNr ctermfg=blue
+hi CursorLineNr ctermfg=blue
 
 " ======= Mappings =======
 
