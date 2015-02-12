@@ -132,6 +132,18 @@ let g:syntastic_check_on_open=1
 " FZF (fuzzy search)
 set rtp+=~/.fzf
 
+" auto-pairs
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
+
+" MatchTagAlways
+let g:mta_use_matchparent_group = 1
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml': 1,
+    \ 'xml': 1,
+    \ 'twig': 1
+    \}
+
 " Smooth scroll
 nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
