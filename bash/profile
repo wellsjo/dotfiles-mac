@@ -33,7 +33,7 @@ fi
 # Overrite "cd" to also run ls -la to show the directory contents
 function cd()
 {
- builtin cd "$*" && ls -la
+ builtin cd "$*" && l
 }
 
 # liquid prompt

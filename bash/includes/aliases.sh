@@ -8,7 +8,7 @@ alias passenger="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/w
 
 # Shorthand
 alias h="cd ~"
-alias l="ls -la"
+alias l="ls -la --color=auto"
 alias ..="cd .."
 alias gs="git status"
 alias gl="git log"
