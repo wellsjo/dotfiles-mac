@@ -34,17 +34,11 @@ let s:group      = get(g:, 'blockify_highlight_group', 'MatchParen')
 let s:everything = get(g:, 'blockify_highlight_everything')
 let s:prio       = get(g:, 'blockify_match_priority', 42)
 let s:id         = get(g:, 'blockify_match_id', 666)
+let s:default    = [ '{', '}' ]
 
 let s:pairs = {
-      \ 'c':          [ '{', '}' ],
-      \ 'cpp':        [ '{', '}' ],
-      \ 'java':       [ '{', '}' ],
-      \ 'javascript': [ '{', '}' ],
-      \ 'obj':        [ '{', '}' ],
-      \ 'objcpp':     [ '{', '}' ],
-      \ 'php':        [ '{', '}' ],
-      \ 'rust':       [ '{', '}' ],
-      \ 'go':         [ '{', '}' ],
+      \ 'vim':        [ '\<if\>', '\<endif\>' ],
+      \ 'clojure':    [ '(', ')' ],
       \}
 
 if exists('g:blockify_pairs')
@@ -54,41 +48,37 @@ endif
 autocmd BufEnter * call s:set_at_enter_buf()
 
 function! s:set_at_enter_buf() abort
-  if has_key(s:pairs, &ft)
-    augroup blockify
+  if &filetype !=# 'help'
+    augroup matchparenalways
       autocmd!
-      exe 'autocmd CursorMoved,CursorMovedI <buffer> call s:highlight_block()'
+      autocmd CursorMoved,CursorMovedI <buffer> call <sid>highlight_block()
     augroup END
   endif
 endfunction
 
 function! s:highlight_block() abort
-  if !has_key(s:pairs, &ft) && exists('w:match')
-    try
-      call matchdelete(w:match)
-    catch /E803:/
-      "Do nothing
-    endtry
-    unlet w:match
-    return
-  elseif !has_key(s:pairs, &ft)
-    return
-  elseif exists('w:match')
-    try
-      call matchdelete(w:match)
-    catch /E803:/
-      "Do nothing
-    endtry
+  if exists('w:match')
+    silent! call matchdelete(w:match)
   endif
 
-  let char_open  = s:pairs[&ft][0]
-  let char_close = s:pairs[&ft][1]
-
-  if matchstr(getline('.'), '.', col('.')-1) != char_open
-    let pos_open = searchpairpos(char_open, '', char_close, 'Wnb')
+  if getchar(1) != 0
+    "debounce
+    return
   endif
-  if matchstr(getline('.'), '.', col('.')-1) != char_close
-    let pos_close = searchpairpos(char_open, '', char_close, 'Wn')
+
+  if exists('w:paren_hl_on') && w:paren_hl_on
+    return
+  endif
+
+  let char_open  = get(s:pairs, &ft, s:default)[0]
+  let char_close = get(s:pairs, &ft, s:default)[1]
+
+  let curchar = matchstr(getline('.'), '.', col('.')-1)
+  if curchar != char_open
+    let pos_open = searchpairpos(char_open, '', char_close, 'Wnb', '', 0, 20)
+  endif
+  if curchar != char_close
+    let pos_close = searchpairpos(char_open, '', char_close, 'Wn', '', 0, 20)
   endif
 
   if s:everything
@@ -106,3 +96,5 @@ function! s:highlight_block() abort
     endif
   endif
 endfunction
+
+" vim:set et sw=2 sts=2:
