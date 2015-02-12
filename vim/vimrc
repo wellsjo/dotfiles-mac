@@ -65,7 +65,6 @@ hi IncSearch ctermfg=black ctermbg=yellow
 hi TabLineSel ctermfg=white ctermbg=black
 hi TabLine ctermfg=black ctermbg=white
 hi LineNr ctermfg=gray
-" hi Normal ctermbg=grey
 hi CursorLineNr ctermfg=blue
 
 " ======= Mappings =======

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# @author  Wells Johnston <w@wellsjohnston.com>
+
 # re-source dotfiles from git repo
 wells_update() {
     echo
@@ -79,18 +81,17 @@ wells_install() {
     fi
 
     echo -e "\nSetting symlinks..."
-    h.symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
-    h.symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
-    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
-    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bashrc"
-    h.symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bash_profile"
-    h.symlink "${HOME}/.wells_dotfiles/bash" "${HOME}/.bash"
-    h.symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-    h.symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
-    h.symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
-    h.symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
-    h.symlink "${HOME}/.wells_dotfiles/bash/bash-git-prompt" "${HOME}/.bash-git-prompt"
-    h.symlink "${HOME}/.wells_dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
+    symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
+    symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
+    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
+    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bashrc"
+    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bash_profile"
+    symlink "${HOME}/.wells_dotfiles/bash" "${HOME}/.bash"
+    symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
+    symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
+    symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
+    symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
+    symlink "${HOME}/.wells_dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
     # source tmux
     echo -e "\nSourcing tmux..."
@@ -109,6 +110,7 @@ wells_install() {
 }
 alias winstall="wells_install"
 
+# Unintelligent uninstall script. just removes my dotfiles repo and any hanging symlinks
 wells_uninstall() {
     cd ~
     rm -rf .wells_dotfiles
@@ -134,7 +136,7 @@ wellssh() {
       USER=\"\$USER\" \$SHELL -i"
 }
 
-# display available functions/readme
+# Display available functions/readme
 function wells_help() {
     # spit out the README while stripping ugly tags
     cat ~/.wells_dotfiles/README.md | sed -r 's/<\/?pre>//'
@@ -142,8 +144,8 @@ function wells_help() {
 alias wsettings="wells_help"
 alias whelp="wells_help"
 
-# Simple helper to remove and make symlinks
-function h.symlink() {
+# Helper to remove and make symlinks
+function symlink() {
     # If this isnt a symlink
     if [ ! -L "$2" ]; then
         # Backup the file

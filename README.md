@@ -8,20 +8,23 @@ git clone git@github.com:wellsjo/wells_dotfiles.git ~/.wells_dotfiles && source 
 
 That line clones this repository and then sets symlinks to the bash, vim, and git dotfiles from the home directory.  Type 'whelp' to get a list of functions and commands available.  Enjoy
 
-####Bash aliases & functions
+####Bash
 <pre>
 whelp             # get a list of available commands
+
 wssh              # ssh into a remote server and installs my dotfile setup from this repository
+
 winstall          # this is used by wssh to install my dotfiles upon entering a remote machine.
                   # alternatively, you can just clone this repository, source the profile located
                   # in wells_dotfiles/bash/profile, then run winstall.  This is explained above.
 
 wupdate           # updates dotfile settings from this repo.  optionally just updates locally.
 wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
-wells_colors      # show list of available color variables
 
-wells_sync        # wells_sync --(down|up) remote local
-                  # use rsync to sync remote files with local
+up <#>            # cd back # times
+back <#>          # go back # in cd history
+..                # go up one directory (alias for "cd ..")
+l                 # alias for "ls -la"
 
 gs                # git status
 gl                # git log
@@ -30,8 +33,6 @@ gb                # git branch
 
 ta                # tmux -2 attach
 t                 # tmux -2
-..                # cd ..
-l                 # ls -la
 
 fe                # fuzzy find & open file in vim
 fd                # fuzzy find & go to directory
@@ -39,21 +40,33 @@ fh / ctrl-r       # fuzzy search repeat history
 fkill             # fuzzy search & kill process(es)
 </pre>
 
-####Vim key mappings
+####Vim
 <pre>
 ### Miscellaneous Shortcuts
 m                 # open recently used filesc (MRU)
 gt                # go forward a tab
 gr                # go back a tab
-ff                # fold current indent level
-gc                # toggle comment
+gc                # toggle comment on selected
+gcc               # toggle comment on line
 gS                # split code up
 gJ                # consolodate code to one line
-ctrl-h            # toggle highlight
-(ctrl-n)*v        # multi-search select
-,,                # show function taglist
 
-### Window management
+ctrl-f            # :w shorthand
+Q                 # :wq shorthand
+ctrl-g            # highlight search word under cursor
+ctrl-h            # toggle highlight
+
+sudow             # force-save a read-only file :)
+
+\                 # toggle NerdTree
+;;                # search/replace shorthand
+,,                # toggle taglist
+
+### Movement
+s                 # open buffer in vertial split
+h                 # open buffer in horizontal split
+ctrl-k            # go up window
+ctrl-j            # go down window
 ctrl-O            # previous window
 ctrl-P            # next window
 
@@ -65,9 +78,9 @@ ds(char)          # remove (char) from surrounding
 S(char)           # surround selection with (char) in visual mode
 
 ### EasyMotion
+(space)s(char)    # search for (char)
 (space)w          # search word forward
 (space)b          # search word back
-(space)s(char)    # search for (char)
 
 ### FZF
 cntrl-t           # fuzzy file search

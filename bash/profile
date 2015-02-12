@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Autoload includes
+# Autoload include directory
 for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
 do
     . "${includeFile}"
