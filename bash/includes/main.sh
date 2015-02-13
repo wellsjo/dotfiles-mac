@@ -10,12 +10,6 @@ wells_update() {
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
         wells_install
-    else
-        read -p "Do you want to re-source from the local wells_dotfiles repository? " -n 1 -r
-        if [[ $REPLY =~ ^[Yy]$ ]]
-        then
-            wells_source
-        fi
     fi
 }
 alias wupdate="wells_update"
@@ -24,39 +18,8 @@ alias wupdate="wells_update"
 wells_source() {
     echo "Re-sourcing local dotfiles..."
     source ~/.wells_dotfiles/bash/profile
-    echo
-    read -p "Re-load tmux config? " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        echo "Re-sourcing tmux config..."
-        tmux source ~/.tmux.conf
-    fi
 }
 alias wsource="wells_source"
-
-# push local dotfiles to repo
-wells_push() {
-    echo
-    echo "Showing diff..."
-    echo
-    local cur_dir=${PWD}
-    cd ~/.wells_dotfiles
-    git diff
-    git status
-    echo
-    read -p "Do you want to update the remote git repository? " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        echo "Updating repository..."
-        git add .
-        git commit -m "updated from running wells_push"
-        git push
-    fi
-    cd ${cur_dir}
-}
-alias wpush="wells_push"
 
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
@@ -110,13 +73,6 @@ wells_install() {
 }
 alias winstall="wells_install"
 
-# Unintelligent uninstall script. just removes my dotfiles repo and any hanging symlinks
-wells_uninstall() {
-    cd ~
-    rm -rf .wells_dotfiles
-    rm .fzf .bash .bash_profile .bashrc .gitconfig .gitignore_global .profile .tmux.conf .vim .vimrc
-}
-
 # Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
 wellssh() {
@@ -144,7 +100,7 @@ function wells_help() {
 alias wsettings="wells_help"
 alias whelp="wells_help"
 
-# Helper to remove and make symlinks
+# Helper to safely remove and make symlinks
 function symlink() {
     # If this isnt a symlink
     if [ ! -L "$2" ]; then
