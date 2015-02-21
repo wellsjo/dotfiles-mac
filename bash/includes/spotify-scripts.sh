@@ -3,6 +3,22 @@
 # Scripts related to Spotify development (not included in repo)
 # @author Wells Johnston <w@wellsjohnston.com>
 
+# Bash aliases
+alias d="~/src/website/devify.sh --skip-language --auto"
+alias vm="ssh -tA wells@www.captain-planet.cloud.spotify.net"
+alias jump="ssh -A wells@jump1.lon.spotify.net"
+alias stage="ssh -A wells@lon3-wwwstaging-a1.lon3.spotify.net"
+alias prod1="ssh -A wells@lon2-www-a1.lon.spotify.net"
+alias prod2="ssh -A wells@lon2-www-a2.lon.spotify.net"
+alias prod3="ssh -A wells@lon2-www-a3.lon.spotify.net"
+alias prod4="ssh -A wells@lon2-www-a4.lon.spotify.net"
+alias prod5="ssh -A wells@lon2-www-a5.lon.spotify.net"
+
+# Development shortcuts
+alias enablepuppet="sudo sppuppet enable-cron"
+alias disablepuppet="sudo sppuppet disable-cron"
+alias startpuppet="sudo sppuppet agent -vt"
+
 sync_website_down() {
     rsync --delete --progress -a -f'- .git*' -f'- *.vimhook.sh' -f'- *.swp' -f'- **/cache' -f'- **/vendor' -f'- **/node_modules' +www.captain-planet.cloud.spotify.net:/home/wells/src/website /Users/wells/src
 }

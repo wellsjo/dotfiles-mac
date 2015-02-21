@@ -1,14 +1,11 @@
 #!/bin/bash
 
-# Wells Johnston <w@wellsjohnston.com>
-
-# SSH shortcuts
-alias wells="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
-alias passenger="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ubuntu@54.164.53.196"
+# @author Wells Johnston <w@wellsjohnston.com>
 
 # Shorthand
 alias h="cd ~"
 alias l="ls -la"
+alias c="clear"
 alias ..="cd .."
 alias gs="git status"
 alias gl="git log"
@@ -16,20 +13,3 @@ alias gd="git diff"
 alias gb="git branch"
 alias t="tmux -2"
 alias ta="tmux -2 attach"
-
-# Development shortcuts
-alias enablepuppet="sudo sppuppet enable-cron"
-alias disablepuppet="sudo sppuppet disable-cron"
-alias startpuppet="sudo sppuppet agent -vt"
-
-# Spotify
-alias d="~/src/website/devify.sh --skip-language --auto"
-alias c="clear"
-alias vm="ssh -tA wells@www.captain-planet.cloud.spotify.net"
-alias jump="ssh -A wells@jump1.lon.spotify.net"
-alias stage="ssh -A wells@lon3-wwwstaging-a1.lon3.spotify.net"
-alias prod1="ssh -A wells@lon2-www-a1.lon.spotify.net"
-alias prod2="ssh -A wells@lon2-www-a2.lon.spotify.net"
-alias prod3="ssh -A wells@lon2-www-a3.lon.spotify.net"
-alias prod4="ssh -A wells@lon2-www-a4.lon.spotify.net"
-alias prod5="ssh -A wells@lon2-www-a5.lon.spotify.net"
