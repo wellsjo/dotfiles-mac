@@ -55,6 +55,7 @@ endif
 " ======= CUSTOM COLORS =======
 
 hi Type ctermfg=120 ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi Function ctermfg=120 ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi Search ctermfg=black ctermbg=yellow
 hi IncSearch ctermfg=black ctermbg=yellow
 hi CursorLineNr ctermfg=blue
