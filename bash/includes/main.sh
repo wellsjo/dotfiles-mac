@@ -9,7 +9,7 @@ wells_update() {
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        wells_install
+        update_from_repo
     fi
 }
 alias wupdate="wells_update"
@@ -25,23 +25,7 @@ alias wsource="wells_source"
 # Create symlinks in the $HOME directory to elements in the repo
 wells_install() {
 
-    echo -e "\nInstalling wells_dotfiles..."
-
-    local REPO='https://github.com/wellsjo/wells_dotfiles'
-
-    # If the dotfiles dir already exists
-    if [ -d "${HOME}/.wells_dotfiles" ] ; then
-        cd "${HOME}/.wells_dotfiles"
-        git reset --hard HEAD >/dev/null 2>&1
-        echo "Updating from git repo..."
-        git pull
-    else
-        echo "wells_dotfiles not present"
-        echo -e "Cloning git repo from ${REPO}..."
-        cd "${HOME}"
-        git clone --depth 1 ${REPO} .wells_dotfiles
-        cd "${HOME}/.wells_dotfiles"
-    fi
+    update_from_repo
 
     echo -e "\nSetting symlinks..."
     symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
@@ -72,6 +56,26 @@ wells_install() {
     echo -e "\nType 'wells_settings' to get a list of available commands"
 }
 alias winstall="wells_install"
+
+update_from_repo() {
+    echo -e "\nInstalling wells_dotfiles..."
+
+    local REPO='https://github.com/wellsjo/wells_dotfiles'
+
+    # If the dotfiles dir already exists
+    if [ -d "${HOME}/.wells_dotfiles" ] ; then
+        cd "${HOME}/.wells_dotfiles"
+        git reset --hard HEAD >/dev/null 2>&1
+        echo "Updating from git repo..."
+        git pull
+    else
+        echo "wells_dotfiles not present"
+        echo -e "Cloning git repo from ${REPO}..."
+        cd "${HOME}"
+        git clone --depth 1 ${REPO} .wells_dotfiles
+        cd "${HOME}/.wells_dotfiles"
+    fi
+}
 
 # Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
