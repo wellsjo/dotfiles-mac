@@ -11,10 +11,10 @@ let g:colors_name = "wells-colors"
 
 " highlight, visual
 " yellow
-hi Visual ctermfg=black ctermbg=192 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
-hi String ctermfg=192 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
-hi IncSearch ctermbg=192 ctermfg=black cterm=NONE guifg=#272822 guibg=#e6db74 gui=NONE
-hi Search ctermbg=192 ctermfg=black guifg=NONE guibg=NONE
+hi Visual ctermfg=black ctermbg=228 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+hi String ctermfg=228 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
+hi IncSearch ctermbg=228 ctermfg=black cterm=NONE guifg=#272822 guibg=#e6db74 gui=NONE
+hi Search ctermbg=228 ctermfg=black guifg=NONE guibg=NONE
 
 " keywords, operators
 " pinkish color
