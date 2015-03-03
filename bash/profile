@@ -71,6 +71,7 @@ if [ -z "$TMUX" ]; then
     fi
 fi
 
+export GREP_OPTIONS='--color=always'
 export PATH=$HOME/depot_tools:"$PATH"
 export PATH=$HOME/.bpkg/bin:"$PATH"
 

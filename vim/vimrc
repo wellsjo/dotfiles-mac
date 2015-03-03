@@ -85,6 +85,7 @@ nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
 
 " auto-center search results
+nnoremap z zz
 nnoremap n nzz
 nnoremap N Nzz
 
