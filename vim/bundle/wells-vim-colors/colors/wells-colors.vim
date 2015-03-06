@@ -52,6 +52,9 @@ hi StorageClass ctermfg=105 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui
 " light green color
 hi Type ctermfg=120 ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi Function ctermfg=120 ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi cssClassName ctermfg=120 ctermbg=NONE cterm=NONE guifg=#a6e22e guibg=NONE gui=NONE
+hi htmlH2 ctermfg=120 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
+hi cssPseudoClassId ctermfg=120 ctermbg=NONE cterm=NONE guifg=#a6e22e guibg=NONE gui=NONE
 
 " other
 hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#272822 gui=NONE
@@ -67,12 +70,22 @@ hi DiffText ctermfg=231 ctermbg=24 cterm=bold guifg=#f8f8f2 guibg=#204a87 gui=bo
 " bright blue
 " variables
 hi Identifier ctermfg=123 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
+hi htmlH3 ctermfg=123 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
+hi htmlH4 ctermfg=123 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
+hi htmlH5 ctermfg=123 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
+hi htmlH6 ctermfg=123 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
+hi javaScriptFunction ctermfg=123 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
+hi javaScriptRailsFunction ctermfg=123 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
+hi cssFunctionName ctermfg=123 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
+hi cssCommonAttr ctermfg=123 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
+
+" orange
+hi cssURL ctermfg=214 ctermbg=NONE cterm=NONE guifg=#fd971f guibg=NONE gui=italic
 
 hi Label ctermfg=186 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
 hi NonText ctermfg=238 ctermbg=NONE cterm=NONE guifg=#49483e guibg=NONE gui=NONE
 hi Special ctermfg=231 ctermbg=NONE cterm=NONE guifg=#f8f8f2 guibg=NONE gui=NONE
 hi SpecialKey ctermfg=236 ctermbg=None cterm=NONE guifg=#49483e guibg=#3c3d37 gui=NONE
-
 hi Title ctermfg=231 ctermbg=NONE cterm=bold guifg=#f8f8f2 guibg=NONE gui=bold
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
 hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
@@ -88,11 +101,6 @@ hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 
 " html
 hi htmlH1 ctermfg=198 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
-hi htmlH2 ctermfg=148 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
-hi htmlH3 ctermfg=81 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
-hi htmlH4 ctermfg=81 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
-hi htmlH5 ctermfg=81 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
-hi htmlH6 ctermfg=81 ctermbg=NONE cterm=NONE guifg=#67930f guibg=NONE gui=NONE
 hi htmlTag ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi htmlEndTag ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi htmlTagName ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
@@ -100,19 +108,12 @@ hi htmlArg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi htmlSpecialChar ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
 
 " javascript
-hi javaScriptFunction ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
-hi javaScriptRailsFunction ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi javaScriptBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
 " yaml, css
 hi yamlAnchor ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi yamlAlias ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi yamlDocumentHeader ctermfg=186 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
-hi cssURL ctermfg=208 ctermbg=NONE cterm=NONE guifg=#fd971f guibg=NONE gui=italic
-hi cssFunctionName ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi cssColor ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
-hi cssPseudoClassId ctermfg=148 ctermbg=NONE cterm=NONE guifg=#a6e22e guibg=NONE gui=NONE
-hi cssClassName ctermfg=148 ctermbg=NONE cterm=NONE guifg=#a6e22e guibg=NONE gui=NONE
 hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
-hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
