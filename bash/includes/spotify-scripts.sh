@@ -11,11 +11,12 @@ alias jump="ssh -A wells@jump1.lon.spotify.net"
 alias charts="ssh -A ghe-analytics.koolaid.cloud.spotify.net"
 
 alias stage="ssh -A wells@lon3-wwwstaging-a1.lon3.spotify.net"
-alias prod1="ssh -A wells@lon2-www-a1.lon.spotify.net"
-alias prod2="ssh -A wells@lon2-www-a2.lon.spotify.net"
-alias prod3="ssh -A wells@lon2-www-a3.lon.spotify.net"
-alias prod4="ssh -A wells@lon2-www-a4.lon.spotify.net"
-alias prod5="ssh -A wells@lon2-www-a5.lon.spotify.net"
+
+alias prod1="ssh -A wells@lon2-www-a1.lon2.spotify.net"
+alias prod2="ssh -A wells@lon2-www-a2.lon2.spotify.net"
+alias prod3="ssh -A wells@lon2-www-a3.lon2.spotify.net"
+alias prod4="ssh -A wells@lon2-www-a4.lon2.spotify.net"
+alias prod5="ssh -A wells@lon2-www-a5.lon2.spotify.net"
 
 # Development shortcuts
 alias enablepuppet="sudo sppuppet enable-cron"
