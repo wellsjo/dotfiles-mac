@@ -2,13 +2,13 @@
 # ------------------
 unalias fzf 2> /dev/null
 fzf() {
-  /usr/bin/ruby ${HOME}/.wells_dotfiles/bash/fzf/fzf "$@"
+  /usr/bin/ruby ${HOME}/.dotfiles/bash/fzf/fzf "$@"
 }
 export -f fzf > /dev/null
 
 # Auto-completion
 # ---------------
-[[ $- =~ i ]] && source ${HOME}/.wells_dotfiles/bash/fzf/fzf-completion.bash
+[[ $- =~ i ]] && source ${HOME}/.dotfiles/bash/fzf/fzf-completion.bash
 
 # Key bindings
 # ------------
@@ -32,7 +32,7 @@ __fsel_tmux() {
   else
     height="-l $height"
   fi
-  tmux split-window $height "bash -c 'source ~/.wells_dotfiles/bash/includes/fzf.bash; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
+  tmux split-window $height "bash -c 'source ~/.dotfiles/bash/includes/fzf.bash; tmux send-keys -t $TMUX_PANE \"\$(__fsel)\"'"
 }
 
 __fcd() {

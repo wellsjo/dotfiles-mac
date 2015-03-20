@@ -5,7 +5,7 @@
 # re-source dotfiles from git repo
 wells_update() {
     echo
-    read -p "Do you want to update and re-source from the remote wells_dotfiles repository? " -n 1 -r
+    read -p "Do you want to update and re-source from the remote dotfiles repository? " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
@@ -17,7 +17,7 @@ alias wupdate="wells_update"
 # re-source local dotfiles
 wells_source() {
     echo "Re-sourcing local dotfiles..."
-    source ~/.wells_dotfiles/bash/profile
+    source ~/.dotfiles/bash/profile
 }
 alias wsource="wells_source"
 
@@ -28,17 +28,17 @@ wells_install() {
     update_from_repo
 
     echo -e "\nSetting symlinks..."
-    symlink "${HOME}/.wells_dotfiles/vim/vimrc" "${HOME}/.vimrc"
-    symlink "${HOME}/.wells_dotfiles/vim" "${HOME}/.vim"
-    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.profile"
-    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bashrc"
-    symlink "${HOME}/.wells_dotfiles/bash/profile" "${HOME}/.bash_profile"
-    symlink "${HOME}/.wells_dotfiles/bash" "${HOME}/.bash"
-    symlink "${HOME}/.wells_dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-    symlink "${HOME}/.wells_dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
-    symlink "${HOME}/.wells_dotfiles/bash/fzf" "${HOME}/.fzf"
-    symlink "${HOME}/.wells_dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
-    symlink "${HOME}/.wells_dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
+    symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
+    symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
+    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
+    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
+    symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
+    symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
+    symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
+    symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
+    symlink "${HOME}/.dotfiles/bash/fzf" "${HOME}/.fzf"
+    symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
+    symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
     # source tmux
     echo -e "\nSourcing tmux..."
@@ -58,22 +58,22 @@ wells_install() {
 alias winstall="wells_install"
 
 update_from_repo() {
-    echo -e "\nInstalling wells_dotfiles..."
+    echo -e "\nInstalling dotfiles..."
 
-    local REPO='https://github.com/wellsjo/wells_dotfiles'
+    local REPO='https://github.com/wellsjo/dotfiles'
 
     # If the dotfiles dir already exists
-    if [ -d "${HOME}/.wells_dotfiles" ] ; then
-        cd "${HOME}/.wells_dotfiles"
+    if [ -d "${HOME}/.dotfiles" ] ; then
+        cd "${HOME}/.dotfiles"
         git reset --hard HEAD >/dev/null 2>&1
         echo "Updating from git repo..."
         git pull
     else
-        echo "wells_dotfiles not present"
+        echo "dotfiles not present"
         echo -e "Cloning git repo from ${REPO}..."
         cd "${HOME}"
-        git clone --depth 1 ${REPO} .wells_dotfiles
-        cd "${HOME}/.wells_dotfiles"
+        git clone --depth 1 ${REPO} .dotfiles
+        cd "${HOME}/.dotfiles"
     fi
 }
 
@@ -99,7 +99,7 @@ wellssh() {
 # Display available functions/readme
 function wells_help() {
     # spit out the README while stripping ugly tags
-    cat ~/.wells_dotfiles/README.md | sed -r 's/<\/?pre>//'
+    cat ~/.dotfiles/README.md | sed -r 's/<\/?pre>//'
 }
 alias wsettings="wells_help"
 alias whelp="wells_help"

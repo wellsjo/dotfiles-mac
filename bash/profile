@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Autoload include directory
-for includeFile in $(find "${HOME}/.wells_dotfiles/bash/includes" -type f ! -iname *.swp)
+for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -type f ! -iname *.swp)
 do
     . "${includeFile}"
 done
@@ -31,10 +31,10 @@ if type -p rbenv >/dev/null 2>&1 ; then
 fi
 
 # liquid prompt
-source ~/.wells_dotfiles/bash/liquidprompt/liquidprompt
+source ~/.dotfiles/bash/liquidprompt/liquidprompt
 
 # Welcome Prompt
-# source ~/.wells_dotfiles/bash/welcome_prompt.sh
+# source ~/.dotfiles/bash/welcome_prompt.sh
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
