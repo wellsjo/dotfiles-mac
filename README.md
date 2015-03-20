@@ -1,9 +1,9 @@
 This is my portable development setup.  I use a combination of vim, tmux, git, and shell scripts to get things done.  My dotfiles also come with a bunch of useful functions and aliases available in bash.
 
-To install manually, simply clone this repo, source wells_dotfiles/bash/profile, then type ```wells_install```.  Or just copy this line:
+To install manually, simply clone this repo, source dotfiles/bash/profile, then type ```wells_install```.  Or just copy this line:
 
 <pre>
-git clone git@github.com:wellsjo/wells_dotfiles.git ~/.wells_dotfiles && source ~/.wells_dotfiles/bash/profile && wells_install
+git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles && source ~/.dotfiles/bash/profile && wells_install
 </pre>
 
 That line clones this repository and then sets symlinks to the bash, vim, and git dotfiles from the home directory.  Type 'whelp' to get a list of functions and commands available.  Enjoy
@@ -16,7 +16,7 @@ wssh              # ssh into a remote server and installs my dotfile setup from 
 
 winstall          # this is used by wssh to install my dotfiles upon entering a remote machine.
                   # alternatively, you can just clone this repository, source the profile located
-                  # in wells_dotfiles/bash/profile, then run winstall.  This is explained above.
+                  # in dotfiles/bash/profile, then run winstall.  This is explained above.
 
 wupdate           # updates dotfile settings from this repo.  optionally just updates locally.
 wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
