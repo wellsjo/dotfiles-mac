@@ -17,7 +17,7 @@
     ui = true
 
 [commit]
-    template = ~/.wells_dotfiles/git/message_template
+    template = ~/.dotfiles/git/message_template
 
 [core]
     editor = vim

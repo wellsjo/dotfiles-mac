@@ -124,7 +124,7 @@ augroup END
 " Neocomplete
 " enable auto-complete plugin settings kept in seperate file
 let g:neocomplcache_enable_at_startup = 1
-source ~/.wells_dotfiles/vim/neocomplete_settings.vim
+source ~/.dotfiles/vim/neocomplete_settings.vim
 
 " Syntastic
 let g:syntastic_check_on_open=1
