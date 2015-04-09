@@ -21,8 +21,8 @@ winstall          # this is used by wssh to install my dotfiles upon entering a 
 wupdate           # updates dotfile settings from this repo.  optionally just updates locally.
 wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
 
-up <#>            # cd back # times
-back <#>          # go back # in cd history
+up #              # cd back # times
+back #            # go back # in cd history
 ..                # go up one directory (alias for "cd ..")
 l                 # alias for "ls -la"
 
