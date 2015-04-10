@@ -10,7 +10,7 @@ alias jump="ssh -A wells@jump1.lon.spotify.net"
 
 alias charts="ssh -A ghe-analytics.koolaid.cloud.spotify.net"
 
-alias stage="ssh -A wells@lon3-wwwstaging-a1.lon3.spotify.net"
+alias stage="ssh -A lon3-wwwstaging-a1"
 
 alias prod1="ssh -A wells@lon2-www-a1.lon2.spotify.net"
 alias prod2="ssh -A wells@lon2-www-a2.lon2.spotify.net"
