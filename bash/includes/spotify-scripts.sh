@@ -6,7 +6,7 @@
 # Bash aliases
 alias d="~/src/website/devify.sh --skip-language --auto"
 alias vm="ssh -tA wells@www.captain-planet.cloud.spotify.net"
-alias vm2="ssh -A trusty.gluten-free.cloud.spotify.net"
+alias vm2="ssh -A trusty.flappy-bird.cloud.spotify.net"
 alias jump="ssh -A wells@jump1.lon.spotify.net"
 
 alias charts="ssh -A ghe-analytics.koolaid.cloud.spotify.net"
