@@ -30,12 +30,13 @@ wells_install() {
     echo -e "\nSetting symlinks..."
     symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
     symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
+
     symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
     symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
     symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
+
     symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
     symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-    symlink "${HOME}/.dotfiles/git/gitignore_global" "${HOME}/.gitignore_global"
     symlink "${HOME}/.dotfiles/bash/fzf" "${HOME}/.fzf"
     symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
     symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"

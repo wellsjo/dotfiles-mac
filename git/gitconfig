@@ -4,6 +4,7 @@
 
 [alias]
     st = status
+    ap = add -p
     co = checkout
     com = commit
     br = branch
@@ -14,10 +15,10 @@
     autosetuprebase = always
 
 [color]
+    diff = auto
+    branch = auto
+    status = auto
     ui = true
-
-[commit]
-    template = ~/.dotfiles/git/message_template
 
 [core]
     editor = vim
@@ -32,5 +33,3 @@
 
 [init]
     templatedir = ~/.git_template
-[hub]
-	host = ghe.spotify.net
