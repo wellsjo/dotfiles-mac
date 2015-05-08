@@ -6,12 +6,15 @@
 # basic strategy is to take ssh creds and save them as variables in "latestagent".  Then when a tmux session starts,
 # export those variables into the session by typing executing "fixssh"
 
-# Wells Johnston <w@wellsjohnston.com>
+# @author Wells Johnston <w@wellsjohnston.com>
 
-SSHVARS="SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY"
+# doesn't work on mac
+if [ $(uname) != "Darwin" ]; then
+  SSHVARS="SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY"
 
-for var in ${SSHVARS} ; do
-  echo "export $var=\"$(eval echo '$'$var)\""
-done 1>$HOME/.ssh/latestagent
+  for var in ${SSHVARS} ; do
+    echo "export $var=\"$(eval echo '$'$var)\""
+  done 1>$HOME/.ssh/latestagent
 
-alias fixssh="source ~/.ssh/latestagent"
+  alias fixssh="source ~/.ssh/latestagent"
+fi
