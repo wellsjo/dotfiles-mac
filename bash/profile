@@ -45,5 +45,3 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # better man pages
 export PAGER=most
-
-cd ~
