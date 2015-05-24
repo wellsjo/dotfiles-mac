@@ -3,7 +3,7 @@
 # SSH shortcuts
 alias wells="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ec2-user@54.83.193.197"
 
-alias wells2="ssh -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells.pem ubuntu@52.1.44.12"
+alias wells2="ssh -v -i ~/Google\ Drive/Persisted\ Files/Amazon\ Web\ Services/wells_2.pem ubuntu@52.5.153.21"
 
 
 # Fuckery
