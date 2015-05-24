@@ -4,7 +4,7 @@
 
 # Shorthand
 alias h="cd ~"
-alias l="ls -la --color=auto"
+alias l="ls -la"
 alias c="clear"
 alias ..="cd .."
 alias gs="git status"
