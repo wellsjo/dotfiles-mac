@@ -22,7 +22,7 @@
 
 [core]
     editor = vim
-    excludesfile = ~/.gitignore_global
+	excludesfile = ~/.dotfiles/git/gitignore_global
     pager = less
 
 [push]
