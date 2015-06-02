@@ -98,9 +98,10 @@ set editing-mode vi
 set keymap vi-command
 ```
 
-##ctags
-Install ctags to allow for better code browsing:
+##Dependencies
+Mac OSX
 ```bash
+brew install tmux
 brew install ctags
 ctags -R .                # assuming this is the directory you want to index
 ctags -R -f ./.git/tags . # to install to a more appropriate location
