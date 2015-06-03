@@ -39,7 +39,7 @@ source ~/.dotfiles/bash/liquidprompt/liquidprompt
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
-export GREP_OPTIONS='--color=always'
+export GREP_OPTIONS='--color=auto'
 export PATH=$HOME/depot_tools:"$PATH"
 export PATH=$HOME/.bpkg/bin:"$PATH"
 
