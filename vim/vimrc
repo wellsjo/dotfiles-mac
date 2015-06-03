@@ -17,12 +17,11 @@ let mapleader=" "
 set term=screen-256color
 
 " persistent undo for files between sessions
-if exists("&undodir")
-    set undofile
-    let &undodir=&directory
-    set undolevels=1000
-    set undoreload=1000
-endif
+set undofile
+set undodir=$HOME/.dotfiles/vim/tmp/undo
+set undolevels=1000
+set undoreload=1000
+set backupdir=$HOME/.dotfiles/vim/tmp/backup
 
 " Get rid of that annoying netrwhist file stuff
 let g:netrw_dirhistmax = 0

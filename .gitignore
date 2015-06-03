@@ -1,5 +1,4 @@
 vim/.netrwhist
 vim/sessions/*
-
-/* bash/includes/spotify-scripts.sh */
-/* bash/includes/personal-scripts.sh */
+vim/tmp/*
+*.pyc
