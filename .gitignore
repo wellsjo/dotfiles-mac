@@ -1,4 +1,6 @@
 vim/.netrwhist
 vim/sessions/*
-vim/tmp/*
+vim/tmp/undo/*
+vim/tmp/backup/*
+vim/tmp/vim_mru_files
 *.pyc
