@@ -37,7 +37,6 @@ wells_install() {
 
   symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
   symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
-  symlink "${HOME}/.dotfiles/bash/fzf" "${HOME}/.fzf"
   symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
   symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 

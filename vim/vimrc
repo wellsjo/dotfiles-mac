@@ -88,9 +88,6 @@ nnoremap <c-f> :w<CR>
 " % highlights scope
 noremap % v%
 
-" fuzzy finder shortcut call
-nnoremap <c-t> :call fzf#run({'sink':'tabe'}) <Cr>
-
 " I prefer gr to go back a tab, also left and right arrow keys
 nnoremap gr gT
 
@@ -149,9 +146,6 @@ let g:syntastic_check_on_open=1
 
 " PHP
 " let g:php_syntax_extensions_enabled=
-
-" FZF (fuzzy search)
-set rtp+=~/.fzf
 
 " auto-pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
