@@ -82,7 +82,6 @@ nmap ,, :TlistToggle<CR>
 cnoremap sudow w !sudo tee % >/dev/null
 
 " exit file with Q
-nnoremap <Leader><Leader> :x<CR>
 nnoremap Q :q<CR>
 nnoremap <c-f> :w<CR>
 

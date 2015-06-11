@@ -10,34 +10,25 @@ That line clones this repository and then sets symlinks to the bash, vim, and gi
 
 ####Bash
 <pre>
-whelp             # get a list of available commands
-
-wssh              # ssh into a remote server and installs my dotfile setup from this repository
+wellssh           # ssh into a remote server install dotfile setup from this repository
 
 winstall          # this is used by wssh to install my dotfiles upon entering a remote machine.
                   # alternatively, you can just clone this repository, source the profile located
                   # in dotfiles/bash/profile, then run winstall.  This is explained above.
 
-wupdate           # updates dotfile settings from this repo.  optionally just updates locally.
-wpush             # updates the remote repo.  you can fork this and go nuts, if you'd like.
-
-up #              # cd back # times
-back #            # go back # in cd history
+up <number>       # cd back <number> times
+back <number>     # go back <number> in cd history
 ..                # go up one directory (alias for "cd ..")
-l                 # alias for "ls -la"
+l                 # alias for "ls -lh"
+la                # alias for "ls -lah"
 
 gs                # git status
 gl                # git log
 gd                # git diff
 gb                # git branch
 
-ta                # tmux -2 attach
 t                 # tmux -2
-
-fe                # fuzzy find & open file in vim
-fd                # fuzzy find & go to directory
-fh / ctrl-r       # fuzzy search repeat history
-fkill             # fuzzy search & kill process(es)
+ta                # tmux -2 attach
 </pre>
 
 ####Vim
@@ -48,19 +39,17 @@ gt                # go forward a tab
 gr                # go back a tab
 gc                # toggle comment on selected
 gcc               # toggle comment on line
-gS                # split code up
-gJ                # consolodate code to one line
 
 ctrl-f            # :w shorthand
 Q                 # :wq shorthand
 ctrl-g            # highlight search word under cursor
 ctrl-h            # toggle highlight
 
-sudow             # force-save a read-only file :)
+sudow             # force-save a read-only file (VERY USEFUL)
 
 \                 # toggle NerdTree
-;;                # search/replace shorthand
-,,                # toggle taglist
+;;                # global search/replace shorthand
+,,                # toggle c-tags taglist
 
 ### Movement
 s                 # open buffer in vertial split
@@ -89,14 +78,6 @@ cntrl-t           # fuzzy file search
 :Gblame           # git blame
 :Git (command)    # any git command
 </pre>
-
-##Extra Setup Notes
-To enable Vi-mode, edit (or create) the file ~/.inputrc or /etc/inputrc and add the following lines:
-
-```bash
-set editing-mode vi
-set keymap vi-command
-```
 
 ##Dependencies
 Mac OSX
