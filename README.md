@@ -10,25 +10,27 @@ That line clones this repository and then sets symlinks to the bash, vim, and gi
 
 ####Bash
 <pre>
-wellssh           # ssh into a remote server install dotfile setup from this repository
+wellssh             # ssh into a remote server install dotfile setup from this repository
 
-winstall          # this is used by wssh to install my dotfiles upon entering a remote machine.
-                  # alternatively, you can just clone this repository, source the profile located
-                  # in dotfiles/bash/profile, then run winstall.  This is explained above.
+winstall            # this is used by wssh to install my dotfiles upon entering a remote machine.
+                    # alternatively, you can just clone this repository, source the profile located
+                    # in dotfiles/bash/profile, then run winstall.  This is explained above.
 
-up <number>       # cd back <number> times
-back <number>     # go back <number> in cd history
-..                # go up one directory (alias for "cd ..")
-l                 # alias for "ls -lh"
-la                # alias for "ls -lah"
+up <number>         # cd back <number> times
+back <number>       # go back <number> in cd history
+..                  # go up one directory (alias for "cd ..")
+l                   # alias for "ls -lh"
+la                  # alias for "ls -lah"
 
-gs                # git status
-gl                # git log
-gd                # git diff
-gb                # git branch
+gs                  # git status
+gl                  # git log
+gd                  # git diff
+gb                  # git branch
 
-t                 # tmux -2
-ta                # tmux -2 attach
+t                   # tmux -2
+ta                  # tmux -2 attach
+
+countdown <number>  # countdown number of seconds in the terminal
 </pre>
 
 ####Vim
