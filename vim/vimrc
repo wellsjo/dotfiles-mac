@@ -116,6 +116,9 @@ let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
 let MRU_Window_Height = 40
 nnoremap m :MRU<cr>
 
+" CntrlP (fuzzy text search)
+let g:ctrlp_map = '<c-t>'
+
 " Search and replace shorthand with ;;
 nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 
@@ -143,9 +146,6 @@ source ~/.dotfiles/vim/neocomplete_settings.vim
 
 " Syntastic
 let g:syntastic_check_on_open=1
-
-" PHP
-" let g:php_syntax_extensions_enabled=
 
 " auto-pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
