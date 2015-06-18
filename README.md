@@ -82,8 +82,12 @@ cntrl-t           # fuzzy file search
 </pre>
 
 ##Dependencies
-Mac OSX
+- ack v2.0+
+- tmux
+- exuberant-ctags
+
 ```bash
+brew install ack
 brew install tmux
 brew install ctags
 ctags -R .                # assuming this is the directory you want to index
