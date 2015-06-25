@@ -53,7 +53,6 @@ wells_install() {
   . "${HOME}/.profile"
 
   echo -e "\nDone!"
-  echo -e "\nType 'wells_settings' to get a list of available commands"
 }
 alias winstall="wells_install"
 
@@ -79,7 +78,7 @@ update_from_repo() {
 
 # Simple wrapper for ssh which makes wells_update() available in the remote session
 # regardless of whether .dotfiles is present remotely or not
-wellssh() {
+sshw() {
   local func=$(typeset -f wells_install)
   local func2=$(typeset -f symlink)
   ssh -A -t "$@" \
