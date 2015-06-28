@@ -64,7 +64,6 @@ update_from_repo() {
   # If the dotfiles dir already exists
   if [ -d "${HOME}/.dotfiles" ] ; then
     cd "${HOME}/.dotfiles"
-    git reset --hard HEAD >/dev/null 2>&1
     echo "Updating from git repo..."
     git pull
   else
@@ -74,25 +73,6 @@ update_from_repo() {
     git clone --depth 1 ${REPO} .dotfiles
     cd "${HOME}/.dotfiles"
   fi
-}
-
-# Simple wrapper for ssh which makes wells_update() available in the remote session
-# regardless of whether .dotfiles is present remotely or not
-sshw() {
-  local func=$(typeset -f wells_install)
-  local func2=$(typeset -f symlink)
-  ssh -A -t "$@" \
-    "${func2} ;
-  ${func} ;
-  [ -r /etc/motd ] && cat /etc/motd ;
-  [ -r \"\$HOME/.profile\" ] && . \"\$HOME/.profile\" ;
-  type wellssh >/dev/null 2>&1 ||  wells_update;
-  exec env -i SSH_AUTH_SOCK=\"\$SSH_AUTH_SOCK\" \
-    SSH_CONNECTION=\"\$SSH_CONNECTION\" \
-    SSH_CLIENT=\"\$SSH_CLIENT\" SSH_TTY=\"\$SSH_TTY\" \
-    HOME=\"\$HOME\" TERM=\"\$TERM\" \
-    PATH=\"\$PATH\" SHELL=\"\$SHELL\" \
-    USER=\"\$USER\" \$SHELL -i"
 }
 
 # Display available functions/readme
