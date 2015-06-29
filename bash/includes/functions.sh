@@ -3,10 +3,10 @@
 # TODO turn this into a generic clean function
 # find /tmp -name '*.swp' -exec rm {} \;
 
-# function cleanup( )
-# {
-#   # find $PWD -name "*.$1" - exec rm {} \;
-# }
+function cleanup( )
+{
+  find . -name "*.$1" -exec rm {} \;
+}
 
 function up( )
 {
