@@ -46,3 +46,5 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # better man pages
 export PAGER=most
+
+tmux -2 attach
