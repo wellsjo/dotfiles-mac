@@ -146,7 +146,7 @@ source ~/.dotfiles/vim/neocomplete_settings.vim
 
 " Syntastic
 let g:syntastic_check_on_open=1
-let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
 
 " auto-pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
