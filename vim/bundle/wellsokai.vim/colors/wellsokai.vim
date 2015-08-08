@@ -102,7 +102,7 @@ hi NonText ctermfg=238 ctermbg=NONE cterm=NONE guifg=#49483e guibg=NONE gui=NONE
 hi SpecialKey ctermfg=236 ctermbg=None cterm=NONE guifg=#49483e guibg=#3c3d37 gui=NONE
 hi Underlined ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
 hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
-hi CursorLineNr ctermfg=NONE ctermbg=000 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
+hi CursorLineNr ctermfg=NONE ctermbg=000 cterm=NONE guifg=NONE guibg=#ffffff gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
