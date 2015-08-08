@@ -3,6 +3,12 @@
 # TODO turn this into a generic clean function
 # find /tmp -name '*.swp' -exec rm {} \;
 
+function generatelicense( )
+{
+  sed "s/@YEAR@/$(date "+%Y")/g" < $HOME/.dotfiles/bash/includes/in/license.in > LICENSE.txt
+  sed "s/@NAME@/Wells Johnston/g" LICENSE.txt
+}
+
 function cleanup( )
 {
   find . -name "*.$1" -exec rm {} \;
