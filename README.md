@@ -85,3 +85,6 @@ cntrl-t           # fuzzy file search
 - ack v2.0+
 - tmux
 - exuberant-ctags
+
+##License
+MIT
