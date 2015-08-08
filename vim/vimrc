@@ -39,7 +39,7 @@ set list
 set listchars=tab:\|\ 
 
 " Colorscheme
-colorscheme wells-colors
+colorscheme wellsokai
 
 " Status bar
 set laststatus=2

@@ -4,7 +4,7 @@
 
 # Shorthand
 alias h="cd ~"
-alias l="ls -lh"
+alias l="ls -lha"
 alias la="ls -lha"
 alias c="clear"
 alias ..="cd .."

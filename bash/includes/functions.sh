@@ -5,7 +5,7 @@
 
 function generatelicense( )
 {
-  sed "s/@YEAR@/$(date "+%Y")/g" < $HOME/.dotfiles/bash/includes/in/license.in > LICENSE.txt
+  sed "s/@YEAR@/$(date "+%Y")/g" < $HOME/.dotfiles/bash/in/license.in > LICENSE.txt
   sed "s/@NAME@/Wells Johnston/g" LICENSE.txt
 }
 
@@ -57,3 +57,10 @@ sshw() {
     USER=\"\$USER\" \$SHELL -i"
 }
 
+countdown() {
+  secs=$1
+  while [ $secs -gt 0 ]; do
+    echo -ne "$secs\033[0K\r"
+    sleep 1
+  done
+}
