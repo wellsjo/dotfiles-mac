@@ -87,4 +87,4 @@ cntrl-t           # fuzzy file search
 - exuberant-ctags
 
 ##License
-MIT
+you are free to distribute this as you plz
