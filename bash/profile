@@ -7,7 +7,6 @@ do
 done
 
 EDITOR=vim
-alias vim="/usr/local/Cellar/vim/7.4.712/bin/vim"
 TZ=America/New_York
 LANG=en_US.UTF-8
 HISTFILE="${HOME}/.history"
