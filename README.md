@@ -62,17 +62,7 @@ ctrl-O            # previous window
 ctrl-P            # next window
 
 ### surround.vim
-ysiw(char)        # surround selection with (char)
-yss(char)         # surround sentence with (char)
-cs(char1)(char2)  # change surrounding (char1) with (char2)
-ds(char)          # remove (char) from surrounding
-S(char)           # surround selection with (char) in visual mode
-
 ### EasyMotion
-(space)s(char)    # search for (char)
-(space)w          # search word forward
-(space)b          # search word back
-
 ### FZF
 cntrl-t           # fuzzy file search
 
@@ -85,6 +75,3 @@ cntrl-t           # fuzzy file search
 - ack v2.0+
 - tmux
 - exuberant-ctags
-
-##License
-MIT
