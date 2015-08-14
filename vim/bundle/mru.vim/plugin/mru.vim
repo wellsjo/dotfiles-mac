@@ -1,8 +1,8 @@
 " File: mru.vim
 " Author: Yegappan Lakshmanan (yegappan AT yahoo DOT com)
-" Version: 3.8.1
-" Last Modified: March 9, 2014
-" Copyright: Copyright (C) 2003-2014 Yegappan Lakshmanan
+" Version: 3.9
+" Last Modified: Feb 3, 2015
+" Copyright: Copyright (C) 2003-2015 Yegappan Lakshmanan
 " License:   Permission is hereby granted to use and distribute this code,
 "            with or without modifications, provided that this copyright
 "            notice is copied with it. Like anything else that's free,
@@ -483,11 +483,13 @@ function! s:MRU_Edit_File(filename, sanitized)
             exe winnum . 'wincmd w'
         endif
     else
-        if &modified || &buftype != '' || &previewwindow
+        if !&hidden && (&modified || &buftype != '' || &previewwindow)
             " Current buffer has unsaved changes or is a special buffer or is
-            " the preview window.  So open the file in a new window
+            " the preview window.  The 'hidden' option is also not set.
+            " So open the file in a new window.
             exe 'split ' . esc_fname
         else
+            " The current file can be replaced with the selected file.
             exe 'edit ' . esc_fname
         endif
     endif
@@ -518,7 +520,7 @@ function! s:MRU_Open_File_In_Tab(fname, esc_fname)
 	    exe 'tabnext ' . i
 	else
 	    " Open a new tab as the last tab page
-	    exe '999tabnew ' . a:esc_fname
+	    exe '$tabnew ' . a:esc_fname
 	endif
     endif
 
@@ -590,7 +592,7 @@ function! s:MRU_Window_Edit_File(fname, multi, edit_type, open_type)
 
             let split_window = 0
 
-            if &modified || &previewwindow || a:multi
+            if (!&hidden && (&modified || &previewwindow)) || a:multi
                 " Current buffer has unsaved changes or is the preview window
                 " or the user is opening multiple files
                 " So open the file in a new window
@@ -705,6 +707,8 @@ function! s:MRU_Open_Window(...)
             exe winnum . 'wincmd w'
         endif
 
+        setlocal modifiable
+
         " Delete the contents of the buffer to the black-hole register
         silent! %delete _
     else
@@ -769,13 +773,13 @@ function! s:MRU_Open_Window(...)
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
     vnoremap <buffer> <silent> o
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
-    nnoremap <buffer> <silent> h
+    nnoremap <buffer> <silent> <S-CR>
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
-    vnoremap <buffer> <silent> h
+    vnoremap <buffer> <silent> <S-CR>
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_horiz')<CR>
-    nnoremap <buffer> <silent> s
+    nnoremap <buffer> <silent> O
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_vert')<CR>
-    vnoremap <buffer> <silent> s
+    vnoremap <buffer> <silent> O
                 \ :call <SID>MRU_Select_File_Cmd('edit,newwin_vert')<CR>
     nnoremap <buffer> <silent> t
                 \ :call <SID>MRU_Select_File_Cmd('edit,newtab')<CR>
