@@ -40,3 +40,18 @@
 [submodule "vim/bundle/vim-node"]
 	path = vim/bundle/vim-node
 	url = git@github.com:moll/vim-node.git
+[submodule "vim/bundle/vim-nerdtree-tabs"]
+	path = vim/bundle/vim-nerdtree-tabs
+	url = git@github.com:jistr/vim-nerdtree-tabs.git
+[submodule "vim/bundle/vim-multiple-cursors"]
+	path = vim/bundle/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "vim/bundle/vim-matchparenalways"]
+	path = vim/bundle/vim-matchparenalways
+	url = git@github.com:justinmk/vim-matchparenalways.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = git@github.com:digitaltoad/vim-jade.git
