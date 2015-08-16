@@ -19,3 +19,12 @@
 [submodule "vim/bundle/vim-better-whitespace"]
 	path = vim/bundle/vim-better-whitespace
 	url = git@github.com:ntpeters/vim-better-whitespace.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/bundle/vim-bracketed-paste"]
+	path = vim/bundle/vim-bracketed-paste
+	url = git@github.com:ConradIrwin/vim-bracketed-paste.git
+[submodule "vim/bundle/vim-hooks"]
+	path = vim/bundle/vim-hooks
+	url = git@github.com:ahw/vim-hooks.git
