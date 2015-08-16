@@ -1,6 +1,0 @@
-{
-    "disallowKeywords": ["with"],
-    "excludeFiles": [
-        "*/exclude-files.js"
-    ]
-}

@@ -76,3 +76,21 @@
 [submodule "vim/bundle/taglist-plus"]
 	path = vim/bundle/taglist-plus
 	url = git@github.com:vim-scripts/taglist-plus.git
+[submodule "vim/bundle/taboo.vim"]
+	path = vim/bundle/taboo.vim
+	url = git@github.com:gcmt/taboo.vim.git
+[submodule "vim/bundle/play2vim"]
+	path = vim/bundle/play2vim
+	url = git@github.com:gre/play2vim.git
+[submodule "vim/bundle/php.vim"]
+	path = vim/bundle/php.vim
+	url = git@github.com:StanAngeloff/php.vim.git
+[submodule "vim/bundle/node-jscs"]
+	path = vim/bundle/node-jscs
+	url = git@github.com:jscs-dev/node-jscs.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "vim/bundle/neocomplete.vim"]
+	path = vim/bundle/neocomplete.vim
+	url = git@github.com:Shougo/neocomplete.vim.git

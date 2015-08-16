@@ -1,4 +1,0 @@
-{
-  "errorFilter": "../error-filter.js",
-  "disallowKeywords": ["with"]
-}

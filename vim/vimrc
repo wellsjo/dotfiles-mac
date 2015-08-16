@@ -106,11 +106,6 @@ map <silent> <C-k> :wincmd k<CR>
 " Activate EasyMotion with space
 map <Leader> <Plug>(easymotion-prefix)
 
-" Open MRU with m
-let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
-let MRU_Window_Height = 35
-nnoremap m :MRU<cr>
-
 " CntrlP (fuzzy text search)
 let g:ctrlp_map = '<c-t>'
 
@@ -136,9 +131,15 @@ augroup END
 " ======= Plugin Settings =======
 
 " Neocomplete
-" enable auto-complete plugin settings kept in seperate file
 let g:neocomplcache_enable_at_startup = 1
-source ~/.dotfiles/vim/neocomplete_settings.vim
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_min_syntax_length = 2
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -146,6 +147,11 @@ let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
 
 " auto-pairs
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
+
+" MRU
+let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
+let MRU_Window_Height = 35
+nnoremap m :MRU<cr>
 
 " whitespace
 highlight ExtraWhitespace ctermbg=red
