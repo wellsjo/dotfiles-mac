@@ -70,3 +70,9 @@
 [submodule "vim/bundle/tcomment_vim"]
 	path = vim/bundle/tcomment_vim
 	url = git@github.com:tomtom/tcomment_vim.git
+[submodule "vim/bundle/taglist.vim"]
+	path = vim/bundle/taglist.vim
+	url = git@github.com:vim-scripts/taglist.vim.git
+[submodule "vim/bundle/taglist-plus"]
+	path = vim/bundle/taglist-plus
+	url = git@github.com:vim-scripts/taglist-plus.git
