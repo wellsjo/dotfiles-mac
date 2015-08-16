@@ -28,3 +28,15 @@
 [submodule "vim/bundle/vim-hooks"]
 	path = vim/bundle/vim-hooks
 	url = git@github.com:ahw/vim-hooks.git
+[submodule "vim/bundle/vim-stylus"]
+	path = vim/bundle/vim-stylus
+	url = git@github.com:wavded/vim-stylus.git
+[submodule "vim/bundle/sbt-vim"]
+	path = vim/bundle/sbt-vim
+	url = git@github.com:ktvoelker/sbt-vim.git
+[submodule "vim/bundle/vim-rails"]
+	path = vim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule "vim/bundle/vim-node"]
+	path = vim/bundle/vim-node
+	url = git@github.com:moll/vim-node.git
