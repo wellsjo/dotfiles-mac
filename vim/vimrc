@@ -58,12 +58,6 @@ function! s:SetCursorPosition()
     end
 endfunction
 
-" Code folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=10        "this is just what i use
-
 " Tmux mouse fix (for resizing vim panes within tmux)
 set mouse+=a
 if &term =~ '^screen'
@@ -114,7 +108,7 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " Open MRU with m
 let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
-let MRU_Window_Height = 40
+let MRU_Window_Height = 35
 nnoremap m :MRU<cr>
 
 " CntrlP (fuzzy text search)
@@ -133,6 +127,7 @@ map <c-g> :call ToggleHighlightUnderWord()<CR>
 map <c-h> :set hlsearch!<CR>
 
 " auto re-load vimrc if changes are detected :)
+" lol this is a stupid hack but I refuse to remove it
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif

@@ -16,3 +16,6 @@
 [submodule "vim/bundle/wellsokai.vim"]
 	path = vim/bundle/wellsokai.vim
 	url = https://github.com/wellsjo/wellsokai.vim.git
+[submodule "vim/bundle/vim-better-whitespace"]
+	path = vim/bundle/vim-better-whitespace
+	url = git@github.com:ntpeters/vim-better-whitespace.git
