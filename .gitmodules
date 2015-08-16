@@ -10,3 +10,9 @@
 [submodule "vim/bundle/Dockerfile.vim"]
 	path = vim/bundle/Dockerfile.vim
 	url = git@github.com:ekalinin/Dockerfile.vim.git
+[submodule "vim/bundle/vim-smooth-scroll"]
+	path = vim/bundle/vim-smooth-scroll
+	url = git@github.com:terryma/vim-smooth-scroll.git
+[submodule "vim/bundle/wellsokai.vim"]
+	path = vim/bundle/wellsokai.vim
+	url = https://github.com/wellsjo/wellsokai.vim.git
