@@ -64,12 +64,7 @@ if &term =~ '^screen'
     set ttymouse=xterm2
 endif
 
-" ======= CUSTOM COLORS =======
-
-hi CursorLineNr ctermfg=blue
-
 " ======= Mappings =======
-
 
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
@@ -80,6 +75,10 @@ cnoremap sudow w !sudo tee % >/dev/null
 " exit file with Q
 nnoremap Q :q<CR>
 nnoremap <c-f> :w<CR>
+
+" switch buffers with tab
+nnoremap <tab> :bn<CR>
+noremap <S-tab> :bp<CR>
 
 " % highlights scope
 noremap % v%
@@ -114,9 +113,10 @@ nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 " and c-h to toggle highlighting
 function! ToggleHighlightUnderWord()
         let @/='\<'.expand("<cword>").'\>'
-        set hlsearch!
+        set hlsearch
 endfunction
-map <c-g> :call ToggleHighlightUnderWord()<CR>
+map <Leader>g :call ToggleHighlightUnderWord()<CR>
+map <Leader>h :set hlsearch!<CR>
 
 " auto re-load vimrc if changes are detected :)
 " lol this is a stupid hack but I refuse to remove it
@@ -126,16 +126,6 @@ augroup myvimrc
 augroup END
 
 " ======= Plugin Settings =======
-
-" Neocomplete
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -185,5 +175,5 @@ let g:airline_symbols.space = "\ua0"
 " indentLine
 " Vim
 let g:indentLine_color_term = 239
-let g:indentLine_char = '|'
-nnoremap <c-i> :IndentLinesToggle<cr>
+let g:indentLine_char = '│'
+nnoremap <Leader>1 :IndentLinesToggle<cr>

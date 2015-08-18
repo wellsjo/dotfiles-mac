@@ -91,9 +91,6 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
-[submodule "vim/bundle/neocomplete.vim"]
-	path = vim/bundle/neocomplete.vim
-	url = git@github.com:Shougo/neocomplete.vim.git
 [submodule "vim/bundle/mru.vim"]
 	path = vim/bundle/mru.vim
 	url = git@github.com:vim-scripts/mru.vim.git
