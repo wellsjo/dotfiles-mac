@@ -106,3 +106,24 @@
 [submodule "vim/bundle/auto-pairs"]
 	path = vim/bundle/auto-pairs
 	url = git@github.com:jiangmiao/auto-pairs.git
+[submodule "snipmate.vim"]
+	path = snipmate.vim
+	url = git@github.com:msanders/snipmate.vim.git
+[submodule "vim/bundle/snipmate.vim"]
+	path = vim/bundle/snipmate.vim
+	url = git@github.com:msanders/snipmate.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "vim/bundle/indentLine"]
+	path = vim/bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "vim/bundle/goyo.vim"]
+	path = vim/bundle/goyo.vim
+	url = git@github.com:junegunn/goyo.vim.git
+[submodule "vim/bundle/vim-autoformat"]
+	path = vim/bundle/vim-autoformat
+	url = git@github.com:Chiel92/vim-autoformat.git
+[submodule "vim/bundle/bufexplorer"]
+	path = vim/bundle/bufexplorer
+	url = git@github.com:jlanzarotta/bufexplorer.git
