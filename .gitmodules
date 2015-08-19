@@ -2,9 +2,6 @@
 	path = vim/bundle/vim-startify
 	url = git@github.com:mhinz/vim-startify.git
 	ignore = dirty
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = git@github.com:scrooloose/syntastic.git
 [submodule "vim/bundle/vim-scala"]
 	path = vim/bundle/vim-scala
 	url = git@github.com:derekwyatt/vim-scala.git
