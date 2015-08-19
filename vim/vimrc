@@ -101,8 +101,8 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " navigate window splits with c-o and c-p
-map <silent> <C-h> :wincmd h<CR>
-map <silent> <C-l> :wincmd l<CR>
+map <silent> <C-o> :wincmd h<CR>
+map <silent> <C-p> :wincmd l<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 
@@ -118,8 +118,8 @@ function! ToggleHighlightUnderWord()
   let @/='\<'.expand("<cword>").'\>'
   set hlsearch
 endfunction
-map <Leader>g :call ToggleHighlightUnderWord()<CR>
-map <Leader>h :set hlsearch!<CR>
+map <c-g> :call ToggleHighlightUnderWord()<CR>
+map <c-h> :set hlsearch!<CR>
 
 " auto re-load vimrc if changes are detected :)
 " lol this is a stupid hack but I refuse to remove it
@@ -141,6 +141,9 @@ nnoremap m :MRU<cr>
 
 " whitespace
 highlight ExtraWhitespace ctermbg=red
+
+" cntr-p maps to c-t
+let g:ctrlp_map = '<c-t>'
 
 " MatchTagAlways
 let g:mta_use_matchparen_group = 0
@@ -176,6 +179,5 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 " indentLine
-" Vim
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
