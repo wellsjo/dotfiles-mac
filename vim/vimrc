@@ -8,6 +8,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set autochdir
 syntax on
 filetype on
 filetype plugin on
@@ -132,8 +133,14 @@ augroup END
 " ======= Plugin Settings =======
 
 " Syntastic
-let g:syntastic_check_on_open=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " MRU
 let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
@@ -173,6 +180,7 @@ let g:taboo_tab_format=' %N. %f %m '
 
 " Status line plugin
 let g:airline_powerline_fonts = 1
+" let g:airline_theme='bubblegum'
 let g:airline_theme='bubblegum'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}

@@ -1,6 +1,7 @@
 [submodule "vim/bundle/vim-startify"]
 	path = vim/bundle/vim-startify
 	url = git@github.com:mhinz/vim-startify.git
+	ignore = dirty
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
@@ -28,6 +29,7 @@
 [submodule "vim/bundle/vim-hooks"]
 	path = vim/bundle/vim-hooks
 	url = git@github.com:ahw/vim-hooks.git
+	ignore = dirty
 [submodule "vim/bundle/vim-stylus"]
 	path = vim/bundle/vim-stylus
 	url = git@github.com:wavded/vim-stylus.git
@@ -73,9 +75,7 @@
 [submodule "vim/bundle/taglist.vim"]
 	path = vim/bundle/taglist.vim
 	url = git@github.com:vim-scripts/taglist.vim.git
-[submodule "vim/bundle/taglist-plus"]
-	path = vim/bundle/taglist-plus
-	url = git@github.com:vim-scripts/taglist-plus.git
+	ignore = dirty
 [submodule "vim/bundle/taboo.vim"]
 	path = vim/bundle/taboo.vim
 	url = git@github.com:gcmt/taboo.vim.git
