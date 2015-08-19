@@ -66,12 +66,15 @@ update_from_repo() {
     cd "${HOME}/.dotfiles"
     echo "Updating from git repo..."
     git pull
+    git submodule update --remote
   else
     echo "dotfiles not present"
     echo -e "Cloning git repo from ${REPO}..."
     cd "${HOME}"
     git clone --depth 1 ${REPO} .dotfiles
     cd "${HOME}/.dotfiles"
+    git submodule init
+    git submodule update
   fi
 }
 
