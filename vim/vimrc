@@ -73,11 +73,9 @@ nmap ,, :TlistToggle<CR>
 " force write to read-only files with 'sudow'
 cnoremap sudow w !sudo tee % >/dev/null
 
-nnoremap <c-f> :Autoformat<cr>
-
 " exit file with Q
 nnoremap Q :q<CR>
-nnoremap <s-w> :w<CR>
+nnoremap <c-f> :w<CR>
 
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
@@ -94,6 +92,9 @@ nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
+
+" toggle intent lines
+map <Leader>i :IndentLinesToggle<CR>
 
 " auto-center search results
 nnoremap z zz
@@ -172,11 +173,22 @@ let g:taboo_tab_format=' %N. %f %m '
 
 " Status line plugin
 let g:airline_powerline_fonts = 1
-let g:airline_theme='jellybeans'
+let g:airline_theme='bubblegum'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_symbols.space = "\ua0"
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " indentLine
 let g:indentLine_color_term = 239
