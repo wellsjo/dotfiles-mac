@@ -7,9 +7,11 @@ wells_update() {
   echo
   read -p "Do you want to update and re-source from the remote dotfiles repository? " -n 1 -r
   echo
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    update_from_repo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo -e "\nInstalling dotfiles..."
+    cd "${HOME}/.dotfiles"
+    git pull
+    git submodule update --remote
   fi
 }
 alias wupdate="wells_update"
@@ -25,8 +27,6 @@ alias wsource="wells_source"
 # Create symlinks in the $HOME directory to elements in the repo
 wells_install() {
 
-  update_from_repo
-
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
   symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
@@ -39,6 +39,10 @@ wells_install() {
   symlink "${HOME}/.dotfiles/git/gitconfig" "${HOME}/.gitconfig"
   symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
   symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
+
+  cd "${HOME}/.dotfiles"
+  git submodule init
+  git submodule update
 
   # source tmux
   echo -e "\nSourcing tmux..."
@@ -55,36 +59,6 @@ wells_install() {
   echo -e "\nDone!"
 }
 alias winstall="wells_install"
-
-update_from_repo() {
-  echo -e "\nInstalling dotfiles..."
-
-  local REPO='https://github.com/wellsjo/dotfiles'
-
-  # If the dotfiles dir already exists
-  if [ -d "${HOME}/.dotfiles" ] ; then
-    cd "${HOME}/.dotfiles"
-    echo "Updating from git repo..."
-    git pull
-    git submodule update --remote
-  else
-    echo "dotfiles not present"
-    echo -e "Cloning git repo from ${REPO}..."
-    cd "${HOME}"
-    git clone --depth 1 ${REPO} .dotfiles
-    cd "${HOME}/.dotfiles"
-    git submodule init
-    git submodule update
-  fi
-}
-
-# Display available functions/readme
-function wells_help() {
-# spit out the README while stripping ugly tags
-cat ~/.dotfiles/README.md | sed -r 's/<\/?pre>//'
-}
-alias wsettings="wells_help"
-alias whelp="wells_help"
 
 # Helper to safely remove and make symlinks
 function symlink() {
