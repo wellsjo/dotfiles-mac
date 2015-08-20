@@ -3,7 +3,7 @@
 # Autoload include directory
 for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -type f ! -iname *.swp)
 do
-    . "${includeFile}"
+  . "${includeFile}"
 done
 
 EDITOR=vim
@@ -19,15 +19,15 @@ export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Used by bash, unused by mksh
 if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
-    shopt -s expand_aliases
-    shopt -s checkwinsize
-    HISTFILESIZE=2000
-    HISTCONTROL=ignoredups:ignorespace
-    export HISTFILESIZE HISTCONTROL
+  shopt -s expand_aliases
+  shopt -s checkwinsize
+  HISTFILESIZE=2000
+  HISTCONTROL=ignoredups:ignorespace
+  export HISTFILESIZE HISTCONTROL
 fi
 
 if type -p rbenv >/dev/null 2>&1 ; then
-    eval "$(rbenv init -)"
+  eval "$(rbenv init -)"
 fi
 
 # liquid prompt

@@ -172,6 +172,9 @@ let NERDTreeShowHidden=0
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
 
+" markdown
+let g:vim_markdown_folding_disabled=1
+
 " Status line plugin
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme='bubblegum'
