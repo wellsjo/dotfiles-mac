@@ -26,6 +26,7 @@ if [ "${0##*/}" = "bash" ] || [ "${0}" = "-bash" ] ; then
   export HISTFILESIZE HISTCONTROL
 fi
 
+# rbenv
 if type -p rbenv >/dev/null 2>&1 ; then
   eval "$(rbenv init -)"
 fi
@@ -33,11 +34,14 @@ fi
 # liquid prompt
 source ~/.dotfiles/bash/liquidprompt/liquidprompt
 
-# Welcome Prompt
-# source ~/.dotfiles/bash/welcome_prompt.sh
-
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
+
+# automatically start ssh-agent and load ssh keys
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent -s`
+  ssh-add
+fi
 
 export GREP_OPTIONS='--color=auto'
 export PATH=~/bin:$PATH
