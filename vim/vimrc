@@ -194,6 +194,9 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" quickscope
+let g:qs_highlight_on_keys = ['f', 'F']
+
 " indentLine
 let g:indentLine_color_term = 239
 let g:indentLine_char = '|'

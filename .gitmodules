@@ -127,3 +127,6 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "vim/bundle/quick-scope"]
+	path = vim/bundle/quick-scope
+	url = https://github.com/unblevable/quick-scope.git
