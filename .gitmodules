@@ -108,7 +108,7 @@
 	url = git@github.com:msanders/snipmate.vim.git
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
-	url = git@github.com:ervandew/supertab.git
+	url = https://github.com/ervandew/supertab.git
 [submodule "vim/bundle/indentLine"]
 	path = vim/bundle/indentLine
 	url = git@github.com:Yggdroot/indentLine.git
@@ -130,3 +130,9 @@
 [submodule "vim/bundle/quick-scope"]
 	path = vim/bundle/quick-scope
 	url = https://github.com/unblevable/quick-scope.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/html5.vim"]
+	path = vim/bundle/html5.vim
+	url = https://github.com/othree/html5.vim.git
