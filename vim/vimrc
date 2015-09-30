@@ -71,9 +71,6 @@ endif
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
 
-" force write to read-only files with 'sudow'
-cnoremap sudow w !sudo tee % >/dev/null
-
 " exit file with Q
 nnoremap Q :q<CR>
 nnoremap <c-f> :w<CR>
@@ -122,13 +119,6 @@ function! ToggleHighlightUnderWord()
 endfunction
 map <c-g> :call ToggleHighlightUnderWord()<CR>
 map <c-h> :set hlsearch!<CR>
-
-" auto re-load vimrc if changes are detected :)
-" lol this is a stupid hack but I refuse to remove it
-augroup myvimrc
-  au!
-  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
 
 " ======= Plugin Settings =======
 
