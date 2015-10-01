@@ -46,7 +46,7 @@ colorscheme wellsokai
 
 " Status bar
 set laststatus=2
-set nocursorline
+set cursorline
 set nocursorcolumn
 
 " cursor starts at the same location you left off
