@@ -91,9 +91,6 @@
 [submodule "vim/bundle/mru.vim"]
 	path = vim/bundle/mru.vim
 	url = git@github.com:vim-scripts/mru.vim.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = git@github.com:kien/ctrlp.vim.git
 [submodule "vim/bundle/vim-css3-syntax"]
 	path = vim/bundle/vim-css3-syntax
 	url = git@github.com:hail2u/vim-css3-syntax.git
