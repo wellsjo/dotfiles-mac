@@ -139,6 +139,3 @@
 [submodule "vim/bundle/vim-interruptless"]
 	path = vim/bundle/vim-interruptless
 	url = git@github.com:vim-utils/vim-interruptless.git
-[submodule "fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf.git

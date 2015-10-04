@@ -52,4 +52,3 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 export PAGER=most
 
 # added by fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
