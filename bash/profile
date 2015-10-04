@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. main.sh
+
 # Autoload include directory
 for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -type f ! -iname *.swp)
 do

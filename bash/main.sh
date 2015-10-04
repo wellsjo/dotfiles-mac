@@ -1,24 +1,22 @@
 #!/bin/bash
 
+##
+# Main functions used for controlling my setup
+#
 # @author  Wells Johnston <w@wellsjohnston.com>
 
 # re-source dotfiles from git repo
 wells_update() {
-  echo
-  read -p "Do you want to update and re-source from the remote dotfiles repository? " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo -e "\nInstalling dotfiles..."
-    cd "${HOME}/.dotfiles"
-    git pull
-    git submodule update --remote
-  fi
+  echo -e "\nInstalling dotfiles..."
+  cd "${HOME}/.dotfiles"
+  git pull
+  git submodule update --remote
 }
 alias wupdate="wells_update"
 
 # re-source local dotfiles
 wells_source() {
-  echo "Re-sourcing local dotfiles..."
+  echo "Re-sourcing dotfiles..."
   source ~/.dotfiles/bash/profile
 }
 alias wsource="wells_source"
