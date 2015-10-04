@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. main.sh
+. "${HOME}/.dotfiles/main.sh"
 
 # Autoload include directory
 for includeFile in $(find "${HOME}/.dotfiles/bash/includes" -type f ! -iname *.swp)
@@ -53,4 +53,4 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 # better man pages
 export PAGER=most
 
-# added by fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
