@@ -48,9 +48,6 @@
 [submodule "vim/bundle/vim-matchparenalways"]
 	path = vim/bundle/vim-matchparenalways
 	url = git@github.com:justinmk/vim-matchparenalways.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = git@github.com:pangloss/vim-javascript.git
 [submodule "vim/bundle/vim-jade"]
 	path = vim/bundle/vim-jade
 	url = git@github.com:digitaltoad/vim-jade.git
@@ -133,9 +130,6 @@
 [submodule "vim/bundle/html5.vim"]
 	path = vim/bundle/html5.vim
 	url = https://github.com/othree/html5.vim.git
-[submodule "vim/bundle/vim-javascript-syntax"]
-	path = vim/bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "vim/bundle/vim-interruptless"]
 	path = vim/bundle/vim-interruptless
 	url = git@github.com:vim-utils/vim-interruptless.git
