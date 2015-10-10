@@ -133,3 +133,6 @@
 [submodule "vim/bundle/vim-interruptless"]
 	path = vim/bundle/vim-interruptless
 	url = git@github.com:vim-utils/vim-interruptless.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = git@github.com:pangloss/vim-javascript.git
