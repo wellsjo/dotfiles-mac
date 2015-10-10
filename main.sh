@@ -42,9 +42,6 @@ wells_install() {
   git submodule init
   git submodule update
 
-  # install fuzzy finder
-  ~/.dotfiles/fzf/install
-
   # source tmux
   echo -e "\nSourcing tmux..."
   tmux source ~/.tmux.conf
