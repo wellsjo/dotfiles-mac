@@ -73,7 +73,8 @@ nmap ,, :TlistToggle<CR>
 
 " exit file with Q
 nnoremap Q :q<CR>
-nnoremap <c-f> :w<CR>
+nnoremap ff :w<CR>
+inoremap jj <esc>:w<CR>
 
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
