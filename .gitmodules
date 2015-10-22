@@ -63,9 +63,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git@github.com:bling/vim-airline.git
-[submodule "vim/bundle/tcomment_vim"]
-	path = vim/bundle/tcomment_vim
-	url = git@github.com:tomtom/tcomment_vim.git
 [submodule "vim/bundle/taglist.vim"]
 	path = vim/bundle/taglist.vim
 	url = git@github.com:vim-scripts/taglist.vim.git
@@ -136,3 +133,15 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule "vim/bundle/vim-css-color"]
+	path = vim/bundle/vim-css-color
+	url = git@github.com:ap/vim-css-color.git
+[submodule "vim/bundle/vim-matchit"]
+	path = vim/bundle/vim-matchit
+	url = git@github.com:edsono/vim-matchit.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git

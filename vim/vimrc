@@ -80,9 +80,6 @@ inoremap jj <esc>:w<CR>
 nnoremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
 
-" % highlights scope
-noremap % v%
-
 " I prefer gr to go back a tab, also left and right arrow keys
 nnoremap gr gT
 
@@ -137,9 +134,6 @@ nnoremap m :MRU<cr>
 
 " whitespace
 highlight ExtraWhitespace ctermbg=red
-
-" cntr-p maps to c-t
-let g:ctrlp_map = '<c-t>'
 
 " Smooth scroll
 nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
