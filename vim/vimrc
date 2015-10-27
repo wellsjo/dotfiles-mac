@@ -71,10 +71,12 @@ endif
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
 
-" exit file with Q
+" heavily used shortcuts
 nnoremap Q :q<CR>
-nnoremap ff :w<CR>
+nnoremap <leader>f :w<CR>
 inoremap jj <esc>:w<CR>
+inoremap jk <esc>:<cr>
+nnoremap <leader>x <esc><cr>
 
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
