@@ -74,8 +74,9 @@ nmap ,, :TlistToggle<CR>
 " heavily used shortcuts
 nnoremap Q :q<CR>
 nnoremap <leader>f :w<CR>
+nnoremap <leader><leader>f :Autoformat<cr>
 inoremap jj <esc>:w<CR>
-inoremap jk <esc>:<cr>
+inoremap jk <esc>:<cr><right>
 nnoremap <leader>x <esc><cr>
 
 " switch buffers with tab
