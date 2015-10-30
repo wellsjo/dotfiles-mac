@@ -28,9 +28,9 @@ set backupdir=$HOME/.dotfiles/vim/tmp/backup
 let g:netrw_dirhistmax = 0
 
 " Tab settings
-set expandtab
-set tabstop=4
-set softtabstop=2
+set expandtab " tabs are spaces
+set tabstop=4 " 4 visual spaces for tab
+set softtabstop=2 " number of spaces in tab when editing
 set shiftwidth=2
 set textwidth=80
 set autoindent
@@ -73,7 +73,10 @@ nmap ,, :TlistToggle<CR>
 
 " exit file with Q
 nnoremap Q :q<CR>
-nnoremap <c-f> :w<CR>
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
 
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
@@ -104,6 +107,10 @@ map <silent> <C-o> :wincmd h<CR>
 map <silent> <C-p> :wincmd l<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
 
 " Activate EasyMotion with space
 map <Leader> <Plug>(easymotion-prefix)
@@ -137,8 +144,11 @@ nnoremap m :MRU<cr>
 " whitespace
 highlight ExtraWhitespace ctermbg=red
 
-" cntr-p maps to c-t
-let g:ctrlp_map = '<c-t>'
+" cntr-p (currently off)
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Smooth scroll
 nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
