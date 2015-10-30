@@ -66,24 +66,25 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" ======= Mappings =======
-
 " Toggle tagbar with ,,
 nmap ,, :TlistToggle<CR>
 
-" exit file with Q
+" heavily used shortcuts
 nnoremap Q :q<CR>
 
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
 
+nnoremap <leader>f :w<CR>
+nnoremap <leader><leader>f :Autoformat<cr>
+inoremap jj <esc>:w<CR>
+inoremap jk <esc>:<cr><right>
+nnoremap <leader>x <esc><cr>
+
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
-
-" % highlights scope
-noremap % v%
 
 " I prefer gr to go back a tab, also left and right arrow keys
 nnoremap gr gT
