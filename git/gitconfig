@@ -3,9 +3,9 @@
     email = wellsjohnston@gmail.com
 
 [alias]
-    st = status
-    gl = log
-    gd = diff
+    gs = git status
+    gl = git log
+    gd = git diff
     ap = add -p
     co = checkout
     com = commit
