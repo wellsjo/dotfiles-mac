@@ -4,6 +4,8 @@
 
 [alias]
     st = status
+    gl = log
+    gd = diff
     ap = add -p
     co = checkout
     com = commit
