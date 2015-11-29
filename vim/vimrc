@@ -17,6 +17,8 @@ let t_Co=256
 let mapleader=" "
 set term=screen-256color
 
+au BufNewFile,BufRead *.ode set filetype=html
+
 " persistent undo for files between sessions
 set undofile
 set undodir=$HOME/.dotfiles/vim/tmp/undo
