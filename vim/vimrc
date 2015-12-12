@@ -45,6 +45,9 @@ set listchars=tab:\|\
 " Colorscheme
 colorscheme wellsokai
 
+" for odesza files
+au BufReadPost *.ode set syntax=odesza
+
 " Status bar
 set laststatus=2
 set cursorline
