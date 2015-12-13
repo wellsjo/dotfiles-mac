@@ -17,7 +17,7 @@ let t_Co=256
 let mapleader=" "
 set term=screen-256color
 
-au BufNewFile,BufRead *.ode set filetype=html
+au BufNewFile,BufRead *.ode set filetype=odesza
 
 " persistent undo for files between sessions
 set undofile
