@@ -151,3 +151,6 @@
 [submodule "vim/bundle/vim-less"]
 	path = vim/bundle/vim-less
 	url = git@github.com:groenewege/vim-less.git
+[submodule "vim/bundle/vim-airline-themes"]
+	path = vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
