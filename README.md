@@ -1,4 +1,5 @@
-Portable dotfile setup (tested on OSx Ubuntu)
+## Dotfiles
+My portable dev environment (OSx, Linux)
 
 ## Install
 <pre>
