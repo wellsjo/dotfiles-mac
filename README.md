@@ -1,14 +1,28 @@
-This is my portable development setup.  I use a combination of vim, tmux, git, shell scripts, and various plugins.
+Portable dotfile setup (tested on OSx Ubuntu)
 
-To install manually, simply clone this repo, source dotfiles/bash/profile, then type ```wells_install```.  Or just copy this line:
-
+## Install
 <pre>
-git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles; \
-source ~/.dotfiles/bash/profile; \
-wells_install;
+git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles && source ~/.dotfiles/bash/profile && wells_install
 </pre>
 
-##Dependencies
-- ack v2.0+
+## Features
+- vim config
+- tmux config
+- git config
+- git auto-completion
+- ssh auto-completion
+- liquid shell prompt
+
+## Special Commands
+SSH auto-install dotfiles
+```
+sshw <host>
+```
+Udpate dotfiles and submodules
+```
+wupdate
+```
+
+# Dependencies
 - tmux
 - exuberant-ctags

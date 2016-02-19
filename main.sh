@@ -16,13 +16,6 @@ wells_update() {
 }
 alias wupdate="wells_update"
 
-# re-source local dotfiles
-wells_source() {
-  echo "Re-sourcing dotfiles..."
-  source ~/.dotfiles/bash/profile
-}
-alias wsource="wells_source"
-
 # Setup the dotfiles repo locally, or pull latest version from github.
 # Create symlinks in the $HOME directory to elements in the repo
 wells_install() {
