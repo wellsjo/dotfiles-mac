@@ -8,9 +8,11 @@
 # re-source dotfiles from git repo
 wells_update() {
   echo -e "\nInstalling dotfiles..."
+  DIR=$PWD
   cd "${HOME}/.dotfiles"
   git pull
   git submodule update --remote
+  cd DIR
 }
 alias wupdate="wells_update"
 
