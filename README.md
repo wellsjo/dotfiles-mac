@@ -1,4 +1,4 @@
-## Dotfiles
+# Dotfiles
 My portable dev environment (OSx, Linux)
 
 ## Install
@@ -15,7 +15,7 @@ git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles && source ~/.dotfiles/
 - liquid shell prompt
 
 ## Special Commands
-SSH auto-install dotfiles
+SSH into remote server and auto-install dotfiles
 ```
 sshw <host>
 ```
