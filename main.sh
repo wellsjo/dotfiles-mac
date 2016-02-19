@@ -12,7 +12,7 @@ wells_update() {
   cd "${HOME}/.dotfiles"
   git pull
   git submodule update --remote
-  cd DIR
+  cd $DIR
 }
 alias wupdate="wells_update"
 
