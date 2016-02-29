@@ -154,3 +154,6 @@
 [submodule "vim/bundle/vim-airline-themes"]
 	path = vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "vim/bundle/vim-coffee-script.vim"]
+	path = vim/bundle/vim-coffee-script.vim
+	url = git@github.com:kchmck/vim-coffee-script.git
