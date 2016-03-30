@@ -13,6 +13,7 @@ alias ..="cd .."
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
+alias lastcommit="git diff HEAD^ HEAD"
 
 # tmux
 alias t="tmux -2"
