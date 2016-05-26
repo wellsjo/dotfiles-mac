@@ -10,9 +10,8 @@ set incsearch
 set hlsearch
 set autochdir
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
+set autoindent
+filetype plugin indent on
 let t_Co=256
 let mapleader=" "
 set term=screen-256color
@@ -34,8 +33,6 @@ set expandtab " tabs are spaces
 set tabstop=4 " 4 visual spaces for tab
 set softtabstop=2 " number of spaces in tab when editing
 set shiftwidth=2
-set autoindent
-set smartindent
 set backspace=2
 scriptencoding utf-8
 set encoding=utf-8
@@ -137,6 +134,7 @@ map <c-h> :set hlsearch!<CR>
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
+" let g:syntastic_javascript_checkers = ['jslint']
 
 " MRU
 let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'

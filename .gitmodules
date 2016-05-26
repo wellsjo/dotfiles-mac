@@ -76,9 +76,6 @@
 [submodule "vim/bundle/php.vim"]
 	path = vim/bundle/php.vim
 	url = git@github.com:StanAngeloff/php.vim.git
-[submodule "vim/bundle/node-jscs"]
-	path = vim/bundle/node-jscs
-	url = git@github.com:jscs-dev/node-jscs.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
@@ -130,9 +127,6 @@
 [submodule "vim/bundle/vim-interruptless"]
 	path = vim/bundle/vim-interruptless
 	url = git@github.com:vim-utils/vim-interruptless.git
-[submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
-	url = git@github.com:pangloss/vim-javascript.git
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = git@github.com:ap/vim-css-color.git
@@ -157,3 +151,9 @@
 [submodule "vim/bundle/vim-coffee-script.vim"]
 	path = vim/bundle/vim-coffee-script.vim
 	url = git@github.com:kchmck/vim-coffee-script.git
+[submodule "vim/bundle/yajs.vim"]
+	path = vim/bundle/yajs.vim
+	url = git@github.com:othree/yajs.vim.git
+[submodule "vim/bundle/vim-js-indent"]
+	path = vim/bundle/vim-js-indent
+	url = git@github.com:gavocanov/vim-js-indent.git
