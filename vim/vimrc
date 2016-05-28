@@ -134,7 +134,6 @@ map <c-h> :set hlsearch!<CR>
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
-" let g:syntastic_javascript_checkers = ['jslint']
 
 " MRU
 let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
