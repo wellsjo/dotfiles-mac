@@ -90,10 +90,10 @@ au BufNewFile,BufRead *.ode set filetype=odesza
 
 " persistent undo for files between sessions
 set undofile
-set undodir=$HOME/.vim-undo
+set undodir=$HOME/.vim-undohist
+set backupdir=$HOME/.vim-backup
 set undolevels=1000
 set undoreload=1000
-set backupdir=$HOME/.vim-backup
 
 " Tab settings
 set expandtab " tabs are spaces

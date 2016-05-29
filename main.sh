@@ -20,6 +20,9 @@ alias wupdate="wells_update"
 # Create symlinks in the $HOME directory to elements in the repo
 wells_install() {
 
+  touch ~/.vim-undohist
+  touch ~/.vim-backup
+
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
   symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
@@ -69,6 +72,6 @@ if [ -L "$2" ]; then
   rm "$2" >/dev/null 2>&1
 fi
 
-# Create that symlink!
+# Create symlink
 ln -s $1 $2
 }
