@@ -1,5 +1,75 @@
-" Load plugins from /bundles first
-execute pathogen#infect()
+" ======= Plugins ======
+call plug#begin('~/.vim/plugged')
+
+" buffer explorer
+Plug 'jlanzarotta/bufexplorer'
+
+" show line indents
+Plug 'Yggdroot/indentLine'
+
+" Open recent files
+Plug 'vim-scripts/mru.vim'
+
+" File explorer, persisted across tabs
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" autocompletion (with tab)
+Plug 'ervandew/supertab'
+
+" syntax checking
+Plug 'scrooloose/syntastic'
+
+" custom tab layout
+Plug 'gcmt/taboo.vim'
+
+" custom bottom status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" autoformat
+Plug 'Chiel92/vim-autoformat'
+
+" whitespace highlighting
+Plug 'ntpeters/vim-better-whitespace'
+
+" better pasting (auto set paste)
+Plug 'ConradIrwin/vim-bracketed-paste'
+
+" comment / uncommenter
+Plug 'tpope/vim-commentary'
+
+" fast movement
+Plug 'easymotion/vim-easymotion'
+
+" github integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" scope highlighting
+Plug 'justinmk/vim-matchparenalways'
+
+" languages
+Plug 'sheerun/vim-polyglot'
+
+" smooth scrolling
+Plug 'terryma/vim-smooth-scroll'
+
+" start screen
+Plug 'mhinz/vim-startify'
+
+" surround quotes
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
+" window management
+Plug 'wesQ3/vim-windowswap'
+
+" colors
+Plug 'wellsjo/wellsokai.vim'
+
+call plug#end()
+
 
 " ======= Editor =======
 
@@ -20,13 +90,10 @@ au BufNewFile,BufRead *.ode set filetype=odesza
 
 " persistent undo for files between sessions
 set undofile
-set undodir=$HOME/.dotfiles/vim/tmp/undo
+set undodir=$HOME/.vim-undo
 set undolevels=1000
 set undoreload=1000
-set backupdir=$HOME/.dotfiles/vim/tmp/backup
-
-" Get rid of that annoying netrwhist file stuff
-let g:netrw_dirhistmax = 0
+set backupdir=$HOME/.vim-backup
 
 " Tab settings
 set expandtab " tabs are spaces
@@ -37,13 +104,10 @@ set backspace=2
 scriptencoding utf-8
 set encoding=utf-8
 set list
-set listchars=tab:\|\ 
+set listchars=tab:\|\
 
 " Colorscheme
 colorscheme wellsokai
-
-" for odesza files
-au BufReadPost *.ode set syntax=odesza
 
 " Status bar
 set laststatus=2
@@ -67,18 +131,10 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" Toggle tagbar with ,,
-nmap ,, :TlistToggle<CR>
-
 " heavily used shortcuts
 nnoremap Q :q<CR>
-
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
 nnoremap <leader>f :w<CR>
-nnoremap <leader><leader>f :Autoformat<cr>
+nnoremap <leader>g :Autoformat<cr>
 inoremap jj <esc>:w<CR>
 inoremap jk <esc>:<cr><right>
 nnoremap <leader>x <esc><cr>
@@ -136,7 +192,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
 
 " MRU
-let MRU_File = $HOME . '/.dotfiles/vim/tmp/vim_mru_files'
+let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 35
 nnoremap m :MRU<cr>
 
@@ -156,9 +212,6 @@ let NERDTreeShowHidden=0
 " Taboo (tab labels)
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
-
-" markdown
-let g:vim_markdown_folding_disabled=1
 
 " Status line plugin
 let g:airline#extensions#syntastic#enabled = 1
