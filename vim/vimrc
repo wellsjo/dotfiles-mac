@@ -10,12 +10,17 @@ Plug 'Yggdroot/indentLine'
 " Open recent files
 Plug 'vim-scripts/mru.vim'
 
+Plug 'maksimr/vim-jsbeautify'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+
 " File explorer, persisted across tabs
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
 " autocompletion (with tab)
 Plug 'ervandew/supertab'
+
+Plug 'jiangmiao/auto-pairs'
 
 " syntax checking
 Plug 'scrooloose/syntastic'
@@ -73,48 +78,65 @@ call plug#end()
 
 " ======= Editor =======
 
-set number
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set autochdir
+" search
+set ignorecase   " case-insensitive search
+set smartcase    " case-sensitive search when using caps
+set incsearch    " show match while typing pattern
+set hlsearch     " highlight search results
+" set autochdir
+
+set number       " number lines
 syntax on
 set autoindent
 filetype plugin indent on
 let t_Co=256
 let mapleader=" "
+let g:netrw_dirhistmax = 0
 set term=screen-256color
 
 au BufNewFile,BufRead *.ode set filetype=odesza
 
 " persistent undo for files between sessions
 set undofile
-set undodir=$HOME/.vim-undohist
-set backupdir=$HOME/.vim-backup
 set undolevels=1000
 set undoreload=1000
+if !isdirectory(expand("~/.vim/.backupdir/"))
+  silent !mkdir -p ~/.vim/.backupdir
+endif
+if !isdirectory(expand("~/.vim/.swap/"))
+  silent !mkdir -p ~/.vim/.swap
+endif
+if !isdirectory(expand("~/.vim/.undo/"))
+  silent !mkdir -p ~/.vim/.undo
+endif
+set backupdir^=~/.vim/.backup/
+set directory^=~/.vim/.swap/
+set undodir^=~/.vim/.undo/
 
 " Tab settings
-set expandtab " tabs are spaces
-set tabstop=4 " 4 visual spaces for tab
-set softtabstop=2 " number of spaces in tab when editing
-set shiftwidth=2
-set backspace=2
+set expandtab             " tab key creates spaces
+set smarttab
+set cindent
+set tabstop=4             " number of space for tab character
+set softtabstop=2         " number of spaces in tab when editing
+set shiftwidth=2          " number of spaces used for >>, <<, ==
+
+set backspace=2           " best backspace setting
 scriptencoding utf-8
 set encoding=utf-8
-set list
+
+set list                  " see indent lines
 set listchars=tab:\|\
 
 " Colorscheme
 colorscheme wellsokai
 
-" Status bar
+" status bar
 set laststatus=2
 set cursorline
 set nocursorcolumn
 
-" cursor starts at the same location you left off
+" start the cursor from where you last left off in the file
 autocmd BufReadPost * call s:SetCursorPosition()
 function! s:SetCursorPosition()
   if &filetype !~ 'svn\|commit\c'
