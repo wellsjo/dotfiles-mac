@@ -78,6 +78,7 @@ call plug#end()
 
 " ======= Editor =======
 
+
 " search
 set ignorecase   " case-insensitive search
 set smartcase    " case-sensitive search when using caps
@@ -88,7 +89,9 @@ set hlsearch     " highlight search results
 set number       " number lines
 syntax on
 set autoindent
-filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
 let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
