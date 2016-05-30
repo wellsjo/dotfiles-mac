@@ -93,8 +93,8 @@ endif
 " ======= Shortcuts =======
 
 nnoremap <leader>q :q<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>f :Autoformat<cr>
+nnoremap <leader>f :w<CR>
+nnoremap <leader>g :Autoformat<cr>
 inoremap jj <esc>:w<CR>
 inoremap jk <esc>:<cr><right>
 nnoremap gr gT
