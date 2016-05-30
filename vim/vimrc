@@ -14,7 +14,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/mru.vim'
 
 Plug 'maksimr/vim-jsbeautify'
-Plug 'pangloss/vim-javascript', { 'tag': '2adca537eeec4891ad668f653d3ac4bff60f44a6', 'for': ['javascript', 'javascript.jsx'] }
+Plug 'pangloss/vim-javascript', { 'tag': 'develop', 'for': ['javascript', 'javascript.jsx'] }
 
 " file explorer, persisted across tabs
 Plug 'scrooloose/nerdtree'
