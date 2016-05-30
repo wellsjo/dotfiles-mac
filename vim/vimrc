@@ -14,7 +14,6 @@ Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'vim-airline/vim-airline'              " better status bar
 Plug 'vim-airline/vim-airline-themes'       " status bar theme
-" Plug 'maksimr/vim-jsbeautify'
 Plug 'Chiel92/vim-autoformat'               " auto format
 Plug 'ervandew/supertab'                    " tab auto complete
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
@@ -31,6 +30,7 @@ Plug 'tpope/vim-surround'                   " surround words with characters
 Plug 'tpope/vim-repeat'                     " better repeat (.)
 Plug 'Yggdroot/indentLine'                  " visual indent lines
 
+" needed until they fix js
 Plug 'pangloss/vim-javascript', { 'tag': 'develop', 'for': ['javascript', 'javascript.jsx'] }
 
 call plug#end()
@@ -93,8 +93,8 @@ endif
 " ======= Shortcuts =======
 
 nnoremap <leader>q :q<CR>
-nnoremap <leader>f :w<CR>
-nnoremap <leader>g :Autoformat<cr>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>f :Autoformat<cr>
 inoremap jj <esc>:w<CR>
 inoremap jk <esc>:<cr><right>
 nnoremap gr gT
