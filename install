@@ -1,27 +1,6 @@
 #!/bin/bash
 
-##
-# Main functions used for controlling my setup
-#
-# @author  Wells Johnston <w@wellsjohnston.com>
-
-# re-source dotfiles from git repo
-wells_update() {
-  echo -e "\nInstalling dotfiles..."
-  DIR=$PWD
-  cd "${HOME}/.dotfiles"
-  git pull
-  git submodule update --remote
-  cd $DIR
-}
-alias wupdate="wells_update"
-
-# Setup the dotfiles repo locally, or pull latest version from github.
-# Create symlinks in the $HOME directory to elements in the repo
-wells_install() {
-
-  touch ~/.vim-undohist
-  touch ~/.vim-backup
+function install_dotfiles() {
 
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
@@ -36,27 +15,11 @@ wells_install() {
   symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
   symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
-  cd "${HOME}/.dotfiles"
-  git submodule init
-  git submodule update
-
-  # source tmux
-  echo -e "\nSourcing tmux..."
-  tmux source ~/.tmux.conf
-
-  cd "${HOME}"
-
-  # Delete any broken symlinks in the homedir
+  # delete any broken symlinks in the homedir
   find -L . -maxdepth 1 -type l -exec rm -- {} +
-
-  # Source the profile to get things going
-  . "${HOME}/.profile"
-
   echo -e "\nDone!"
 }
-alias winstall="wells_install"
 
-# Helper to safely remove and make symlinks
 function symlink() {
 # If this isnt a symlink
 if [ ! -L "$2" ]; then
@@ -74,4 +37,5 @@ fi
 
 # Create symlink
 ln -s $1 $2
+echo -e "$1 --> $2"
 }
