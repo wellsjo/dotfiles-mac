@@ -78,61 +78,36 @@ call plug#end()
 
 " ======= Editor =======
 
-
 " search
-set ignorecase   " case-insensitive search
-set smartcase    " case-sensitive search when using caps
-set incsearch    " show match while typing pattern
-set hlsearch     " highlight search results
+set ignorecase                      " case-insensitive search
+set smartcase                       " case-sensitive search when using caps
+set incsearch                       " show match while typing pattern
+set hlsearch                        " highlight search results
 " set autochdir
 
-set number       " number lines
-syntax on
+" colors, syntax
+syntax on                           " syntax highlighting
+set number                          " number lines
 set autoindent
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
-
-au BufNewFile,BufRead *.ode set filetype=odesza
-
-" persistent undo for files between sessions
-set undofile
-set undolevels=1000
-set undoreload=1000
-if !isdirectory(expand("~/.vim/.backupdir/"))
-  silent !mkdir -p ~/.vim/.backupdir
-endif
-if !isdirectory(expand("~/.vim/.swap/"))
-  silent !mkdir -p ~/.vim/.swap
-endif
-if !isdirectory(expand("~/.vim/.undo/"))
-  silent !mkdir -p ~/.vim/.undo
-endif
-set backupdir^=~/.vim/.backup/
-set directory^=~/.vim/.swap/
-set undodir^=~/.vim/.undo/
-
-" Tab settings
-set expandtab             " tab key creates spaces
-set smarttab
-set cindent
-set tabstop=4             " number of space for tab character
-set softtabstop=2         " number of spaces in tab when editing
-set shiftwidth=2          " number of spaces used for >>, <<, ==
-
-set backspace=2           " best backspace setting
-scriptencoding utf-8
-set encoding=utf-8
-
-set list                  " see indent lines
+colorscheme wellsokai
+set list                            " see indent lines
 set listchars=tab:\|\
 
-" Colorscheme
-colorscheme wellsokai
+" editing, tabs, indenting
+set expandtab                       " tab key creates spaces
+set smarttab
+set cindent
+set tabstop=4                       " number of space for tab character
+set softtabstop=2                   " number of spaces in tab when editing
+set shiftwidth=2                    " number of spaces used for >>, <<, ==
+set backspace=2                     " best backspace setting
+scriptencoding utf-8
+set encoding=utf-8
 
 " status bar
 set laststatus=2
@@ -150,26 +125,24 @@ function! s:SetCursorPosition()
   end
 endfunction
 
-" Tmux mouse fix (for resizing vim panes within tmux)
+" enables resizing vim panes from tmux
 set mouse+=a
 if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" heavily used shortcuts
-nnoremap Q :q<CR>
+" ======= Shortcuts =======
+
+nnoremap <leader>q :q<CR>
 nnoremap <leader>f :w<CR>
 nnoremap <leader>g :Autoformat<cr>
 inoremap jj <esc>:w<CR>
 inoremap jk <esc>:<cr><right>
-nnoremap <leader>x <esc><cr>
+nnoremap gr gT
 
 " switch buffers with tab
 nnoremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
-
-" I prefer gr to go back a tab, also left and right arrow keys
-nnoremap gr gT
 
 " resize windows with arrow keys
 nnoremap <Left> :vertical resize +5<CR>
@@ -201,14 +174,30 @@ map <Leader> <Plug>(easymotion-prefix)
 " Search and replace shorthand with ;;
 nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 
-" you can press c-g to highlight all the words under the cursor
-" and c-h to toggle highlighting
+" c-g highlights all the words under the cursor and c-h toggles highlighting
 function! ToggleHighlightUnderWord()
   let @/='\<'.expand("<cword>").'\>'
   set hlsearch
 endfunction
 map <c-g> :call ToggleHighlightUnderWord()<CR>
 map <c-h> :set hlsearch!<CR>
+
+" persistent undo for files between sessions
+set undofile
+set undolevels=1000
+set undoreload=1000
+if !isdirectory(expand("~/.vim/.backupdir/"))
+  silent !mkdir -p ~/.vim/.backupdir
+endif
+if !isdirectory(expand("~/.vim/.swap/"))
+  silent !mkdir -p ~/.vim/.swap
+endif
+if !isdirectory(expand("~/.vim/.undo/"))
+  silent !mkdir -p ~/.vim/.undo
+endif
+set backupdir^=~/.vim/.backup/
+set directory^=~/.vim/.swap/
+set undodir^=~/.vim/.undo/
 
 " ======= Plugin Settings =======
 
@@ -256,9 +245,6 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" quickscope
-let g:qs_highlight_on_keys = ['f', 'F']
 
 " indentLine
 let g:indentLine_color_term = 239
