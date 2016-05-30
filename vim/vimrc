@@ -1,4 +1,7 @@
+" vimrc
+
 " ======= Plugins ======
+
 call plug#begin('~/.vim/plugged')
 
 " buffer explorer
@@ -7,13 +10,13 @@ Plug 'jlanzarotta/bufexplorer'
 " show line indents
 Plug 'Yggdroot/indentLine'
 
-" Open recent files
+" open recent files
 Plug 'vim-scripts/mru.vim'
 
 Plug 'maksimr/vim-jsbeautify'
 Plug 'pangloss/vim-javascript', { 'tag': '2adca537eeec4891ad668f653d3ac4bff60f44a6', 'for': ['javascript', 'javascript.jsx'] }
 
-" File explorer, persisted across tabs
+" file explorer, persisted across tabs
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
@@ -74,7 +77,6 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'wellsjo/wellsokai.vim'
 
 call plug#end()
-
 
 " ======= Editor =======
 
