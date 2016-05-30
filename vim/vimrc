@@ -1,80 +1,39 @@
+
 " ======= Plugins ======
+
 call plug#begin('~/.vim/plugged')
 
-" buffer explorer
-Plug 'jlanzarotta/bufexplorer'
+Plug 'wellsjo/wellsokai.vim'                " color theme
+Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
+Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
+Plug 'gcmt/taboo.vim'                       " better tabs
+Plug 'jlanzarotta/bufexplorer'              " buffer exploring
+Plug 'wesQ3/vim-windowswap'                 " swap windows
+Plug 'scrooloose/syntastic'                 " syntax checker
+Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
+Plug 'mhinz/vim-startify'                   " start screen
+Plug 'vim-airline/vim-airline'              " better status bar
+Plug 'vim-airline/vim-airline-themes'       " status bar theme
+" Plug 'maksimr/vim-jsbeautify'
+Plug 'Chiel92/vim-autoformat'               " auto format
+Plug 'ervandew/supertab'                    " tab auto complete
+Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
+Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
+Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
+Plug 'tpope/vim-commentary'                 " easily comment out code
+Plug 'easymotion/vim-easymotion'            " targeted movement
+Plug 'tpope/vim-fugitive'                   " git integration
+Plug 'airblade/vim-gitgutter'               " show diff in code
+Plug 'justinmk/vim-matchparenalways'        " show scope
+Plug 'sheerun/vim-polyglot'                 " languages integration
+Plug 'terryma/vim-smooth-scroll'            " better scrolling
+Plug 'tpope/vim-surround'                   " surround words with characters
+Plug 'tpope/vim-repeat'                     " better repeat (.)
+Plug 'Yggdroot/indentLine'                  " visual indent lines
 
-" show line indents
-Plug 'Yggdroot/indentLine'
-
-" Open recent files
-Plug 'vim-scripts/mru.vim'
-
-Plug 'maksimr/vim-jsbeautify'
-Plug 'pangloss/vim-javascript', { 'tag': '2adca537eeec4891ad668f653d3ac4bff60f44a6', 'for': ['javascript', 'javascript.jsx'] }
-
-" File explorer, persisted across tabs
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-
-" autocompletion (with tab)
-Plug 'ervandew/supertab'
-
-Plug 'jiangmiao/auto-pairs'
-
-" syntax checking
-Plug 'scrooloose/syntastic'
-
-" custom tab layout
-Plug 'gcmt/taboo.vim'
-
-" custom bottom status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" autoformat
-Plug 'Chiel92/vim-autoformat'
-
-" whitespace highlighting
-Plug 'ntpeters/vim-better-whitespace'
-
-" better pasting (auto set paste)
-Plug 'ConradIrwin/vim-bracketed-paste'
-
-" comment / uncommenter
-Plug 'tpope/vim-commentary'
-
-" fast movement
-Plug 'easymotion/vim-easymotion'
-
-" github integration
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" scope highlighting
-Plug 'justinmk/vim-matchparenalways'
-
-" languages
-Plug 'sheerun/vim-polyglot'
-
-" smooth scrolling
-Plug 'terryma/vim-smooth-scroll'
-
-" start screen
-Plug 'mhinz/vim-startify'
-
-" surround quotes
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-
-" window management
-Plug 'wesQ3/vim-windowswap'
-
-" colors
-Plug 'wellsjo/wellsokai.vim'
+Plug 'pangloss/vim-javascript', { 'tag': 'develop', 'for': ['javascript', 'javascript.jsx'] }
 
 call plug#end()
-
 
 " ======= Editor =======
 
@@ -246,7 +205,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" indentLine
+" intendLine
 let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
 let g:indentLine_enabled = 0
