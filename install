@@ -17,6 +17,9 @@ function install_dotfiles() {
 
   # delete any broken symlinks in the homedir
   find -L . -maxdepth 1 -type l -exec rm -- {} +
+  echo -e "installing vim plugins..."
+  vim -c "PlugInstall" .
+
   echo -e "\nDone!"
 }
 
