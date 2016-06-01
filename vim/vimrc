@@ -42,7 +42,7 @@ set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive search when using caps
 set incsearch                       " show match while typing pattern
 set hlsearch                        " highlight search results
-" set autochdir
+set autochdir
 
 " colors, syntax
 syntax on                           " syntax highlighting
@@ -141,22 +141,18 @@ endfunction
 map <c-g> :call ToggleHighlightUnderWord()<CR>
 map <c-h> :set hlsearch!<CR>
 
-" persistent undo for files between sessions
+" persistent undo and swp files
 set undofile
 set undolevels=1000
 set undoreload=1000
-if !isdirectory(expand("~/.vim/.backupdir/"))
-  silent !mkdir -p ~/.vim/.backupdir
-endif
 if !isdirectory(expand("~/.vim/.swap/"))
   silent !mkdir -p ~/.vim/.swap
 endif
 if !isdirectory(expand("~/.vim/.undo/"))
   silent !mkdir -p ~/.vim/.undo
 endif
-set backupdir^=~/.vim/.backup/
-set directory^=~/.vim/.swap/
-set undodir^=~/.vim/.undo/
+set directory^=~/.vim/.swap//
+set undodir^=~/.vim/.undo//
 
 " ======= Plugin Settings =======
 
