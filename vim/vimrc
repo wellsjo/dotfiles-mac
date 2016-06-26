@@ -3,7 +3,8 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'wellsjo/wellsokai.vim'                " color theme
+Plug 'wellsjo/wellsokai.vim'                " color themes
+Plug 'endel/vim-github-colorscheme'
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
 Plug 'gcmt/taboo.vim'                       " better tabs
