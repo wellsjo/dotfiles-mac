@@ -3,7 +3,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'wellsjo/wellsokai.vim'                " color themes
+Plug 'wellsjo/wellsokai.vim', { 'branch': 'test-fixes' }
 Plug 'endel/vim-github-colorscheme'
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
@@ -25,14 +25,15 @@ Plug 'easymotion/vim-easymotion'            " targeted movement
 Plug 'tpope/vim-fugitive'                   " git integration
 Plug 'airblade/vim-gitgutter'               " show diff in code
 Plug 'justinmk/vim-matchparenalways'        " show scope
-Plug 'sheerun/vim-polyglot'                 " languages integration
 Plug 'terryma/vim-smooth-scroll'            " better scrolling
 Plug 'tpope/vim-surround'                   " surround words with characters
 Plug 'tpope/vim-repeat'                     " better repeat (.)
 Plug 'Yggdroot/indentLine'                  " visual indent lines
 
-" needed until they fix js
-Plug 'pangloss/vim-javascript', { 'tag': 'develop', 'for': ['javascript', 'javascript.jsx'] }
+" languages
+Plug 'sheerun/vim-polyglot'                 " languages integration
+Plug 'pangloss/vim-javascript'              " JS support
+Plug 'briancollins/vim-jst'                 " EJS support
 
 call plug#end()
 
