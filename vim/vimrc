@@ -3,7 +3,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'wellsjo/wellsokai.vim', { 'tag': 'test-fixes' }
+Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
