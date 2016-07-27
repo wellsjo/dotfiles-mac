@@ -31,9 +31,10 @@ Plug 'tpope/vim-repeat'                     " better repeat (.)
 Plug 'Yggdroot/indentLine'                  " visual indent lines
 
 " languages
-Plug 'sheerun/vim-polyglot'                 " languages integration
-Plug 'pangloss/vim-javascript'              " JS support
-Plug 'briancollins/vim-jst'                 " EJS support
+Plug 'sheerun/vim-polyglot'                 " languages
+Plug 'pangloss/vim-javascript'
+Plug 'gf3/peg.vim'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -115,7 +116,6 @@ nnoremap <Down> :resize -5<CR>
 map <Leader>i :IndentLinesToggle<CR>
 
 " auto-center search results
-nnoremap z zz
 nnoremap n nzz
 nnoremap N Nzz
 
