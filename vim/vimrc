@@ -70,7 +70,7 @@ set listchars=tab:\|\
 set expandtab                       " tab key creates spaces
 set smarttab
 set cindent
-set tabstop=4                       " number of space for tab character
+set tabstop=2                       " number of space for tab character
 set softtabstop=2                   " number of spaces in tab when editing
 set shiftwidth=2                    " number of spaces used for >>, <<, ==
 set backspace=2                     " best backspace setting
@@ -167,6 +167,9 @@ set undodir^=~/.vim/.undo//
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
