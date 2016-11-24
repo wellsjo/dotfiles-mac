@@ -45,6 +45,8 @@ endif
 call plug#end()
 
 " ======= Editor =======
+set nocompatible
+set showcmd
 
 " search
 set ignorecase                      " case-insensitive search
