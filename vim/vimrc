@@ -37,9 +37,10 @@ Plug 'gf3/peg.vim'
 Plug 'jparise/vim-graphql'
 Plug 'hashivim/vim-terraform'
 
-" Vim 8 Plugins (mac only)
+" MacOS only
 if system('uname')=~'Darwin'
-  Plug 'maralla/completor.vim'                " async tab completion
+  Plug 'maralla/completor.vim'              " async tab completion
+  Plug 'metakirby5/codi.vim'                " in-editor interpreter sandbox
 endif
 
 call plug#end()
