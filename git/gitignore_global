@@ -42,3 +42,9 @@ xcuserdata
 .ropeproject
 *.vimhook*
 *.un~
+
+##
+# Package manager / state files
+#
+
+yarn.lock
