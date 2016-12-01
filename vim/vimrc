@@ -80,6 +80,9 @@ set backspace=2                     " best backspace setting
 scriptencoding utf-8
 set encoding=utf-8
 
+" formatters
+let g:formatters_js = ['js-beautify']
+
 " status bar
 set laststatus=2
 set cursorline
@@ -172,7 +175,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_mode_map = { 'passive_filetypes': ['html']  }
 
 " vim-javascript
+" Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
+let g:formatters_js = ['js-beautify']
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'

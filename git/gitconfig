@@ -1,28 +1,32 @@
+[user]
+  name = Wells Johnston
+  email = wellsjohnston@gmail.com
+
 [alias]
-    st = status
-    ap = add -p
-    co = checkout
-    com = commit
-    br = branch
-    hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    ctags = !.git/hooks/ctags
+  st = status
+  ap = add -p
+  co = checkout
+  com = commit
+  br = branch
+  hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  ctags = !.git/hooks/ctags
 
 [branch]
-    autosetuprebase = always
+  autosetuprebase = always
 
 [color]
-    diff = auto
-    branch = auto
-    status = auto
-    ui = true
+  diff = auto
+  branch = auto
+  status = auto
+  ui = true
 
 [core]
-    editor = vim
-	excludesfile = ~/.dotfiles/git/gitignore_global
-    pager = less
+  excludesfile = ~/.dotfiles/git/gitignore_global
+  editor = vim
+  pager = less
 
 [push]
-    default = tracking
+  default = tracking
 
 [web]
-    browser = google-chrome
+  browser = google-chrome

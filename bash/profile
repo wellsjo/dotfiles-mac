@@ -46,6 +46,8 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 fi
 
 export GREP_OPTIONS='--color=auto'
+
+# Update path
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/usr/local/sbin:$PATH
 export PATH=$HOME/.bpkg/bin:"$PATH"
