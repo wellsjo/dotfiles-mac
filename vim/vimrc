@@ -80,13 +80,18 @@ set backspace=2                     " best backspace setting
 scriptencoding utf-8
 set encoding=utf-8
 
-" formatters
-let g:formatters_js = ['js-beautify']
-
 " status bar
 set laststatus=2
 set cursorline
 set nocursorcolumn
+
+" enables resizing vim panes from tmux
+set mouse+=a
+if &term =~ '^screen'
+  set ttymouse=xterm2
+endif
+
+" ========= Functions =========
 
 " start the cursor from where you last left off in the file
 autocmd BufReadPost * call s:SetCursorPosition()
@@ -99,11 +104,19 @@ function! s:SetCursorPosition()
   end
 endfunction
 
-" enables resizing vim panes from tmux
-set mouse+=a
-if &term =~ '^screen'
-  set ttymouse=xterm2
-endif
+" Format javascript code with eslint
+function ESLintFix()
+  silent execute "!eslint --fix % --output %"
+endfunction
+nnoremap <leader>el :call ESLintFix()<CR>
+
+" c-g highlights all the words under the cursor and c-h toggles highlighting
+function! ToggleHighlightUnderWord()
+  let @/='\<'.expand("<cword>").'\>'
+  set hlsearch
+endfunction
+map <c-g> :call ToggleHighlightUnderWord()<CR>
+map <c-h> :set hlsearch!<CR>
 
 " ======= Shortcuts =======
 
@@ -147,14 +160,6 @@ map <Leader> <Plug>(easymotion-prefix)
 " Search and replace shorthand with ;;
 nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 
-" c-g highlights all the words under the cursor and c-h toggles highlighting
-function! ToggleHighlightUnderWord()
-  let @/='\<'.expand("<cword>").'\>'
-  set hlsearch
-endfunction
-map <c-g> :call ToggleHighlightUnderWord()<CR>
-map <c-h> :set hlsearch!<CR>
-
 " persistent undo and swp files
 set undofile
 set undolevels=1000
@@ -197,7 +202,9 @@ highlight link SyntasticStyleWarningSign SignColumn
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
-let g:formatters_js = ['js-beautify']
+
+" Autoformat settings
+let g:formatters_javascript = ['jscs']
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
