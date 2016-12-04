@@ -15,7 +15,6 @@ Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'vim-airline/vim-airline'              " better status bar
 Plug 'vim-airline/vim-airline-themes'       " status bar theme
-Plug 'Chiel92/vim-autoformat'               " auto format
 Plug 'ervandew/supertab'                    " tab auto complete
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
@@ -31,11 +30,10 @@ Plug 'tpope/vim-repeat'                     " better repeat (.)
 Plug 'Yggdroot/indentLine'                  " visual indent lines
 
 " languages
-Plug 'sheerun/vim-polyglot'                 " languages
 Plug 'pangloss/vim-javascript'
-Plug 'gf3/peg.vim'
-Plug 'jparise/vim-graphql'
 Plug 'hashivim/vim-terraform'
+Plug 'jparise/vim-graphql'
+Plug 'gf3/peg.vim'
 
 " MacOS only
 if system('uname')=~'Darwin'
@@ -104,12 +102,6 @@ function! s:SetCursorPosition()
   end
 endfunction
 
-" Format javascript code with eslint
-function ESLintFix()
-  silent execute "!eslint --fix % --output %"
-endfunction
-nnoremap <leader>el :call ESLintFix()<CR>
-
 " c-g highlights all the words under the cursor and c-h toggles highlighting
 function! ToggleHighlightUnderWord()
   let @/='\<'.expand("<cword>").'\>'
@@ -122,7 +114,6 @@ map <c-h> :set hlsearch!<CR>
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>f :w<CR>
-nnoremap <leader>g :Autoformat<cr>
 inoremap jj <esc>:w<CR>
 inoremap jk <esc>:<cr><right>
 nnoremap gr gT
@@ -202,9 +193,6 @@ highlight link SyntasticStyleWarningSign SignColumn
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
-
-" Autoformat settings
-let g:formatters_javascript = ['jscs']
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
