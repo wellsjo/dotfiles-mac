@@ -36,9 +36,6 @@ fi
 # liquid prompt
 source ~/.dotfiles/bash/liquidprompt/liquidprompt
 
-# Vim modules
-vim +PlugInstall +qall +silent
-
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
