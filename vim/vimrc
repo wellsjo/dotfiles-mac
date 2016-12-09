@@ -32,7 +32,7 @@ Plug 'tpope/vim-fugitive'                   " git integration
 Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
 Plug 'justinmk/vim-matchparenalways'        " Show scope
 Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit files
-Plug 'romain/vim-cool'                      " Better search highlighting enabling/disabling
+Plug 'romainl/vim-cool'                     " Better search highlighting enabling/disabling
 
 " Languages
 Plug 'pangloss/vim-javascript'
