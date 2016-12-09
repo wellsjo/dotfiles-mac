@@ -3,33 +3,37 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Color Schemes
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
+
+" Editor enhancements
+Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
+Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
-Plug 'gcmt/taboo.vim'                       " better tabs
-Plug 'jlanzarotta/bufexplorer'              " buffer exploring
-Plug 'wesQ3/vim-windowswap'                 " swap windows
-Plug 'scrooloose/syntastic'                 " syntax checker
-Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
-Plug 'mhinz/vim-startify'                   " start screen
 Plug 'vim-airline/vim-airline'              " better status bar
 Plug 'vim-airline/vim-airline-themes'       " status bar theme
-Plug 'ervandew/supertab'                    " tab auto complete
-Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
-Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
-Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
-Plug 'tpope/vim-commentary'                 " easily comment out code
+Plug 'wesQ3/vim-windowswap'                 " swap windows
+Plug 'gcmt/taboo.vim'                       " better tabs
+Plug 'mhinz/vim-startify'                   " start screen
+
+" Essentials
+Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
+Plug 'scrooloose/syntastic'                 " syntax checker
 Plug 'easymotion/vim-easymotion'            " targeted movement
-Plug 'tpope/vim-fugitive'                   " git integration
+Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'airblade/vim-gitgutter'               " show diff in code
-Plug 'justinmk/vim-matchparenalways'        " show scope
 Plug 'terryma/vim-smooth-scroll'            " better scrolling
 Plug 'tpope/vim-surround'                   " surround words with characters
+Plug 'tpope/vim-commentary'                 " easily comment out code
 Plug 'tpope/vim-repeat'                     " better repeat (.)
-Plug 'Yggdroot/indentLine'                  " visual indent lines
+Plug 'tpope/vim-fugitive'                   " git integration
+Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
+Plug 'justinmk/vim-matchparenalways'        " Show scope
+Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit files
 
-" languages
+" Languages
 Plug 'pangloss/vim-javascript'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
@@ -43,20 +47,20 @@ endif
 
 call plug#end()
 
-" ======= Editor =======
-set nocompatible
-set showcmd
+" ======= Options =======
 
-" search
+set autochdir                       " Working directory is always same as the file being edited
+set showcmd                         " Show the command as you type
+
+" Search
 set ignorecase                      " case-insensitive search
 set smartcase                       " case-sensitive search when using caps
 set incsearch                       " show match while typing pattern
-set hlsearch                        " highlight search results
-set autochdir
+set hlsearch                        " Highlight search results
 
-" colors, syntax
-syntax on                           " syntax highlighting
-set number                          " number lines
+" Colors, syntax
+syntax on                           " Syntax highlighting
+set number                          " Show number lines
 set autoindent
 filetype plugin indent on
 let t_Co=256
@@ -83,24 +87,13 @@ set laststatus=2
 set cursorline
 set nocursorcolumn
 
-" enables resizing vim panes from tmux
+" Enables resizing vim panes from tmux
 set mouse+=a
 if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
 " ========= Functions =========
-
-" start the cursor from where you last left off in the file
-autocmd BufReadPost * call s:SetCursorPosition()
-function! s:SetCursorPosition()
-  if &filetype !~ 'svn\|commit\c'
-    if line("'\"") > 0 && line("'\"") <= line("$")
-      exe "normal! g`\""
-      normal! zz
-    endif
-  end
-endfunction
 
 " c-g highlights all the words under the cursor and c-h toggles highlighting
 function! ToggleHighlightUnderWord()
@@ -110,38 +103,44 @@ endfunction
 map <c-g> :call ToggleHighlightUnderWord()<CR>
 map <c-h> :set hlsearch!<CR>
 
-" ======= Shortcuts =======
+" ======= Key Bindings =======
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>f :w<CR>
+
+" Save with 'jj'
 inoremap jj <esc>:w<CR>
+
+" Stop editing in place with 'jk'
 inoremap jk <esc>:<cr><right>
+
+" Quickly switch tabs
 nnoremap gr gT
 
-" switch buffers with tab
+" Tab to switch buffers
 nnoremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
 
-" resize windows with arrow keys
+" Arrow keys to resize windows
 nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
 
-" toggle intent lines
+" Toggle intent lines
 map <Leader>i :IndentLinesToggle<CR>
 
-" auto-center search results
+" Auto-center search results
 nnoremap n nzz
 nnoremap N Nzz
 
-" move windiws with j, k, o, p
+" Move windiws with j, k, o, p
 map <silent> <C-o> :wincmd h<CR>
 map <silent> <C-p> :wincmd l<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 
-" move vertically by visual line
+" Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 
@@ -151,7 +150,7 @@ map <Leader> <Plug>(easymotion-prefix)
 " Search and replace shorthand with ;;
 nnoremap ;; :%s:::cg<Left><Left><Left><Left>
 
-" persistent undo and swp files
+" Persistent undo and swp files
 set undofile
 set undolevels=1000
 set undoreload=1000
@@ -199,7 +198,7 @@ let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 35
 nnoremap m :MRU<cr>
 
-" whitespace
+" Show whitespace
 highlight ExtraWhitespace ctermbg=red
 
 " Smooth scroll
@@ -207,7 +206,7 @@ nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
 nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
-" Nerd Tree
+" Nerd Tree settings
 nnoremap \ :NERDTreeTabsToggle<Cr>
 let g:NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
@@ -222,6 +221,8 @@ let g:airline_theme='bubblegum'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
+" UTF-8 airline symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
@@ -235,7 +236,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" intendLine
-let g:indentLine_color_term = 239
-let g:indentLine_char = '|'
-let g:indentLine_enabled = 0
+" Auto completion with tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
