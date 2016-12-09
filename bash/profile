@@ -14,7 +14,7 @@ LANG=en_US.UTF-8
 HISTFILE="${HOME}/.history"
 HISTSIZE=10000
 
-# auto enable colors for commands like 'ls'
+# Auto-enable colors for commands like 'ls'
 CLICOLOR=1
 
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR

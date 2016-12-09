@@ -2,6 +2,10 @@
 
 function install_dotfiles() {
 
+  echo -e "\nInstalling Liquid Prompt"
+  rm -rf $HOME/.dotfiles/bash/liquidprompt
+  git clone git@github.com:nojhan/liquidprompt.git $HOME/.dotfiles/bash/liquidprompt
+
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
   symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
