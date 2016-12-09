@@ -35,6 +35,8 @@ fi
 
 # liquid prompt
 source ~/.dotfiles/bash/liquidprompt/liquidprompt
+LP_PS1_PREFIX="\n"
+LP_PS1_POSTFIX="\n> "
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
