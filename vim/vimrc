@@ -30,9 +30,7 @@ Plug 'tpope/vim-commentary'                 " easily comment out code
 Plug 'tpope/vim-repeat'                     " better repeat (.)
 Plug 'tpope/vim-fugitive'                   " git integration
 Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
-Plug 'justinmk/vim-matchparenalways'        " Show scope
 Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit files
-Plug 'romainl/vim-cool'                     " Better search highlighting enabling/disabling
 
 " Languages
 Plug 'pangloss/vim-javascript'
@@ -127,9 +125,6 @@ nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
-
-" Toggle intent lines
-map <Leader>i :IndentLinesToggle<CR>
 
 " Auto-center search results
 nnoremap n nzz
