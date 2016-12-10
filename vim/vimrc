@@ -48,6 +48,7 @@ call plug#end()
 
 " ======= Options =======
 
+set shortmess+=c
 set autochdir                       " Working directory is always same as the file being edited
 set showcmd                         " Show the command as you type
 
@@ -191,7 +192,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
-let MRU_Window_Height = 35
+let MRU_Window_Height = 15
 nnoremap m :MRU<cr>
 
 " Show whitespace
@@ -236,3 +237,4 @@ let g:airline_symbols.whitespace = 'Ξ'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+let g:completor_node_binary = '/usr/local/bin/node'
