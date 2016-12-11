@@ -46,16 +46,16 @@ endif
 
 call plug#end()
 
-" ======= Options =======
+" =============================================================================
 
-set shortmess+=c
-set autochdir                       " Working directory is always same as the file being edited
+set shortmess+=c                    " Getsrid of annoying error messages
+set autochdir                       " Working directory is always same as the file
 set showcmd                         " Show the command as you type
 
 " Search
-set ignorecase                      " case-insensitive search
-set smartcase                       " case-sensitive search when using caps
-set incsearch                       " show match while typing pattern
+set ignorecase                      " Case-insensitive search
+set smartcase                       " Case-sensitive search when using caps
+set incsearch                       " Show match while typing pattern
 set hlsearch                        " Highlight search results
 
 " Colors, syntax
@@ -68,17 +68,17 @@ let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
 colorscheme wellsokai
-set list                            " see indent lines
+set list                            " See indent lines
 set listchars=tab:\|\
 
 " editing, tabs, indenting
-set expandtab                       " tab key creates spaces
+set expandtab                       " Tab key creates spaces
 set smarttab
 set cindent
-set tabstop=2                       " number of space for tab character
-set softtabstop=2                   " number of spaces in tab when editing
-set shiftwidth=2                    " number of spaces used for >>, <<, ==
-set backspace=2                     " best backspace setting
+set tabstop=2                       " Number of space for tab character
+set softtabstop=2                   " Number of spaces in tab when editing
+set shiftwidth=2                    " Number of spaces used for >>, <<, ==
+set backspace=2                     " Best backspace setting
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -93,22 +93,22 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" ========= Functions =========
-
-" c-g highlights all the words under the cursor and c-h toggles highlighting
-function! ToggleHighlightUnderWord()
-  let @/='\<'.expand("<cword>").'\>'
-  set hlsearch
-endfunction
-map <c-g> :call ToggleHighlightUnderWord()<CR>
-map <c-h> :set hlsearch!<CR>
-
 " ======= Key Bindings =======
 
+" Search and highlight words under cursor
+nnoremap F :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+nnoremap f :set hls!<CR>
+
+" Fast quit
 nnoremap <leader>q :q<CR>
+
+" Quick write
 nnoremap <leader>f :w<CR>
 
-" Save with 'jj'
+" Quick way to format a file
+nnoremap <leader>g gg=G''zz
+
+" Save while in insert mode with 'jj'
 inoremap jj <esc>:w<CR>
 
 " Stop editing in place with 'jk'
