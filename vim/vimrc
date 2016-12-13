@@ -93,11 +93,8 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" ======= Key Bindings =======
-
-" Search and highlight words under cursor
-nnoremap F :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-nnoremap f :set hls!<CR>
+" Toggle search and highlight words under cursor
+nnoremap F :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
