@@ -94,7 +94,7 @@ if &term =~ '^screen'
 endif
 
 " Toggle search and highlight words under cursor
-nnoremap F :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
+nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
