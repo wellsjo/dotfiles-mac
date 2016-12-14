@@ -1,5 +1,12 @@
 # Dotfiles
 My portable dev environment (OSX, Linux)
+- vim config
+- tmux config
+- git config
+- liquid shell prompt
+- vim auto-completion
+- git auto-completion
+- ssh auto-completion
 
 ## Install
 Paste this in the terminal. It will clone the repo, source the bash profile, then run an install script.
@@ -12,15 +19,6 @@ Paste this in the terminal. It will clone the repo, source the bash profile, the
   cd .dotfiles/vim/plugged/completor.vim && make js
 )
 ```
-
-## Features
-- vim config
-- tmux config
-- git config
-- liquid shell prompt
-- vim auto-completion
-- git auto-completion
-- ssh auto-completion
 
 # Dependencies
 - tmux
