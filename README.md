@@ -2,6 +2,7 @@
 My portable dev environment (OSX, Linux)
 
 ## Install
+Paste this in the terminal. It will clone the repo, source the bash profile, then run an install script.
 ```bash
 (
   git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles; 
