@@ -20,7 +20,7 @@ Paste this in the terminal. It will clone the repo, source the bash profile, the
 )
 ```
 
-# Dependencies
+## Dependencies
 - tmux
 - git
 - node / npm
