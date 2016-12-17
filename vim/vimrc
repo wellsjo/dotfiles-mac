@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'       " status bar theme
 Plug 'wesQ3/vim-windowswap'                 " swap windows
 Plug 'gcmt/taboo.vim'                       " better tabs
 Plug 'mhinz/vim-startify'                   " start screen
+Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 
 " Essentials
 Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
