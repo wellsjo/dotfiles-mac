@@ -235,3 +235,12 @@ let g:airline_symbols.whitespace = 'Ξ'
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+" Setup python to use custom styles
+" This is called in ftplugin/python.vim
+function! SetupPython()
+  setlocal softtabstop=2
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+endfunction
+command! -bar SetupPython call SetupPython()
