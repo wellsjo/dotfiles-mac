@@ -17,6 +17,7 @@ Plug 'wesQ3/vim-windowswap'                 " swap windows
 Plug 'gcmt/taboo.vim'                       " better tabs
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
+Plug 'sjl/gundo.vim'                        " view undo tree
 
 " Essentials
 Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
