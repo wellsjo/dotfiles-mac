@@ -2,23 +2,27 @@
 
 function install_dotfiles() {
 
+  # Liquid prompt
   echo -e "\nInstalling Liquid Prompt"
   rm -rf $HOME/.dotfiles/bash/liquidprompt
   git clone git@github.com:nojhan/liquidprompt.git $HOME/.dotfiles/bash/liquidprompt
   symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
+  # Vim
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
   symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
 
+  # Bash
+  symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
 
-  symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
+  # Tmux
   symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
-  # delete any broken symlinks in the homedir
+  # Remove broken symlinks
   find -L . -maxdepth 1 -type l -exec rm -- {} +
   echo -e "\nDone!"
 }

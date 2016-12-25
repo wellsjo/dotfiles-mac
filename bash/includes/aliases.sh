@@ -3,11 +3,11 @@
 # @author Wells Johnston <w@wellsjohnston.com>
 
 # Shorthand
-alias h="cd ~"
 alias l="ls -lha"
-alias la="ls -lha"
 alias c="clear"
 alias ..="cd .."
+alias ...="cd .. && cd .."
+alias ....="cd .. && cd .. && cd .."
 
 # git
 alias gc="git commit -m $1"

@@ -41,7 +41,7 @@ LP_PS1_POSTFIX="\n> "
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
-# Automatically start ssh-agent and load ssh keys
+# Start ssh-agent, load ssh keys
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
   ssh-add
