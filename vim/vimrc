@@ -4,7 +4,6 @@
 call plug#begin('~/.vim/plugged')
 
 " Color Schemes
-Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
 
 " Editor enhancements
@@ -129,15 +128,18 @@ nnoremap <Down> :resize -5<CR>
 nnoremap n nzz
 nnoremap N Nzz
 
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
 " Move windiws with j, k, o, p
 map <silent> <C-o> :wincmd h<CR>
 map <silent> <C-p> :wincmd l<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 
-" Move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+" Better mapping for repeating macros
+map , @
 
 " Activate EasyMotion with space
 map <Leader> <Plug>(easymotion-prefix)
