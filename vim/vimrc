@@ -39,12 +39,6 @@ Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
 
-" MacOS only
-if system('uname')=~'Darwin'
-  Plug 'maralla/completor.vim'              " async tab completion
-  Plug 'metakirby5/codi.vim'                " in-editor interpreter sandbox
-endif
-
 call plug#end()
 
 " =============================================================================
@@ -141,6 +135,9 @@ map <silent> <C-k> :wincmd k<CR>
 
 " Yank line without newline character
 nmap yu yg$
+
+" File completion with control-f in insert mode
+imap <c-f> <c-x><c-f>
 
 " Better mapping for repeating macros
 map , @
