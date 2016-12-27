@@ -139,14 +139,17 @@ map <silent> <C-p> :wincmd l<CR>
 map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-k> :wincmd k<CR>
 
+" Yank line without newline character
+nmap yu yg$
+
 " Better mapping for repeating macros
 map , @
 
 " Activate EasyMotion with space
-map <Leader> <Plug>(easymotion-prefix)
+map <Leader><Leader> <Plug>(easymotion-prefix)
 
-" Search and replace shorthand with ;;
-nnoremap ;; :%s:::cg<Left><Left><Left><Left>
+" Search and replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Persistent undo and swp files
 set undofile
