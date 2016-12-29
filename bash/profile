@@ -17,6 +17,9 @@ HISTSIZE=10000
 # Auto-enable colors for commands like 'ls'
 CLICOLOR=1
 
+# Vim key bindings
+set -o vi
+
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Used by bash, unused by mksh
