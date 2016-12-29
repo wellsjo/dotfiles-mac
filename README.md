@@ -12,11 +12,10 @@ My portable dev environment (OSX, Linux)
 Paste this in the terminal. It will clone the repo, source the bash profile, then run an install script.
 ```bash
 (
-  git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles; 
-  source ~/.dotfiles/bash/profile; 
-  install_dotfiles; 
-  vim +PlugInstall +qall +silent; 
-  cd .dotfiles/vim/plugged/completor.vim && make js
+  git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles;
+  source ~/.dotfiles/bash/profile;
+  install_dotfiles;
+  vim +PlugInstall +qall +silent;
 )
 ```
 

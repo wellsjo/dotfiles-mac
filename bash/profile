@@ -60,3 +60,5 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # Better man pages
 export PAGER=most
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
