@@ -17,11 +17,14 @@ function install_dotfiles() {
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
   symlink "${HOME}/.dotfiles/vim" "${HOME}/.vim"
 
-  # Bash
+  # Bash profile
   symlink "${HOME}/.dotfiles/bash" "${HOME}/.bash"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.profile"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bashrc"
   symlink "${HOME}/.dotfiles/bash/profile" "${HOME}/.bash_profile"
+
+  # inputrc
+  symlink "${HOME}/.dotfiles/bash/inputrc" "${HOME}/.inputrc"
 
   # Tmux
   symlink "${HOME}/.dotfiles/tmux/tmux.conf" "${HOME}/.tmux.conf"
