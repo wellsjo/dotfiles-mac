@@ -82,8 +82,12 @@ set laststatus=2
 set cursorline
 set nocursorcolumn
 
+" Enable mouse/trackpad input
+if has("mouse")
+  set mouse=a
+endif
+
 " Enables resizing vim panes from tmux
-set mouse+=a
 if &term =~ '^screen'
   set ttymouse=xterm2
 endif
