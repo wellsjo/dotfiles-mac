@@ -43,7 +43,9 @@ call plug#end()
 
 " =============================================================================
 
-set shortmess+=c                    " Getsrid of annoying error messages
+if has("mac")
+  set shortmess+=c                    " Getsrid of annoying error messages
+endif
 set autochdir                       " Working directory is always same as the file
 set showcmd                         " Show the command as you type
 
