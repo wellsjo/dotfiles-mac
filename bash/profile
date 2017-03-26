@@ -17,9 +17,6 @@ HISTSIZE=10000
 # Auto-enable colors for commands like 'ls'
 CLICOLOR=1
 
-# Vim key bindings
-set -o vi
-
 export EDITOR TZ LANG HISTFILE HISTSIZE CLICOLOR
 
 # Used by bash, unused by mksh
@@ -41,24 +38,18 @@ source ~/.dotfiles/bash/liquidprompt/liquidprompt
 LP_PS1_PREFIX="\n"
 LP_PS1_POSTFIX="\n> "
 
-# Load a local profile
-[ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
-
 # Start ssh-agent, load ssh keys
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
   ssh-add
 fi
 
-# Grep colors
-export GREP_OPTIONS='--color=auto'
-
 # Update path
 export PATH=$HOME/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.bpkg/bin:"$PATH"
 
-# Better man pages
-export PAGER=most
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Load a local profile
+[ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
