@@ -15,6 +15,7 @@ fi
 # Aliases
 alias l="ls -lh --group-directories-first --color=auto -F"
 alias la="ls -lhA --group-directories-first --color=auto -F"
+alias grep="grep --color=auto"
 
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes

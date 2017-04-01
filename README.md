@@ -3,7 +3,9 @@
 ### Available Configs
 - vim
 - tmux
-- i3, i3gaps, i3blocks, compton
+- git
+- compton
+- i3, i3gaps, i3blocks
 - liquidshell bash prompt
 
 ### Included Scripts

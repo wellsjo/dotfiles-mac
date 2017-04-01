@@ -1,0 +1,25 @@
+[user]
+  name = Wells Johnston
+  email = wellsjohnston@gmail.com
+
+[alias]
+  a = add --all
+  c = commit
+  st = status
+  co = checkout
+  up = pull --rebase=preserve
+  g = grep --break --heading --line-number
+  fa = fetch --all
+  p = push
+  pf = push -f
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[push]
+  default = simple
+
+[merge]
+  tool = vimdiff

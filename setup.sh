@@ -99,6 +99,7 @@ setup_wm() {
 ask "Install bash settings?" Y && setup_bash
 ask "Install tmux config?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Install vim settings and plugins?" Y && setup_vim
+ask "Install git config?" Y && symlink ${dir}/gitconfig ${HOME}/.gitconfig
 ask "Install Termite settings?" Y && symlink ${dir}/config/termite ${HOME}/.config/termite
 ask "Install window manager settings? (i3/compton)" Y && setup_wm
 ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
