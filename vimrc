@@ -212,8 +212,9 @@ nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
 " Nerd Tree settings
 nnoremap \ :NERDTreeTabsToggle<Cr>
-let g:NERDTreeWinSize = 30
+let NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
+let NERDTreeCascadeSingleChildDir=0
 
 " Taboo (tab labels)
 let g:taboo_modified_tab_flag="+"
