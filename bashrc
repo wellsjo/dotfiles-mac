@@ -45,6 +45,9 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
   ssh-add
 fi
 
+. $HOME/.dotfiles/scripts/git-completion.sh
+. $HOME/.dotfiles/scripts/ssh-completion.sh
+
 # Update path
 export PATH=$HOME/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
