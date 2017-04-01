@@ -8,10 +8,6 @@ function install_dotfiles() {
   git clone git@github.com:nojhan/liquidprompt.git $HOME/.dotfiles/bash/liquidprompt
   symlink "${HOME}/.dotfiles/bash/liquidprompt/liquidpromptrc-dist" "${HOME}/.liquidpromptrc"
 
-  # FZF
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-
   # Vim
   echo -e "\nSetting symlinks..."
   symlink "${HOME}/.dotfiles/vim/vimrc" "${HOME}/.vimrc"
@@ -33,8 +29,6 @@ function install_dotfiles() {
 
 function uninstall_dotfiles() {
   rm -rf $HOME/.dotfiles
-  $HOME/.fzf/uninstall
-  rm -rf $HOME/.fzf
   clean_symlinks
   echo -e "\dotfiles uninstalled"
 }
