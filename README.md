@@ -7,7 +7,7 @@ Modular dotfiles setup I use for macOS and Arch Linux. Feel free to use, but ple
 - git
 - compton
 - i3, i3gaps, i3blocks
-- liquidshell bash prompt
+- LiquidShell (prompt)
 
 ### Included Scripts
 - git auto-completion
