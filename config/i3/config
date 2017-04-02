@@ -28,10 +28,18 @@ set $transparent #00000000
 font pango:Ohsnap 17
 
 # Disable borders for i3-gaps
-for_window [class="^.*"] border pixel 0
+# This is recommended, but I disabled it in favor of borders
+# for_window [class="^.*"] border pixel 0
 gaps inner 40
 gaps outer 20
 smart_borders on
+new_window 1pixel
+
+# Border around active window
+client.focused #00C1FF #A5E681 #000088 #00C1FF
+client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 # Don't auto-focus windows with mouse
 focus_follows_mouse no
@@ -82,9 +90,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -93,7 +101,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1

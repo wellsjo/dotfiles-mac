@@ -2,8 +2,6 @@
 # Compton config
 #
 
-backend = "glx";
-vsync = "opengl-swc";
 
 shadow = true;
 no-dnd-shadow = true;
@@ -29,8 +27,8 @@ blur-background = false;
 blur-background-fixed = true;
 blur-kern = "7x7box";
 
-frame-opacity = 0.7;
-opacity-rule = ["85:class_g = 'Termite'"]
+# frame-opacity = 0.7;
+opacity-rule = ["85:class_g = 'Termite'", "75:class_g = 'Spotify'"]
 inactive-opacity-override = false;
 blur-background-exclude = [
 	"class_g = 'i3-frame'",
@@ -40,11 +38,11 @@ blur-background-exclude = [
 ];
 
 # Fading
-fading = true;
-fade-delta = 7;
-fade-in-step = 0.05;
-fade-out-step = 0.05;
-fade-exclude = [];
+fading = false;
+# fade-delta = 7;
+# fade-in-step = 0.05;
+# fade-out-step = 0.05;
+# fade-exclude = [];
 
 # Other
 mark-wmwin-focused = true;
@@ -54,15 +52,21 @@ detect-rounded-corners = true;
 detect-client-opacity = true;
 refresh-rate = 0;
 dbe = false;
-paint-on-overlay = true;
 
 focus-exclude = [];
+invert-color-include = [];
 detect-transient = true;
 detect-client-leader = true;
-invert-color-include = [ ];
+
+# Performance tuning
+# https://github.com/chjj/compton/wiki/perf-guide
+backend = "glx";
+vsync = "opengl-oml";
+paint-on-overlay = true;
 glx-no-stencil = true;
+glx-swap-method = 3;
 glx-copy-from-front = false;
-glx-swap-method = 2;
+
 
 # Window type settings
 wintypes:
