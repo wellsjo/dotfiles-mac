@@ -65,7 +65,7 @@ symlink() {
 }
 
 # Removes broken symlinks
-function clean_symlinks() {
+clean_symlinks() {
   find -L . -maxdepth 1 -type l -exec rm -- {} +
 }
 
@@ -99,11 +99,12 @@ setup_wm() {
 ask "Install bash settings?" Y && setup_bash
 ask "Install tmux config?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Install vim settings and plugins?" Y && setup_vim
+ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
 ask "Install git config?" Y && symlink ${dir}/gitconfig ${HOME}/.gitconfig
+ask "Install gitignore_global?" Y && symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
 ask "Install Termite settings?" Y && symlink ${dir}/config/termite ${HOME}/.config/termite
 ask "Install window manager settings? (i3/compton)" Y && setup_wm
 ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
 ask "Install xinitrc?" Y && symlink ${dir}/xinitrc ${HOME}/.xinitrc
-ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
 
 clean_symlinks
