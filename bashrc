@@ -16,8 +16,8 @@ fi
 
 # Different commands for Darwin
 if [ $(uname) == "Darwin" ]; then
-  alias l="ls -lhG --group-directories-first"
-  alias la="ls lhA --group-directories-first"
+  alias l="ls -lhG"
+  alias la="ls lhA"
 else
   alias l="ls -lh --group-directories-first --color=auto -F"
   alias la="ls -lhA --group-directories-first --color=auto -F"
