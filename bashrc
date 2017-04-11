@@ -13,10 +13,17 @@ if [ -e ~/.liquidpromptrc ]; then
 fi
 
 # Aliases
-alias l="ls -lh --group-directories-first --color=auto -F"
-alias la="ls -lhA --group-directories-first --color=auto -F"
-alias grep="grep --color=auto"
 
+# Different commands for Darwin
+if [ $(uname) == "Darwin" ]; then
+  alias l="ls -lhG --group-directories-first"
+  alias la="ls lhA --group-directories-first"
+else
+  alias l="ls -lh --group-directories-first --color=auto -F"
+  alias la="ls -lhA --group-directories-first --color=auto -F"
+fi
+
+alias grep="grep --color=auto"
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
