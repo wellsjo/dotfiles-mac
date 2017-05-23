@@ -5,8 +5,9 @@ call plug#begin('~/.vim/plugged')
 
 " Color Schemes
 Plug 'endel/vim-github-colorscheme'
+Plug 'google/vim-colorscheme-primary'
 
-" Editor enhancements
+" Visual
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
@@ -18,8 +19,10 @@ Plug 'gcmt/taboo.vim'                       " better tabs
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 Plug 'sjl/gundo.vim'                        " view undo tree
+Plug 'wellsjo/wellsokai.vim'                " My color theme
+Plug 'sbdchd/neoformat'                     " TODO unused?
 
-" Essentials
+" Functionality
 Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
 Plug 'scrooloose/syntastic'                 " syntax checker
 Plug 'easymotion/vim-easymotion'            " targeted movement
@@ -81,7 +84,7 @@ set encoding=utf-8
 
 " status bar
 set laststatus=2
-set cursorline
+" set cursorline
 set nocursorcolumn
 
 " Enable mouse/trackpad input
