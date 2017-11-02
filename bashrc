@@ -17,16 +17,16 @@ fi
 # Different commands for Darwin
 if [ $(uname) == "Darwin" ]; then
   alias l="ls -lhG"
-  alias la="ls lhA"
+  alias la="ls -lhaG"
 else
   alias l="ls -lh --group-directories-first --color=auto -F"
   alias la="ls -lhA --group-directories-first --color=auto -F"
 fi
 
 alias grep="grep --color=auto"
-alias cp="cp -i"                          # confirm before overwriting something
+alias cp="cp -i"                          # auto-confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias free='free -m'                      # show sizes in MB (doesn't work on mac)
 
 alias c="clear"
 alias ..="cd .."
@@ -34,11 +34,9 @@ alias ...="cd .. && cd .."
 alias ....="cd .. && cd .. && cd .."
 
 # git
-alias gc="git commit -m $1"
 alias ga="git add -p"
 alias gs="git status"
 alias gb="git branch"
-alias gp="git push"
 alias gd="git diff"
 alias gl="git log"
 alias lastcommit="git diff HEAD^ HEAD"

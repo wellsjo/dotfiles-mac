@@ -45,6 +45,7 @@ ask() {
 # Symlink helper function
 symlink() {
   # If this isnt a symlink
+  # if [ ! -L "$2" && -f "$2" ]; then
   if [ ! -L "$2" ]; then
     # Backup the file
     mv "$2" "$2.backup" >/dev/null 2>&1
