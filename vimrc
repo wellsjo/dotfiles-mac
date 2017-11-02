@@ -20,11 +20,10 @@ Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 Plug 'sjl/gundo.vim'                        " view undo tree
 Plug 'wellsjo/wellsokai.vim'                " My color theme
-Plug 'sbdchd/neoformat'                     " TODO unused?
 
 " Functionality
+Plug 'w0rp/ale'                             " async syntax checking
 Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
-Plug 'scrooloose/syntastic'                 " syntax checker
 Plug 'easymotion/vim-easymotion'            " targeted movement
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'airblade/vim-gitgutter'               " show diff in code
@@ -41,6 +40,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
+" Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -171,30 +171,13 @@ set directory^=~/.vim/.swap//
 set undodir^=~/.vim/.undo//
 
 " ======= Plugin Settings =======
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_signs=1
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
