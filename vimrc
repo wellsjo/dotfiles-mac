@@ -22,6 +22,7 @@ Plug 'sjl/gundo.vim'                        " view undo tree
 Plug 'wellsjo/wellsokai.vim'                " My color theme
 
 " Functionality
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'w0rp/ale'                             " async syntax checking
 Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
 Plug 'easymotion/vim-easymotion'            " targeted movement
@@ -40,7 +41,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -99,6 +100,9 @@ endif
 
 " Toggle search and highlight words under cursor
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
+
+" fzf
+nnoremap <c-t> :FZF<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
@@ -173,7 +177,7 @@ set undodir^=~/.vim/.undo//
 " ======= Plugin Settings =======
 let g:ale_fix_on_save = 0
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier'],
 \}
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -182,6 +186,12 @@ let g:ale_linters = {
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
+
+" use prettier for formatting
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'true'
 
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
