@@ -3,6 +3,7 @@
 export EDITOR=vim
 export HISTFILE="${HOME}/.history"
 export HISTSIZE=10000
+export GREP_OPTIONS='-I --color=auto --exclude-dir=.git --exclude-dir=node_modules'
 
 # liquid prompt
 if [ -e ~/.liquidpromptrc ]; then
@@ -23,7 +24,6 @@ else
   alias la="ls -lhA --group-directories-first --color=auto -F"
 fi
 
-alias grep="grep --color=auto"
 alias cp="cp -i"                          # auto-confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB (doesn't work on mac)
@@ -34,6 +34,7 @@ alias ...="cd .. && cd .."
 alias ....="cd .. && cd .. && cd .."
 
 # git
+# TODO this should be in .gitconfig_global
 alias ga="git add -p"
 alias gs="git status"
 alias gb="git branch"

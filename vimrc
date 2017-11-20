@@ -3,10 +3,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Color Schemes
-Plug 'endel/vim-github-colorscheme'
-Plug 'google/vim-colorscheme-primary'
-
 " Visual
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
@@ -19,7 +15,6 @@ Plug 'gcmt/taboo.vim'                       " better tabs
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 Plug 'sjl/gundo.vim'                        " view undo tree
-Plug 'wellsjo/wellsokai.vim'                " My color theme
 
 " Functionality
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -42,6 +37,13 @@ Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
 Plug 'fatih/vim-go'
+
+" Color Schemes
+Plug 'wellsjo/wellsokai.vim'
+Plug 'endel/vim-github-colorscheme'
+Plug 'google/vim-colorscheme-primary'
+Plug 'nightsense/seabird'
+Plug 'nightsense/simplifysimplify'
 
 call plug#end()
 
@@ -69,8 +71,6 @@ let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
 colorscheme wellsokai
-set list                            " See indent lines
-set listchars=tab:\|\
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -102,7 +102,7 @@ endif
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 
 " fzf
-nnoremap <c-t> :FZF<CR>
+map <c-t> :FZF<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
@@ -161,6 +161,10 @@ map <Leader><Leader> <Plug>(easymotion-prefix)
 " Search and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
+" Go def
+nnoremap gd :GoDef<CR>
+" let g:go_fmt_fail_silently = 1
+
 " Persistent undo and swp files
 set undofile
 set undolevels=1000
@@ -187,6 +191,9 @@ let g:ale_linters = {
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
 
+" vim-go
+let g:go_def_mapping_enabled = 0
+
 " use prettier for formatting
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#single_quote = 'true'
@@ -196,7 +203,7 @@ let g:prettier#config#jsx_bracket_same_line = 'true'
 " MRU
 let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 15
-nnoremap m :MRU<cr>
+nnoremap mr :MRU<cr>
 
 " Show whitespace
 highlight ExtraWhitespace ctermbg=red
