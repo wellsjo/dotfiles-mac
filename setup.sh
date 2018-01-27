@@ -81,6 +81,14 @@ setup_liquid_prompt() {
   rm -rf ${dir}/extra/liquidprompt/
   git clone git@github.com:nojhan/liquidprompt.git ${dir}/extra/liquidprompt
   symlink ${dir}/extra/liquidprompt/liquidpromptrc-dist ${HOME}/.liquidpromptrc
+  cat <<EOT >> ~/.localprofile
+if [ -e ~/.liquidpromptrc ]; then
+  source ~/.dotfiles/extra/liquidprompt/liquidprompt
+  LP_PS1_PREFIX="\n"
+  LP_PS1_POSTFIX="\n> "
+  LP_MARK_DEFAULT=""
+fi
+EOT
 }
 
 # Symlink bash dotfiles

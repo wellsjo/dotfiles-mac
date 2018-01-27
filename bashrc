@@ -5,16 +5,6 @@ export HISTFILE="${HOME}/.history"
 export HISTSIZE=10000
 export GREP_OPTIONS='-I --color=auto --exclude-dir=.git --exclude-dir=node_modules'
 
-# liquid prompt
-if [ -e ~/.liquidpromptrc ]; then
-  source ~/.dotfiles/extra/liquidprompt/liquidprompt
-  LP_PS1_PREFIX="\n"
-  LP_PS1_POSTFIX="\n> "
-  LP_MARK_DEFAULT=""
-fi
-
-# Aliases
-
 # Different commands for Darwin
 if [ $(uname) == "Darwin" ]; then
   alias l="ls -lhG"
