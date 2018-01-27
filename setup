@@ -83,7 +83,6 @@ setup_liquid_prompt() {
   symlink ${dir}/extra/liquidprompt/liquidpromptrc-dist ${HOME}/.liquidpromptrc
   cat <<EOT >> ~/.localprofile
 
-
 # liquid prompt settings
 if [ -e ~/.liquidpromptrc ]; then
   source ~/.dotfiles/extra/liquidprompt/liquidprompt
@@ -111,11 +110,15 @@ ask "Install bash settings?" Y && setup_bash
 ask "Install tmux config?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Install vim settings and plugins?" Y && setup_vim
 ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
-ask "Install git config?" Y && symlink ${dir}/gitconfig ${HOME}/.gitconfig
+ask "Install git config (~/.gitconfig)?" Y && symlink ${dir}/gitconfig ${HOME}/.gitconfig
 ask "Install gitignore_global?" Y && symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
-ask "Install Termite settings?" Y && symlink ${dir}/config/termite ${HOME}/.config/termite
-ask "Install window manager settings? (i3/compton)" Y && setup_wm
-ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
-ask "Install xinitrc?" Y && symlink ${dir}/xinitrc ${HOME}/.xinitrc
+
+# This stuff only applies to certain Linux distros
+if [ $(uname) != "Darwin" ]; then
+  ask "Install Termite settings?" Y && symlink ${dir}/config/termite ${HOME}/.config/termite
+  ask "Install window manager settings? (i3/compton)" Y && setup_wm
+  ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
+  ask "Install xinitrc?" Y && symlink ${dir}/xinitrc ${HOME}/.xinitrc
+fi
 
 clean_symlinks
