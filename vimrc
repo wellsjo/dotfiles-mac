@@ -37,6 +37,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
 Plug 'fatih/vim-go'
+Plug 'chr4/nginx.vim'
 
 " Color Schemes
 Plug 'wellsjo/wellsokai.vim'
@@ -44,6 +45,7 @@ Plug 'endel/vim-github-colorscheme'
 Plug 'google/vim-colorscheme-primary'
 Plug 'nightsense/seabird'
 Plug 'nightsense/simplifysimplify'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -193,6 +195,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " vim-go
 let g:go_def_mapping_enabled = 0
+let g:go_def_reuse_buffer = 0
 
 " use prettier for formatting
 let g:prettier#config#trailing_comma = 'none'
