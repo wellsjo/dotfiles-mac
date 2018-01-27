@@ -82,6 +82,9 @@ setup_liquid_prompt() {
   git clone git@github.com:nojhan/liquidprompt.git ${dir}/extra/liquidprompt
   symlink ${dir}/extra/liquidprompt/liquidpromptrc-dist ${HOME}/.liquidpromptrc
   cat <<EOT >> ~/.localprofile
+
+
+# liquid prompt settings
 if [ -e ~/.liquidpromptrc ]; then
   source ~/.dotfiles/extra/liquidprompt/liquidprompt
   LP_PS1_PREFIX="\n"
