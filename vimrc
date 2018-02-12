@@ -73,6 +73,7 @@ let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
 colorscheme wellsokai
+" colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces

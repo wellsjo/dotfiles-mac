@@ -100,9 +100,17 @@ setup_bash() {
   symlink ${dir}/bash_profile ${HOME}/.profile
 }
 
+# i3 / compton window manager
 setup_wm() {
   symlink ${dir}/config/i3 ${HOME}/.config/i3
   symlink ${dir}/config/compton ${HOME}/.config/compton
+}
+
+setup_nord_theme() {
+  rm -rf ${dir}/extra/nord-iterm2
+  git clone git@github.com:arcticicestudio/nord-iterm2.git ${dir}/extra/nord-iterm2
+  open ${dir}/extra/nord-iterm2/src/xml/Nord.itermcolors
+  git clone git@github.com:arcticicestudio/nord-tmux.git ~/.tmux/themes/nord-tmux
 }
 
 # Ask to install everything
@@ -119,6 +127,8 @@ if [ $(uname) != "Darwin" ]; then
   ask "Install window manager settings? (i3/compton)" Y && setup_wm
   ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
   ask "Install xinitrc?" Y && symlink ${dir}/xinitrc ${HOME}/.xinitrc
+else
+  ask "Install Nord theme for tmux and iTerm2?" Y && setup_iterm
 fi
 
 clean_symlinks
