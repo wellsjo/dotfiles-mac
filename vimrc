@@ -164,8 +164,9 @@ map <Leader><Leader> <Plug>(easymotion-prefix)
 " Search and replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-" Go def
-nnoremap gd :GoDef<CR>
+" Go def in new tab
+autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
+
 " let g:go_fmt_fail_silently = 1
 
 " Persistent undo and swp files
