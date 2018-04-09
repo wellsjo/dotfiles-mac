@@ -18,7 +18,6 @@ alias cp="cp -i"                          # auto-confirm before overwriting some
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB (doesn't work on mac)
 
-alias c="clear"
 alias ..="cd .."
 alias ...="cd .. && cd .."
 alias ....="cd .. && cd .. && cd .."
@@ -36,14 +35,6 @@ alias lastcommit="git diff HEAD^ HEAD"
 # docker
 alias doc="docker"
 alias dc="docker-compose"
-docker-clean(){
-docker rm -v $(docker ps -a -q -f status=exited) 2>/dev/null
-docker rmi $(docker images -f "dangling=true" -q) 2>/dev/null
-}
-docker-kill-all(){
-docker kill $(docker ps -q) 2>/dev/null
-docker rm $(docker ps -a -q) 2>/dev/null
-}
 
 # tmux
 alias t="tmux -2"

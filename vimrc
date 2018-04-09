@@ -40,6 +40,9 @@ Plug 'fatih/vim-go'
 Plug 'chr4/nginx.vim'
 
 " Color Schemes
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'google/vim-colorscheme-primary'
@@ -185,10 +188,10 @@ set undodir^=~/.vim/.undo//
 " ======= Plugin Settings =======
 let g:ale_fix_on_save = 0
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
+\   'javascript': ['prettier'],
 \}
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier'],
 \}
 
 " vim-javascript
@@ -198,6 +201,8 @@ let g:javascript_plugin_jsdoc = 1
 " vim-go
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 0
+let g:go_fmt_command="goimports"
+
 
 " use prettier for formatting
 let g:prettier#config#trailing_comma = 'none'
