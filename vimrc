@@ -36,7 +36,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'chr4/nginx.vim'
 
 " Color Schemes
