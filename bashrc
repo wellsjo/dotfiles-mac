@@ -28,7 +28,7 @@ alias .....="cd .. && cd .. && cd .. && cd .."
 alias ga="git add -p"
 alias gs="git status"
 alias gb="git branch"
-alias gd="git diff"
+alias gd="cdiff"
 alias gl="git log"
 alias lastcommit="git diff HEAD^ HEAD"
 

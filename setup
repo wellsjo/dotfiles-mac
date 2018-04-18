@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -76,6 +76,11 @@ setup_vim() {
   vim +PlugInstall +qall +silent
 }
 
+setup_git() {
+  symlink ${dir}/gitconfig ${HOME}/.gitconfig
+  symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
+}
+
 # Installs LiquidPrompt
 setup_liquid_prompt() {
   rm -rf ${dir}/extra/liquidprompt/
@@ -118,8 +123,7 @@ ask "Install bash settings?" Y && setup_bash
 ask "Install tmux config?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Install vim settings and plugins?" Y && setup_vim
 ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
-ask "Install git config (~/.gitconfig)?" Y && symlink ${dir}/gitconfig ${HOME}/.gitconfig
-ask "Install gitignore_global?" Y && symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
+ask "Setup git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
 
 # This stuff only applies to certain Linux distros
 if [ $(uname) != "Darwin" ]; then
