@@ -186,12 +186,12 @@ set directory^=~/.vim/.swap//
 set undodir^=~/.vim/.undo//
 
 " ======= Plugin Settings =======
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \}
 let g:ale_linters = {
-\   'javascript': ['prettier'],
+\   'javascript': ['flow'],
 \}
 
 " vim-javascript
@@ -234,7 +234,6 @@ let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
 
 " Status line plugin
-let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme='bubblegum'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
