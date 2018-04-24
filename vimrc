@@ -3,27 +3,76 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Visual
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
+
+" Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
-Plug 'vim-airline/vim-airline'              " better status bar
-Plug 'vim-airline/vim-airline-themes'       " status bar theme
+nnoremap \ :NERDTreeTabsToggle<Cr>
+let NERDTreeWinSize = 30
+let NERDTreeShowHidden=0
+let NERDTreeCascadeSingleChildDir=0
+
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='bubblegum'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
 Plug 'wesQ3/vim-windowswap'                 " swap windows
-Plug 'gcmt/taboo.vim'                       " better tabs
+
+" Tabs format
+Plug 'gcmt/taboo.vim'
+let g:taboo_modified_tab_flag="+"
+let g:taboo_tab_format=' %N. %f %m '
+
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
-Plug 'sjl/gundo.vim'                        " view undo tree
+Plug 'mbbill/undotree'
 
-" Functionality
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'w0rp/ale'                             " async syntax checking
-Plug 'vim-scripts/mru.vim'                  " recently opened files (mru)
-Plug 'easymotion/vim-easymotion'            " targeted movement
+" Linting / fixing
+Plug 'w0rp/ale'
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\}
+let g:ale_linters = {
+\   'javascript': ['flow'],
+\}
+
+" MRU (recently opened files)
+Plug 'vim-scripts/mru.vim'
+let MRU_File = $HOME . '/.vim_mru_files'
+let MRU_Window_Height = 15
+nnoremap mr :MRU<cr>
+
+Plug 'easymotion/vim-easymotion'
+map <Leader> <Plug>(easymotion-prefix)
+
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'airblade/vim-gitgutter'               " show diff in code
-Plug 'terryma/vim-smooth-scroll'            " better scrolling
+
+" Better scrolling
+Plug 'terryma/vim-smooth-scroll'
+nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
+nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
+nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
+
 Plug 'tpope/vim-surround'                   " surround words with characters
 Plug 'tpope/vim-commentary'                 " easily comment out code
 Plug 'tpope/vim-repeat'                     " better repeat (.)
@@ -107,9 +156,6 @@ endif
 " Toggle search and highlight words under cursor
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 
-" fzf
-map <c-t> :FZF<CR>
-
 " Fast quit
 nnoremap <leader>q :q<CR>
 
@@ -161,19 +207,14 @@ imap <c-f> <c-x><c-f>
 " Better mapping for repeating macros
 map , @
 
-" Activate EasyMotion with space
-map <Leader><Leader> <Plug>(easymotion-prefix)
 
 " Search and replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap s :%s/\<<C-r><C-w>\>/
 
 " Go def in new tab
 autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
 
-" let g:go_fmt_fail_silently = 1
-
 " Persistent undo and swp files
-set undofile
 set undolevels=1000
 set undoreload=1000
 if !isdirectory(expand("~/.vim/.swap/"))
@@ -184,15 +225,9 @@ if !isdirectory(expand("~/.vim/.undo/"))
 endif
 set directory^=~/.vim/.swap//
 set undodir^=~/.vim/.undo//
+set undofile
 
 " ======= Plugin Settings =======
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\}
-let g:ale_linters = {
-\   'javascript': ['flow'],
-\}
 
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
@@ -210,48 +245,11 @@ let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'true'
 
-" MRU
-let MRU_File = $HOME . '/.vim_mru_files'
-let MRU_Window_Height = 15
-nnoremap mr :MRU<cr>
 
 " Show whitespace
 highlight ExtraWhitespace ctermbg=red
 
 " Smooth scroll
-nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
-nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
-nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
-
-" Nerd Tree settings
-nnoremap \ :NERDTreeTabsToggle<Cr>
-let NERDTreeWinSize = 30
-let NERDTreeShowHidden=0
-let NERDTreeCascadeSingleChildDir=0
-
-" Taboo (tab labels)
-let g:taboo_modified_tab_flag="+"
-let g:taboo_tab_format=' %N. %f %m '
-
-" Status line plugin
-let g:airline_theme='bubblegum'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" UTF-8 airline symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = ''
-let g:airline_right_sep = '«'
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 
 " Auto completion with tab
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
