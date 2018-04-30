@@ -56,5 +56,3 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash

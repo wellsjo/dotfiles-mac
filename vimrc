@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 
+" Fuzzy finder
+Plug 'kien/ctrlp.vim'
+
 " Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
@@ -62,7 +65,6 @@ let MRU_Window_Height = 15
 nnoremap mr :MRU<cr>
 
 Plug 'easymotion/vim-easymotion'
-map <Leader> <Plug>(easymotion-prefix)
 
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'airblade/vim-gitgutter'               " show diff in code
@@ -124,8 +126,8 @@ let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
-colorscheme wellsokai
-" colorscheme github
+" colorscheme wellsokai
+colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -155,6 +157,9 @@ endif
 
 " Toggle search and highlight words under cursor
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
+
+" Easy motion
+map <Leader> <Plug>(easymotion-prefix)
 
 " Fast quit
 nnoremap <leader>q :q<CR>
