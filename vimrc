@@ -56,7 +56,10 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'javascript': ['flow'],
+\   'go': ['gometalinter'],
 \}
+
+let g:ale_go_gometalinter_options = '--exclude=\"should have comment or be unexported\"'
 
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
@@ -126,8 +129,8 @@ let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
-" colorscheme wellsokai
-colorscheme github
+colorscheme wellsokai
+" colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -160,6 +163,9 @@ nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 
 " Easy motion
 map <Leader> <Plug>(easymotion-prefix)
+
+" GoImports shorthand
+nnoremap gim :GoImports<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
@@ -241,7 +247,7 @@ let g:javascript_plugin_jsdoc = 1
 " vim-go
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 0
-let g:go_fmt_command="goimports"
+let g:go_fmt_command="gofmt"
 
 
 " use prettier for formatting
