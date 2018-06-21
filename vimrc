@@ -3,11 +3,13 @@
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 
-" Fuzzy finder
-Plug 'kien/ctrlp.vim'
+" # Fuzzy finder
+" Plug 'kien/ctrlp.vim'
+" let g:ctrlp_map = 'F'
 
 " Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
@@ -56,10 +58,10 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'javascript': ['flow'],
-\   'go': ['gometalinter'],
+\   'go': ['go build'],
 \}
 
-let g:ale_go_gometalinter_options = '--exclude=\"should have comment or be unexported\"'
+" let g:ale_go_gometalinter_options = '--exclude=\"should have comment or be unexported\"'
 
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
