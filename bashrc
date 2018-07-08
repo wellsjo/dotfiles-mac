@@ -48,6 +48,7 @@ fi
 
 . $HOME/.dotfiles/scripts/git-completion.sh
 . $HOME/.dotfiles/scripts/ssh-completion.sh
+. $HOME/.dotfiles/scripts/encrypt.sh
 
 # Update path
 export PATH=$HOME/usr/local/sbin:$PATH
