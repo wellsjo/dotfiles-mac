@@ -7,6 +7,11 @@ Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 
+Plug 'vim-syntastic/syntastic'
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+Plug 'ruanyl/vim-sort-imports'
+
 " # Fuzzy finder
 " Plug 'kien/ctrlp.vim'
 " let g:ctrlp_map = 'F'
@@ -55,11 +60,17 @@ Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'json': ['prettier'],
 \}
 let g:ale_linters = {
-\   'javascript': ['flow'],
+\   'javascript': ['flow', 'eslint'],
 \   'go': ['go build'],
+\   'typescript': ['tslint', 'typecheck']
 \}
+
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " let g:ale_go_gometalinter_options = '--exclude=\"should have comment or be unexported\"'
 
@@ -80,10 +91,17 @@ nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
 nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
+Plug 'tpope/vim-fugitive'                   " git integration
+
+" Requires local config, used for gitlab access token
+Plug 'shumphrey/fugitive-gitlab.vim'
+if !empty(glob("~/.local.vim"))
+  source $HOME/.local.vim
+endif
+
 Plug 'tpope/vim-surround'                   " surround words with characters
 Plug 'tpope/vim-commentary'                 " easily comment out code
 Plug 'tpope/vim-repeat'                     " better repeat (.)
-Plug 'tpope/vim-fugitive'                   " git integration
 Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
 Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit files
 
@@ -152,7 +170,7 @@ set nocursorcolumn
 
 " Enable mouse/trackpad input
 if has("mouse")
-  set mouse=a
+  set mouse=n
 endif
 
 " Enables resizing vim panes from tmux
@@ -226,6 +244,7 @@ nnoremap s :%s/\<<C-r><C-w>\>/
 
 " Go def in new tab
 autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
+autocmd FileType typescriptanmap <silent> gd :TsuDefinition<CR>
 
 " Persistent undo and swp files
 set undolevels=1000
