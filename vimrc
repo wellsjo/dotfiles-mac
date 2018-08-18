@@ -6,15 +6,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
+Plug 'wesQ3/vim-windowswap'                 " swap windows
 
 Plug 'vim-syntastic/syntastic'
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'ruanyl/vim-sort-imports'
-
-" # Fuzzy finder
-" Plug 'kien/ctrlp.vim'
-" let g:ctrlp_map = 'F'
 
 " Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
@@ -44,7 +41,6 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-Plug 'wesQ3/vim-windowswap'                 " swap windows
 
 " Tabs format
 Plug 'gcmt/taboo.vim'
@@ -60,11 +56,10 @@ Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'json': ['prettier'],
+\   'typescript': ['prettier']
 \}
 let g:ale_linters = {
-\   'javascript': ['flow', 'eslint'],
+\   'javascript': ['flow'],
 \   'go': ['go build'],
 \   'typescript': ['tslint', 'typecheck']
 \}
@@ -117,6 +112,7 @@ Plug 'chr4/nginx.vim'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
 Plug 'google/vim-colorscheme-primary'
@@ -180,6 +176,7 @@ endif
 
 " Toggle search and highlight words under cursor
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
+nmap gf "zyiw:!ag <C-r>z $(git rev-parse --show-toplevel) --color-match 31\;40 --color-line-number 0\;0<cr>
 
 " Easy motion
 map <Leader> <Plug>(easymotion-prefix)
@@ -204,6 +201,9 @@ inoremap jk <esc>:<cr><right>
 
 " Quickly switch tabs
 nnoremap gr gT
+
+" fzf
+set rtp+=~/.fzf
 
 " Tab to switch buffers
 nnoremap <tab> :bn<CR>
@@ -244,7 +244,8 @@ nnoremap s :%s/\<<C-r><C-w>\>/
 
 " Go def in new tab
 autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
-autocmd FileType typescriptanmap <silent> gd :TsuDefinition<CR>
+autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
+" this also works in python?
 
 " Persistent undo and swp files
 set undolevels=1000

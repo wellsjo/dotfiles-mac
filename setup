@@ -118,10 +118,16 @@ setup_nord_theme() {
   git clone git@github.com:arcticicestudio/nord-tmux.git ~/.tmux/themes/nord-tmux
 }
 
+setup_fzf() {
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
+
 # Ask to install everything
 ask "Install bash settings?" Y && setup_bash
 ask "Install tmux config?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Install vim settings and plugins?" Y && setup_vim
+ask "Install fzf?" Y && setup_fzf
 ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
 ask "Setup git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
 
