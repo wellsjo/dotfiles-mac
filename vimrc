@@ -41,6 +41,14 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+" FZF fuzzy file finder
+Plug 'lvht/fzf-mru'|Plug 'junegunn/fzf'
+" set max lenght for the mru file list
+let g:fzf_mru_file_list_size = 10 " default value
+" set path pattens that should be ignored
+let g:fzf_mru_ignore_patterns = 'fugitive\|\.git/\|\_^/tmp/' " default value
+set rtp+=~/.fzf
+nnoremap mr :FZFMru<cr>
 
 " Tabs format
 Plug 'gcmt/taboo.vim'
@@ -73,7 +81,6 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 Plug 'vim-scripts/mru.vim'
 let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 15
-nnoremap mr :MRU<cr>
 
 Plug 'easymotion/vim-easymotion'
 
@@ -202,8 +209,6 @@ inoremap jk <esc>:<cr><right>
 " Quickly switch tabs
 nnoremap gr gT
 
-" fzf
-set rtp+=~/.fzf
 
 " Tab to switch buffers
 nnoremap <tab> :bn<CR>

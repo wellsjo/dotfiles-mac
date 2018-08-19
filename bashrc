@@ -16,12 +16,9 @@ fi
 
 alias cp="cp -i"                          # auto-confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB (doesn't work on mac)
 
 alias ..="cd .."
-alias ...="cd .. && cd .."
-alias ....="cd .. && cd .. && cd .."
-alias .....="cd .. && cd .. && cd .. && cd .."
+alias ...="cd ..; cd .."
 
 # git
 # TODO this should be in .gitconfig_global
@@ -31,6 +28,11 @@ alias gb="git branch"
 alias gd="cdiff"
 alias gl="git log"
 alias lastcommit="git diff HEAD^ HEAD"
+
+export FZF_DEFAULT_COMMAND='git ls-files --exclude-standard --others --cached'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_TMUX=1
+export HISTCONTROL=ignoreboth:erasedups
 
 # docker
 alias doc="docker"
