@@ -41,23 +41,21 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" FZF fuzzy file finder
-Plug 'lvht/fzf-mru'|Plug 'junegunn/fzf'
-" set max lenght for the mru file list
-let g:fzf_mru_file_list_size = 10 " default value
-" set path pattens that should be ignored
-let g:fzf_mru_ignore_patterns = 'fugitive\|\.git/\|\_^/tmp/' " default value
-set rtp+=~/.fzf
-nnoremap mr :FZFMru<cr>
-
 " Tabs format
 Plug 'gcmt/taboo.vim'
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
 
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+nnoremap <c-t> :FZF<cr>
+
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
+
 Plug 'mbbill/undotree'
+nnoremap U :UndotreeShow<cr>
 
 " Linting / fixing
 Plug 'w0rp/ale'
@@ -75,15 +73,13 @@ let g:ale_linters = {
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-" let g:ale_go_gometalinter_options = '--exclude=\"should have comment or be unexported\"'
-
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
 let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 15
+nnoremap mr :MRU<cr>
 
 Plug 'easymotion/vim-easymotion'
-
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 Plug 'airblade/vim-gitgutter'               " show diff in code
 
@@ -109,6 +105,7 @@ Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit
 
 " Languages
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
@@ -152,8 +149,8 @@ let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
-colorscheme wellsokai
-" colorscheme github
+" colorscheme wellsokai
+colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -182,6 +179,7 @@ if &term =~ '^screen'
 endif
 
 " Toggle search and highlight words under cursor
+imap <c-f> <c-x><c-f>
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
 nmap gf "zyiw:!ag <C-r>z $(git rev-parse --show-toplevel) --color-match 31\;40 --color-line-number 0\;0<cr>
 
@@ -238,7 +236,7 @@ map <silent> <C-k> :wincmd k<CR>
 nmap yu yg$
 
 " File completion with control-f in insert mode
-imap <c-f> <c-x><c-f>
+Plug 'valloric/youcompleteme'
 
 " Better mapping for repeating macros
 map , @

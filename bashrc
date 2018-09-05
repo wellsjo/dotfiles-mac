@@ -29,8 +29,6 @@ alias gd="cdiff"
 alias gl="git log"
 alias lastcommit="git diff HEAD^ HEAD"
 
-export FZF_DEFAULT_COMMAND='git ls-files --exclude-standard --others --cached'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_TMUX=1
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -59,3 +57,5 @@ export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
