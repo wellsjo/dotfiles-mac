@@ -22,6 +22,7 @@ alias ...="cd ..; cd .."
 
 # git
 # TODO this should be in .gitconfig_global
+alias gc="git commit -m"
 alias ga="git add -p"
 alias gs="git status"
 alias gb="git branch"

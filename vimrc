@@ -5,13 +5,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
-Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 Plug 'wesQ3/vim-windowswap'                 " swap windows
 
 Plug 'vim-syntastic/syntastic'
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 Plug 'ruanyl/vim-sort-imports'
+Plug 'gabrielelana/vim-markdown'
 
 " Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
@@ -20,6 +20,15 @@ nnoremap \ :NERDTreeTabsToggle<Cr>
 let NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
+
+Plug 'jlanzarotta/bufexplorer'              " buffer exploring
+nnoremap \| :ToggleBufExplorer<Cr>
+let g:bufExplorerSortBy='mru'
+
+" Not related to bufexplorer, but this is how we switch buffers
+Plug 'mildred/vim-bufmru'
+nnoremap <tab> :BufMRUNext<CR>
+noremap <S-tab> :BufMRUPrev<CR>
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -53,9 +62,6 @@ nnoremap <c-t> :FZF<cr>
 
 Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
-
-Plug 'mbbill/undotree'
-nnoremap U :UndotreeShow<cr>
 
 " Linting / fixing
 Plug 'w0rp/ale'
@@ -109,8 +115,11 @@ Plug 'mxw/vim-jsx'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'chr4/nginx.vim'
+
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_fmt_fail_silently = 1
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
@@ -119,10 +128,7 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
-Plug 'google/vim-colorscheme-primary'
-Plug 'nightsense/seabird'
-Plug 'nightsense/simplifysimplify'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -131,7 +137,6 @@ call plug#end()
 if has("mac")
   set shortmess+=c                    " Getsrid of annoying error messages
 endif
-set autochdir                       " Working directory is always same as the file
 set showcmd                         " Show the command as you type
 
 " Search
@@ -149,8 +154,13 @@ let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
-" colorscheme wellsokai
-colorscheme github
+
+set background=dark " for the dark version
+" set background=light " for the light version
+" colorscheme one
+
+colorscheme wellsokai
+" colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -208,9 +218,6 @@ inoremap jk <esc>:<cr><right>
 nnoremap gr gT
 
 
-" Tab to switch buffers
-nnoremap <tab> :bn<CR>
-noremap <S-tab> :bp<CR>
 
 " Arrow keys to resize windows
 nnoremap <Left> :vertical resize +5<CR>
@@ -237,6 +244,7 @@ nmap yu yg$
 
 " File completion with control-f in insert mode
 Plug 'valloric/youcompleteme'
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " Better mapping for repeating macros
 map , @
@@ -288,9 +296,9 @@ highlight ExtraWhitespace ctermbg=red
 " Smooth scroll
 
 " Auto completion with tab
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
 " Setup python to use custom styles
 " This is called in ftplugin/python.vim
