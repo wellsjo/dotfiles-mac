@@ -33,13 +33,12 @@ alias lastcommit="git diff HEAD^ HEAD"
 export FZF_TMUX=1
 export HISTCONTROL=ignoreboth:erasedups
 
-# docker
-alias doc="docker"
-alias dc="docker-compose"
-
 # tmux
 alias t="tmux -2"
 alias ta="tmux -2 attach"
+
+alias ag="rg"
+alias diff="icdiff"
 
 # Start ssh-agent, load ssh keys
 if [ -z "$SSH_AUTH_SOCK" ] ; then
@@ -52,11 +51,13 @@ fi
 . $HOME/.dotfiles/scripts/encrypt.sh
 
 # Update path
-export PATH=$HOME/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.bpkg/bin:"$PATH"
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

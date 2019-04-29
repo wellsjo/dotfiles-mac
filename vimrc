@@ -191,7 +191,6 @@ endif
 " Toggle search and highlight words under cursor
 imap <c-f> <c-x><c-f>
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
-nmap gf "zyiw:!ag <C-r>z $(git rev-parse --show-toplevel) --color-match 31\;40 --color-line-number 0\;0<cr>
 
 " Easy motion
 map <Leader> <Plug>(easymotion-prefix)
