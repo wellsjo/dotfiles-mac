@@ -41,7 +41,9 @@ alias ag="rg"
 alias diff="icdiff"
 
 # Start ssh-agent, load ssh keys
+# https://unix.stackexchange.com/questions/90853/how-can-i-run-ssh-add-automatically-without-a-password-prompt
 if [ -z "$SSH_AUTH_SOCK" ] ; then
+  echo "starting ssh agent"
   eval `ssh-agent -s`
   ssh-add
 fi
@@ -49,9 +51,6 @@ fi
 . $HOME/.dotfiles/scripts/git-completion.sh
 . $HOME/.dotfiles/scripts/ssh-completion.sh
 . $HOME/.dotfiles/scripts/encrypt.sh
-
-# Update path
-export PATH=$HOME/bin:$PATH
 
 # Load a local profile
 [ -r "${HOME}/.localprofile" ] && . "${HOME}/.localprofile"
