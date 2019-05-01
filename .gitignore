@@ -2,3 +2,7 @@ config/vim/.swap
 config/vim/.undo
 config/vim/plugged
 extra/
+
+# TODO
+gitconfig
+vim/.undo

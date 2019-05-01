@@ -71,8 +71,8 @@ clean_symlinks() {
 
 # Install vim and plugins
 setup_vim() {
-  symlink ${dir}/vimrc ${HOME}/.vimrc
-  symlink ${dir}/config/vim ${HOME}/.vim
+  symlink ${dir}/vim/vimrc ${HOME}/.vimrc
+  symlink ${dir}/vim ${HOME}/.vim
   vim +PlugInstall +qall +silent
 }
 
@@ -117,11 +117,11 @@ setup_fzf() {
 }
 
 # Ask to install everything
-ask "Set .bashrc?" Y && setup_bash
-ask "Set tmux.conf?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
-ask "Install vim plugins?" Y && setup_vim
-ask "Install LiquidPrompt? (requires git)" Y && setup_liquid_prompt
-ask "Setup git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
+ask "Configure bashrc?" Y && setup_bash
+ask "Configure tmux?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
+ask "Configure vim?" Y && setup_vim
+ask "Configure LiquidPrompt? (requires git)" Y && setup_liquid_prompt
+ask "Configure git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
 
 # This stuff only applies to certain Linux distros
 if [ $(uname) != "Darwin" ]; then
