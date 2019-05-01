@@ -5,16 +5,12 @@ export HISTFILE="${HOME}/.history"
 export HISTSIZE=10000
 export GREP_OPTIONS='-I --color=auto --exclude-dir=.git --exclude-dir=node_modules'
 
-# Different commands for Darwin
-if [ $(uname) == "Darwin" ]; then
-  alias l="gls -FlhG --group-directories-first --color"
-  alias la="gls -FlhaG --group-directories-first --color"
-else
-  alias l="ls -lh --group-directories-first --color=auto -F"
-  alias la="ls -lhA --group-directories-first --color=auto -F"
-fi
+# ls
+alias l="gls -lhG --group-directories-first --color"
+alias la="gls -lhaG --group-directories-first --color"
 
-alias cp="cp -i"                          # auto-confirm before overwriting something
+# auto-confirm before overwriting something
+alias cp="cp -i"
 
 alias ..="cd .."
 alias ...="cd ..; cd .."
