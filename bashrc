@@ -7,8 +7,8 @@ export GREP_OPTIONS='-I --color=auto --exclude-dir=.git --exclude-dir=node_modul
 
 # Different commands for Darwin
 if [ $(uname) == "Darwin" ]; then
-  alias l="ls -lhG"
-  alias la="ls -lhaG"
+  alias l="gls -FlhG --group-directories-first --color"
+  alias la="gls -FlhaG --group-directories-first --color"
 else
   alias l="ls -lh --group-directories-first --color=auto -F"
   alias la="ls -lhA --group-directories-first --color=auto -F"
@@ -42,6 +42,7 @@ alias diff="icdiff"
 
 # Start ssh-agent, load ssh keys
 # https://unix.stackexchange.com/questions/90853/how-can-i-run-ssh-add-automatically-without-a-password-prompt
+# this makes it so you don't have to enter your password every time you use ssh
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   echo "starting ssh agent"
   eval `ssh-agent -s`
