@@ -15,7 +15,6 @@ else
 fi
 
 alias cp="cp -i"                          # auto-confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
 
 alias ..="cd .."
 alias ...="cd ..; cd .."

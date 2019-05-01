@@ -1,8 +1,8 @@
-config/vim/.swap
-config/vim/.undo
-config/vim/plugged
+vim/.swap
+vim/.undo
+vim/plugged
+
 extra/
 
 # TODO
 gitconfig
-vim/.undo

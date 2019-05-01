@@ -2,6 +2,11 @@
 
 set -e
 
+FORCE=false
+if [[ $1 = "--force" ]]; then
+  FORCE=true
+fi
+
 # Make sure this script is run from the same directory
 dir=`pwd`
 if [ ! -e "${dir}/$(basename $0)"  ]; then
@@ -14,7 +19,9 @@ fi
 ask() {
   while true; do
 
-    if [ "${2:-}" = "Y"  ]; then
+    if [ $FORCE = "true" ]; then
+      default=Y
+    elif [ "${2:-}" = "Y"  ]; then
       prompt="Y/n"
       default=Y
     elif [ "${2:-}" = "N"  ]; then
@@ -26,19 +33,22 @@ ask() {
     fi
 
     # Ask the question
-    read -p "$1 [$prompt] " REPLY
+    if [ $FORCE = "false" ]; then
+      read -p "$1 [$prompt] " REPLY
 
-    # Default?
-    if [ -z "$REPLY"  ]; then
-      REPLY=$default
+      # Default?
+      if [ -z "$REPLY"  ]; then
+        REPLY=$default
+      fi
+
+      # Check if the reply is valid
+      case "$REPLY" in
+        Y*|y*) return 0 ;;
+        N*|n*) return 1 ;;
+      esac
     fi
 
-    # Check if the reply is valid
-    case "$REPLY" in
-      Y*|y*) return 0 ;;
-      N*|n*) return 1 ;;
-    esac
-
+    return 0
   done
 }
 
@@ -105,30 +115,9 @@ setup_bash() {
   symlink ${dir}/bash_profile ${HOME}/.profile
 }
 
-# i3 / compton window manager
-setup_wm() {
-  symlink ${dir}/config/i3 ${HOME}/.config/i3
-  symlink ${dir}/config/compton ${HOME}/.config/compton
-}
-
-setup_fzf() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install
-}
-
 # Ask to install everything
 ask "Configure bashrc?" Y && setup_bash
-ask "Configure tmux?" Y && symlink ${dir}/config/tmux/tmux.conf ${HOME}/.tmux.conf
+ask "Configure tmux?" Y && symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
 ask "Configure vim?" Y && setup_vim
 ask "Configure LiquidPrompt? (requires git)" Y && setup_liquid_prompt
 ask "Configure git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
-
-# This stuff only applies to certain Linux distros
-if [ $(uname) != "Darwin" ]; then
-  ask "Install Termite settings?" Y && symlink ${dir}/config/termite ${HOME}/.config/termite
-  ask "Install window manager settings? (i3/compton)" Y && setup_wm
-  ask "Install Xresources?" Y && symlink ${dir}/Xresources ${HOME}/.Xresources
-  ask "Install xinitrc?" Y && symlink ${dir}/xinitrc ${HOME}/.xinitrc
-fi
-
-clean_symlinks
