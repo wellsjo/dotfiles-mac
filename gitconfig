@@ -1,0 +1,5 @@
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	pushf = push --force-with-lease
