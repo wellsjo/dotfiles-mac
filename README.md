@@ -1,21 +1,49 @@
-# Dotfiles
-Modular dotfiles setup I use for macOS and Arch Linux. Feel free to use, but please read through everything before installing.
+## MacOS dotfiles
 
-### Available Configs
+### Configs
 - vim
 - tmux
 - git
-- LiquidShell (prompt)
+- LiquidShell
+- Fzf
 
-### Included Scripts
-- git auto-completion
-- ssh auto-completion
-
-## Before Installing
-- You should be aware that my compton config is optimized for my NVIDIA Titan X (pascal) GPU
-
-## Install
+### Install
 Paste this in the terminal
 ```bash
 git clone git@github.com:wellsjo/dotfiles.git ~/.dotfiles; ./dotfiles/setup
+```
+
+### Development Environment
+- Install Homebrew
+
+```
+make sure /usr/local/bin comes before /usr/bin in $PATH
+```
+
+### Dependencies
+```
+brew install coreutils # gives you GNU ls and some missing commands
+brew install htop
+brew install tmux
+brew install reattach-to-user-namespace       # fixes some annoying tmux shortcomings on osx
+brew install git-extras
+brew install vim
+brew install bash
+brew install bash-completion
+brew install icdiff
+brew install go
+```
+
+### NPM Modules
+```
+speed-test
+wifi-password
+tldr
+```
+
+### Software
+```
+iTerm2
+Alfred3
+SizeUp
 ```
