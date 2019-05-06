@@ -103,10 +103,12 @@ if !empty(glob("~/.local.vim"))
   source $HOME/.local.vim
 endif
 
+Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
+highlight ExtraWhitespace ctermbg=red
+
 Plug 'tpope/vim-surround'                   " surround words with characters
 Plug 'tpope/vim-commentary'                 " easily comment out code
 Plug 'tpope/vim-repeat'                     " better repeat (.)
-Plug 'ntpeters/vim-better-whitespace'       " whitespace handler
 Plug 'wellsjo/vim-save-cursor-position'     " Save cursor position when you exit files
 
 " Languages
@@ -120,6 +122,7 @@ Plug 'chr4/nginx.vim'
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_fail_silently = 1
+let g:go_def_mode = 'godef'
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
@@ -287,12 +290,6 @@ let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'true'
-
-
-" Show whitespace
-highlight ExtraWhitespace ctermbg=red
-
-" Smooth scroll
 
 " Auto completion with tab
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
