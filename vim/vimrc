@@ -7,9 +7,12 @@ Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'wesQ3/vim-windowswap'                 " swap windows
 
-Plug 'vim-syntastic/syntastic'
+" Typescript
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+
 Plug 'ruanyl/vim-sort-imports'
 Plug 'gabrielelana/vim-markdown'
 
@@ -17,12 +20,13 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
+nnoremap \| :NERDTreeFind<Cr>
 let NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
 
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
-nnoremap \| :ToggleBufExplorer<Cr>
+nnoremap B :ToggleBufExplorer<Cr>
 let g:bufExplorerSortBy='mru'
 
 " Not related to bufexplorer, but this is how we switch buffers
@@ -66,18 +70,16 @@ Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 " Linting / fixing
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
-\   'typescript': ['prettier']
+\   'typescript': ['prettier', 'tslint']
 \}
 let g:ale_linters = {
 \   'javascript': ['flow'],
 \   'go': ['go build'],
-\   'typescript': ['tslint', 'typecheck']
 \}
-
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
@@ -191,9 +193,13 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
-" Toggle search and highlight words under cursor
+" Search and highlight words under cursor (toggle)
 imap <c-f> <c-x><c-f>
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
+
+" Toggle highlighting
+imap <c-h> <c-x><c-h>
+nnoremap <c-h> :set hlsearch!<CR>
 
 " Easy motion
 map <Leader> <Plug>(easymotion-prefix)
@@ -218,8 +224,6 @@ inoremap jk <esc>:<cr><right>
 
 " Quickly switch tabs
 nnoremap gr gT
-
-
 
 " Arrow keys to resize windows
 nnoremap <Left> :vertical resize +5<CR>
@@ -273,6 +277,9 @@ set directory^=~/.vim/.swap//
 set undodir^=~/.vim/.undo//
 set undofile
 
+" tell vim where to put its backup files
+set backupdir=/private/tmp
+
 " ======= Plugin Settings =======
 
 " vim-javascript
@@ -282,8 +289,9 @@ let g:javascript_plugin_jsdoc = 1
 " vim-go
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 0
-let g:go_fmt_command="gofmt"
 
+let g:go_fmt_command = "goimports"
+let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
 
 " use prettier for formatting
 let g:prettier#config#trailing_comma = 'none'
