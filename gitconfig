@@ -3,6 +3,3 @@
 	br = branch
 	st = status
 	pushf = push --force-with-lease
-[user]
-	name = wells
-  email = wells@kraken.com

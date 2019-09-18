@@ -21,7 +21,7 @@ Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
 nnoremap \| :NERDTreeFind<Cr>
-let NERDTreeWinSize = 30
+" let NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
 
