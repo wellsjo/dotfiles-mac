@@ -3,33 +3,40 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Use release branch
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Or latest tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Or build from source code by use yarn: https://yarnpkg.com
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
 Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
 Plug 'wesQ3/vim-windowswap'                 " swap windows
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
 
 " Typescript
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_disable_quickfix = 1
-
 Plug 'ruanyl/vim-sort-imports'
+
+" Git
+Plug 'airblade/vim-gitgutter'               " show diff in code
+Plug 'tpope/vim-fugitive'                   " git integration
+
 Plug 'gabrielelana/vim-markdown'
 
 " Nerd Tree (filesystem)
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
-Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
 nnoremap \ :NERDTreeTabsToggle<Cr>
 nnoremap \| :NERDTreeFind<Cr>
-" let NERDTreeWinSize = 30
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
 
-Plug 'jlanzarotta/bufexplorer'              " buffer exploring
+" Buffers
+Plug 'jlanzarotta/bufexplorer'
 nnoremap B :ToggleBufExplorer<Cr>
 let g:bufExplorerSortBy='mru'
-
-" Not related to bufexplorer, but this is how we switch buffers
 Plug 'mildred/vim-bufmru'
 nnoremap <tab> :BufMRUNext<CR>
 noremap <S-tab> :BufMRUPrev<CR>
@@ -54,7 +61,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-" Tabs format
+" Tabs
 Plug 'gcmt/taboo.vim'
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
@@ -68,18 +75,18 @@ Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 
 " Linting / fixing
-Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier', 'tslint']
-\}
-let g:ale_linters = {
-\   'javascript': ['flow'],
-\   'go': ['go build'],
-\}
+" Plug 'w0rp/ale'
+" let g:ale_fix_on_save = 1
+" let g:ale_lint_on_save = 1
+" let g:ale_lint_on_enter = 1
+" let g:ale_fixers = {
+" \   'javascript': ['prettier'],
+" \   'typescript': ['prettier', 'tslint']
+" \}
+" let g:ale_linters = {
+" \   'javascript': ['flow'],
+" \   'go': ['go build'],
+" \}
 
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
@@ -87,17 +94,12 @@ let MRU_File = $HOME . '/.vim_mru_files'
 let MRU_Window_Height = 15
 nnoremap mr :MRU<cr>
 
-Plug 'easymotion/vim-easymotion'
-Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
-Plug 'airblade/vim-gitgutter'               " show diff in code
-
 " Better scrolling
 Plug 'terryma/vim-smooth-scroll'
 nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
 nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
-Plug 'tpope/vim-fugitive'                   " git integration
 
 " Requires local config, used for gitlab access token
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -260,8 +262,8 @@ map , @
 nnoremap s :%s/\<<C-r><C-w>\>/
 
 " Go def in new tab
-autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
-autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
+" autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
+" autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
 " this also works in python?
 
 " Persistent undo and swp files
