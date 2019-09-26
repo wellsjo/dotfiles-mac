@@ -1,7 +1,47 @@
+"
+" Editor Settings
+"
 
-" ======= Plugins ======
+set nocompatible
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Indenting
+set autoindent
+set smartindent
+
+" Search
+set ignorecase                      " Case-insensitive search
+set smartcase                       " Case-sensitive search when using caps
+set incsearch                       " Show match while typing pattern
+set hlsearch                        " Highlight search results
+
+" Enable mouse/trackpad input
+" set mouse=a
+if has("mouse")
+  set mouse=n
+endif
+
+" Undo
+set undolevels=1000
+set undoreload=1000
+if !isdirectory(expand("~/.vim/.undo/"))
+  silent !mkdir -p ~/.vim/.undo
+endif
+set undodir^=~/.vim/.undo//
+set undofile
 
 call plug#begin('~/.vim/plugged')
+
+"
+" Language Support
+"
+
+" Golang
+Plug 'govim/govim'
+
+" ======= Plugins ======
 
 Plug 'vim-scripts/AfterColors.vim'          " customize color schemes
 Plug 'ConradIrwin/vim-bracketed-paste'      " better copy-paste in insert mode
@@ -19,11 +59,6 @@ Plug 'gabrielelana/vim-markdown'
 " Nerd Tree (filesystem)
 Plug 'scrooloose/nerdtree'                  " file explorer (nerd tree)
 Plug 'jistr/vim-nerdtree-tabs'              " persistent nerd tree
-nnoremap \ :NERDTreeTabsToggle<Cr>
-nnoremap \| :NERDTreeFind<Cr>
-" let NERDTreeWinSize = 30
-let NERDTreeShowHidden=0
-let NERDTreeCascadeSingleChildDir=0
 
 Plug 'jlanzarotta/bufexplorer'              " buffer exploring
 nnoremap B :ToggleBufExplorer<Cr>
@@ -78,7 +113,6 @@ let g:ale_fixers = {
 \}
 let g:ale_linters = {
 \   'javascript': ['flow'],
-\   'go': ['go build'],
 \}
 
 " MRU (recently opened files)
@@ -89,7 +123,6 @@ nnoremap mr :MRU<cr>
 
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
-Plug 'airblade/vim-gitgutter'               " show diff in code
 
 " Better scrolling
 Plug 'terryma/vim-smooth-scroll'
@@ -97,7 +130,9 @@ nnoremap <CR> :call smooth_scroll#down(25, 20, 2)<cr>
 nnoremap <silent> <c-d> :call smooth_scroll#down(15, 20, 2)<cr>
 nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 
-Plug 'tpope/vim-fugitive'                   " git integration
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Requires local config, used for gitlab access token
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -121,21 +156,49 @@ Plug 'jparise/vim-graphql'
 Plug 'gf3/peg.vim'
 Plug 'chr4/nginx.vim'
 
-" Golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_fmt_fail_silently = 1
-let g:go_def_mode = 'godef'
-
-" Color Schemes
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
-Plug 'rakr/vim-one'
 
 call plug#end()
+
+" NERD Tree
+nnoremap \ :NERDTreeTabsToggle<Cr>
+nnoremap \| :NERDTreeFind<Cr>
+let NERDTreeShowHidden=0
+let NERDTreeCascadeSingleChildDir=0
+
+" Golang
+if has("patch-8.1.1904")
+  set completeopt+=popup
+  set completepopup=align:menu,border:off,highlight:Pmenu
+endif
+
+" To get hover working in the terminal we need to set ttymouse
+" set ttymouse=sgr
+" nmap <silent> <buffer> <Leader>h : <C-u>call GOVIMHover()<CR>
+
+" Short updatetime time in order that govim/Vim are more responsive/IDE-like
+set updatetime=500
+
+" To make govim/Vim more responsive/IDE-like, we suggest a short balloondelay
+set balloondelay=250
+
+" Suggestion: Turn on the sign column so you can see error marks on lines
+" where there are quickfix errors. Some users who already show line number
+" might prefer to instead have the signs shown in the number column; in which
+" case set signcolumn=number
+set signcolumn=yes
+
+autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
+
+" Color Schemes
+colorscheme wellsokai
+set background=dark
+" set background=light
 
 " =============================================================================
 
@@ -144,28 +207,13 @@ if has("mac")
 endif
 set showcmd                         " Show the command as you type
 
-" Search
-set ignorecase                      " Case-insensitive search
-set smartcase                       " Case-sensitive search when using caps
-set incsearch                       " Show match while typing pattern
-set hlsearch                        " Highlight search results
-
 " Colors, syntax
-syntax on                           " Syntax highlighting
 set number                          " Show number lines
-set autoindent
-filetype plugin indent on
 let t_Co=256
 let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
 
-set background=dark " for the dark version
-" set background=light " for the light version
-" colorscheme one
-
-colorscheme wellsokai
-" colorscheme github
 
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
@@ -180,13 +228,8 @@ set encoding=utf-8
 
 " status bar
 set laststatus=2
-" set cursorline
 set nocursorcolumn
 
-" Enable mouse/trackpad input
-if has("mouse")
-  set mouse=n
-endif
 
 " Enables resizing vim panes from tmux
 if &term =~ '^screen'
@@ -203,9 +246,6 @@ nnoremap <c-h> :set hlsearch!<CR>
 
 " Easy motion
 map <Leader> <Plug>(easymotion-prefix)
-
-" GoImports shorthand
-nnoremap gim :GoImports<CR>
 
 " Fast quit
 nnoremap <leader>q :q<CR>
@@ -255,30 +295,12 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " Better mapping for repeating macros
 map , @
 
-
 " Search and replace word under cursor
 nnoremap s :%s/\<<C-r><C-w>\>/
 
 " Go def in new tab
-autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
 autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
 " this also works in python?
-
-" Persistent undo and swp files
-set undolevels=1000
-set undoreload=1000
-if !isdirectory(expand("~/.vim/.swap/"))
-  silent !mkdir -p ~/.vim/.swap
-endif
-if !isdirectory(expand("~/.vim/.undo/"))
-  silent !mkdir -p ~/.vim/.undo
-endif
-set directory^=~/.vim/.swap//
-set undodir^=~/.vim/.undo//
-set undofile
-
-" tell vim where to put its backup files
-set backupdir=/private/tmp
 
 " ======= Plugin Settings =======
 
@@ -286,29 +308,8 @@ set backupdir=/private/tmp
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
 
-" vim-go
-let g:go_def_mapping_enabled = 0
-let g:go_def_reuse_buffer = 0
-
-let g:go_fmt_command = "goimports"
-let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
-
 " use prettier for formatting
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'true'
-
-" Auto completion with tab
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-
-" Setup python to use custom styles
-" This is called in ftplugin/python.vim
-function! SetupPython()
-  setlocal softtabstop=2
-  setlocal tabstop=2
-  setlocal shiftwidth=2
-endfunction
-command! -bar SetupPython call SetupPython()
+" let g:prettier#config#trailing_comma = 'none'
+" let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#bracket_spacing = 'true'
+" let g:prettier#config#jsx_bracket_same_line = 'true'
