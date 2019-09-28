@@ -7,21 +7,24 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+filetype plugin on
+
 " Indenting
 set autoindent
 set smartindent
+filetype indent on
 
 " Search
-set ignorecase                      " Case-insensitive search
-set smartcase                       " Case-sensitive search when using caps
-set incsearch                       " Show match while typing pattern
-set hlsearch                        " Highlight search results
+set ignorecase " Case-insensitive search
+set smartcase  " Case-sensitive search when using caps
+set incsearch  " Show match while typing pattern
+set hlsearch   " Highlight search results
 
-" Enable mouse/trackpad input
-" set mouse=a
 if has("mouse")
-  set mouse=n
+  set mouse=a
 endif
+
+set ttymouse=sgr
 
 " Undo
 set undolevels=1000
@@ -103,17 +106,8 @@ Plug 'mhinz/vim-startify'                   " start screen
 Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 
 " Linting / fixing
-Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier', 'tslint']
-\}
-let g:ale_linters = {
-\   'javascript': ['flow'],
-\}
+Plug 'w0rp/ale', { 'for': ['javascript', 'typescript'] }
+" Plug 'valloric/youcompleteme'
 
 " MRU (recently opened files)
 Plug 'vim-scripts/mru.vim'
@@ -172,14 +166,10 @@ let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
 
 " Golang
-if has("patch-8.1.1904")
-  set completeopt+=popup
-  set completepopup=align:menu,border:off,highlight:Pmenu
-endif
-
-" To get hover working in the terminal we need to set ttymouse
-" set ttymouse=sgr
-" nmap <silent> <buffer> <Leader>h : <C-u>call GOVIMHover()<CR>
+" if has("patch-8.1.1904")
+set completeopt+=popup
+set completepopup=align:menu,border:off,highlight:Pmenu
+" endif
 
 " Short updatetime time in order that govim/Vim are more responsive/IDE-like
 set updatetime=500
@@ -190,10 +180,8 @@ set balloondelay=250
 " Suggestion: Turn on the sign column so you can see error marks on lines
 " where there are quickfix errors. Some users who already show line number
 " might prefer to instead have the signs shown in the number column; in which
-" case set signcolumn=number
+" set signcolumn=number
 set signcolumn=yes
-
-autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
 
 " Color Schemes
 colorscheme wellsokai
@@ -214,7 +202,6 @@ let mapleader=" "
 let g:netrw_dirhistmax = 0
 set term=screen-256color
 
-
 " editing, tabs, indenting
 set expandtab                       " Tab key creates spaces
 set smarttab
@@ -230,11 +217,10 @@ set encoding=utf-8
 set laststatus=2
 set nocursorcolumn
 
-
 " Enables resizing vim panes from tmux
-if &term =~ '^screen'
-  set ttymouse=xterm2
-endif
+" if &term =~ '^screen'
+"   set ttymouse=xterm2
+" endif
 
 " Search and highlight words under cursor (toggle)
 imap <c-f> <c-x><c-f>
@@ -288,9 +274,17 @@ map <silent> <C-k> :wincmd k<CR>
 " Yank line without newline character
 nmap yu yg$
 
-" File completion with control-f in insert mode
-Plug 'valloric/youcompleteme'
-let g:ycm_autoclose_preview_window_after_completion=1
+" worp/ale
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier', 'tslint']
+\}
+let g:ale_linters = {
+\   'javascript': ['flow'],
+\}
 
 " Better mapping for repeating macros
 map , @
@@ -307,9 +301,3 @@ autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
 " vim-javascript
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
-
-" use prettier for formatting
-" let g:prettier#config#trailing_comma = 'none'
-" let g:prettier#config#single_quote = 'true'
-" let g:prettier#config#bracket_spacing = 'true'
-" let g:prettier#config#jsx_bracket_same_line = 'true'
