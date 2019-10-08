@@ -130,6 +130,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Requires local config, used for gitlab access token
 Plug 'shumphrey/fugitive-gitlab.vim'
+
+" Contains private keys
 if !empty(glob("~/.local.vim"))
   source $HOME/.local.vim
 endif
@@ -151,8 +153,8 @@ Plug 'gf3/peg.vim'
 Plug 'chr4/nginx.vim'
 
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 Plug 'wellsjo/wellsokai.vim'
 Plug 'endel/vim-github-colorscheme'
@@ -166,10 +168,8 @@ let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
 
 " Golang
-" if has("patch-8.1.1904")
 set completeopt+=popup
 set completepopup=align:menu,border:off,highlight:Pmenu
-" endif
 
 " Short updatetime time in order that govim/Vim are more responsive/IDE-like
 set updatetime=500
@@ -183,10 +183,11 @@ set balloondelay=250
 " set signcolumn=number
 set signcolumn=yes
 
+autocmd FileType go :GitGutterDisable
+
 " Color Schemes
 colorscheme wellsokai
 set background=dark
-" set background=light
 
 " =============================================================================
 
@@ -279,12 +280,12 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier', 'tslint']
-\}
+      \   'javascript': ['prettier'],
+      \   'typescript': ['prettier', 'tslint']
+      \}
 let g:ale_linters = {
-\   'javascript': ['flow'],
-\}
+      \   'javascript': ['flow'],
+      \}
 
 " Better mapping for repeating macros
 map , @
