@@ -75,6 +75,8 @@ export EDITOR='vim'
 # Aliases
 alias t="tmux"
 alias ag="rg"
+alias l="gls -lhG --group-directories-first --color"
+alias la="gls -lhaG --group-directories-first --color"
 
 alias gs="git status"
 alias ga="git add -p"
