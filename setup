@@ -2,11 +2,6 @@
 
 set -e
 
-FORCE=false
-if [[ $1 = "--force" ]]; then
-  FORCE=true
-fi
-
 # Make sure this script is run from the same directory
 dir=`pwd`
 if [ ! -e "${dir}/$(basename $0)"  ]; then
@@ -14,48 +9,20 @@ if [ ! -e "${dir}/$(basename $0)"  ]; then
   exit 2
 fi
 
-# Prompt for y/n when installing
-# http://djm.me/ask
-ask() {
-  while true; do
-
-    if [ $FORCE = "true" ]; then
-      default=Y
-    elif [ "${2:-}" = "Y"  ]; then
-      prompt="Y/n"
-      default=Y
-    elif [ "${2:-}" = "N"  ]; then
-      prompt="y/N"
-      default=N
-    else
-      prompt="y/n"
-      default=
-    fi
-
-    # Ask the question
-    if [ $FORCE = "false" ]; then
-      read -p "$1 [$prompt] " REPLY
-
-      # Default?
-      if [ -z "$REPLY"  ]; then
-        REPLY=$default
-      fi
-
-      # Check if the reply is valid
-      case "$REPLY" in
-        Y*|y*) return 0 ;;
-        N*|n*) return 1 ;;
-      esac
-    fi
-
-    return 0
-  done
-}
-
 # Symlink helper function
 symlink() {
   # If this isnt a symlink (and the file exists)
   if [ ! -L "$2" ] && [ -f "$2" ]; then
+    # Backup the file
+    mv "$2" "$2.backup" >/dev/null 2>&1
+    echo -e "$2 --> $2.backup"
+
+    # Now remove it, dirs too
+    rm -rf "$2" >/dev/null 2>&1
+  fi
+
+  # If this isnt a symlink (and the file exists)
+  if [ ! -L "$2" ] && [ -d "$2" ]; then
     # Backup the file
     mv "$2" "$2.backup" >/dev/null 2>&1
     echo -e "$2 --> $2.backup"
@@ -81,7 +48,7 @@ clean_symlinks() {
 
 # Install vim and plugins
 setup_vim() {
-  symlink ${dir}/vim/vimrc ${HOME}/.vimrc
+  symlink ${dir}/vimrc ${HOME}/.vimrc
   symlink ${dir}/vim ${HOME}/.vim
   vim +PlugInstall +qall +silent
 }
@@ -91,33 +58,13 @@ setup_git() {
   symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
 }
 
-# Installs LiquidPrompt
-setup_liquid_prompt() {
-  rm -rf ${dir}/extra/liquidprompt/
-  git clone git@github.com:nojhan/liquidprompt.git ${dir}/extra/liquidprompt
-  symlink ${dir}/extra/liquidprompt/liquidpromptrc-dist ${HOME}/.liquidpromptrc
-  cat <<EOT >> ~/.localprofile
-
-# liquid prompt settings
-if [ -e ~/.liquidpromptrc ]; then
-  source ~/.dotfiles/extra/liquidprompt/liquidprompt
-  LP_PS1_PREFIX="\n"
-  LP_PS1_POSTFIX="\n> "
-  LP_MARK_DEFAULT=""
-fi
-EOT
-}
-
 # Symlink bash dotfiles
-setup_bash() {
-  symlink ${dir}/bashrc ${HOME}/.bashrc
-  symlink ${dir}/bash_profile ${HOME}/.bash_profile
-  symlink ${dir}/bash_profile ${HOME}/.profile
+setup_zsh() {
+  symlink ${dir}/zshrc ${HOME}/.zshrc
+  symlink ${dir}/zsh/agnoster-modified.zsh-theme ${HOME}/.oh-my-zsh/custom/themes/agnoster-modified.zsh-theme
 }
 
-# Ask to install everything
-ask "Configure bashrc?" Y && setup_bash
-ask "Configure tmux?" Y && symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
-ask "Configure vim?" Y && setup_vim
-ask "Configure LiquidPrompt? (requires git)" Y && setup_liquid_prompt
-ask "Configure git? (gitconfig, gitignore_global, git-cdiff)" Y && setup_git
+clean_symlinks
+setup_vim
+setup_git
+setup_zsh
