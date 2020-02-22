@@ -69,8 +69,8 @@ Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 
 " Linting / fixing
 Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
+" let g:ale_fix_on_save = 1
+" let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
@@ -161,8 +161,6 @@ let g:netrw_dirhistmax = 0
 set term=screen-256color
 
 set background=dark " for the dark version
-" set background=light " for the light version
-" colorscheme one
 
 colorscheme wellsokai
 " colorscheme github
