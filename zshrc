@@ -6,8 +6,7 @@ export ZSH="/Users/wells/.oh-my-zsh"
 
 ZSH_THEME="agnoster-modified"
 
-# Start/quit tmux by default
-ZSH_TMUX_AUTOSTART=true
+# Quit tmux by default
 ZSH_TMUX_AUTOQUIT=true
 
 # Display red dots whilst waiting for completion.
@@ -79,6 +78,7 @@ alias l="gls -lhG --group-directories-first --color"
 alias la="gls -lhaG --group-directories-first --color"
 
 alias gs="git status"
+alias gb="git branch"
 alias ga="git add -p"
 alias gd="git icdiff"
 alias gl="git log"

@@ -4,3 +4,5 @@
 	pushf = push --force-with-lease
 [icdiff]
 	options = --highlight --line-numbers
+[pager]
+	branch = false
