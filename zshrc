@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -5,9 +7,7 @@
 export ZSH="/Users/wells/.oh-my-zsh"
 
 ZSH_THEME="agnoster-modified"
-
-# Quit tmux by default
-ZSH_TMUX_AUTOQUIT=true
+# RPROMPT=''
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -36,7 +36,7 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 plugins=(
   git
   alias-finder
-  aws
+  # aws
   brew
   colored-man-pages
   colorize
@@ -89,3 +89,5 @@ alias gc="git commit -m"
 
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# zprof
