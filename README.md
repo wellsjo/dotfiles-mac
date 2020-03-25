@@ -14,6 +14,8 @@
   - icdiff
   - htop
   - go
+  - nodejs
+  - pure (https://github.com/sindresorhus/pure)
 
 ### Install
 Paste this in the terminal

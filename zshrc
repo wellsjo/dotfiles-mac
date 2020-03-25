@@ -6,8 +6,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/wells/.oh-my-zsh"
 
-ZSH_THEME="agnoster-modified"
-# RPROMPT=''
+# Prompt https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
