@@ -88,7 +88,13 @@ nnoremap mr :MRU<cr>
 
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'                 " auto pair brakcets, parens, quotes
-Plug 'airblade/vim-gitgutter'               " show diff in code
+
+" Plug 'airblade/vim-gitgutter'               " show diff in code
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
 
 " Better scrolling
 Plug 'terryma/vim-smooth-scroll'
@@ -122,14 +128,12 @@ Plug 'chr4/nginx.vim'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" my old settings
 let g:go_fmt_fail_silently = 1
 let g:go_def_mode = 'godef'
 let g:go_def_mapping_enabled = 0
 let g:go_def_reuse_buffer = 0
-let g:go_fmt_command = "goimports"
-let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
+" let g:go_fmt_command = "goimports"
+" let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
