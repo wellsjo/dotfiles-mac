@@ -82,7 +82,8 @@ alias gs="git status"
 alias gb="git branch"
 alias ga="git add -p"
 alias gd="git icdiff"
-alias gl="git log"
+alias gl="git --no-pager log --oneline -n 5"
+alias gll="git --no-pager log --oneline -n 25"
 alias gc="git commit -m"
 
 # Load local profile

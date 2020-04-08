@@ -71,14 +71,13 @@ Plug 'DataWraith/auto_mkdir'                " mkdir -p for creating files
 Plug 'w0rp/ale'
 " let g:ale_fix_on_save = 1
 " let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
+" let g:ale_lint_on_enter = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier', 'tslint']
 \}
 let g:ale_linters = {
 \   'javascript': ['flow'],
-\   'go': ['go build'],
 \}
 
 " MRU (recently opened files)
@@ -123,8 +122,14 @@ Plug 'chr4/nginx.vim'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" my old settings
 let g:go_fmt_fail_silently = 1
 let g:go_def_mode = 'godef'
+let g:go_def_mapping_enabled = 0
+let g:go_def_reuse_buffer = 0
+let g:go_fmt_command = "goimports"
+let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
@@ -284,12 +289,6 @@ set backupdir=/private/tmp
 " Enable syntax highlighting for JSDoc comments
 let g:javascript_plugin_jsdoc = 1
 
-" vim-go
-let g:go_def_mapping_enabled = 0
-let g:go_def_reuse_buffer = 0
-
-let g:go_fmt_command = "goimports"
-let g:go_fmt_options = {'goimports': '-local=code.cryptowat.ch'}
 
 " use prettier for formatting
 let g:prettier#config#trailing_comma = 'none'
