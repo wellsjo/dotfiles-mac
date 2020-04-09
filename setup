@@ -53,6 +53,11 @@ setup_vim() {
   vim +PlugInstall +qall +silent
 }
 
+setup_tmux() {
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
+}
+
 setup_git() {
   symlink ${dir}/gitconfig ${HOME}/.gitconfig
   symlink ${dir}/gitignore_global ${HOME}/.gitignore_global
@@ -68,3 +73,4 @@ clean_symlinks
 setup_vim
 setup_git
 setup_zsh
+setup_tmux
