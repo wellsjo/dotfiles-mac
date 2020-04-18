@@ -114,7 +114,10 @@ Plug 'chr4/nginx.vim'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
-" nnoremap gim :GoImports<CR>
+autocmd FileType go nmap <silent> gim :GoImports<CR>
+" By default, 'gd' does go-def in the same buffer, so we disable
+" the default and make our own use go-def-tab.
+let g:go_def_mapping_enabled = 0
 autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 0
@@ -129,8 +132,8 @@ Plug 'mxw/vim-jsx'
 Plug 'ruanyl/vim-sort-imports'
 
 " Typescript
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
@@ -145,7 +148,7 @@ Plug 'tpope/vim-repeat'
 Plug 'wellsjo/vim-save-cursor-position'
 
 " Linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier', 'tslint']
@@ -164,8 +167,8 @@ map <Leader> <Plug>(easymotion-prefix)
 " ===== Editor =====
 
 " Nerd Tree (file explorer)
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeTabsToggle', 'NERDTreeFind'] }
+Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeTabsToggle', 'NERDTreeFind'] }
 nnoremap \ :NERDTreeTabsToggle<Cr>
 nnoremap \| :NERDTreeFind<Cr>
 let NERDTreeShowHidden=0
@@ -258,11 +261,7 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
-call plug#end()
-
-colorscheme wellsokai
-
-" Persistent undo and swp files
+" Undo / Swap / Backups
 set undolevels=1000
 set undoreload=1000
 if !isdirectory(expand("~/.vim/.swap/"))
@@ -274,6 +273,10 @@ endif
 set directory^=~/.vim/.swap//
 set undodir^=~/.vim/.undo//
 set undofile
-
-" tell vim where to put its backup files
 set backupdir=/private/tmp
+
+call plug#end()
+
+" Call functions that need Plug loaded...
+
+colorscheme wellsokai
