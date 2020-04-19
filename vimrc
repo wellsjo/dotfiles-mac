@@ -9,6 +9,9 @@ let g:netrw_dirhistmax = 0
 set term=screen-256color
 set background=dark
 
+" Go back to where you left off when opening files
+au BufReadPost * if line("'\"") | execute("normal `\"") | endif
+
 " Search and highlight words under cursor (toggle)
 imap <c-f> <c-x><c-f>
 nnoremap <c-f> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls!<CR>
@@ -28,7 +31,6 @@ nnoremap <leader>g gg=G''zz
 
 " Save while in insert mode with 'jj'
 inoremap jj <esc>:w<CR>
-
 " Stop editing in place with 'jk'
 inoremap jk <esc>:<cr><right>
 
@@ -102,6 +104,8 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
+" ====== PLUGINS (Plugged) =====
+
 call plug#begin('~/.vim/plugged')
 
 " ===== Languages =====
@@ -114,11 +118,11 @@ Plug 'chr4/nginx.vim'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
-autocmd FileType go nmap <silent> gim :GoImports<CR>
+au FileType go nmap gim :GoImports<CR>
 " By default, 'gd' does go-def in the same buffer, so we disable
 " the default and make our own use go-def-tab.
 let g:go_def_mapping_enabled = 0
-autocmd FileType go nmap <silent> gd <Plug>(go-def-tab)
+au FileType go nmap <silent> gd <Plug>(go-def-tab)
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 1
@@ -134,7 +138,7 @@ Plug 'ruanyl/vim-sort-imports'
 " Typescript
 Plug 'Quramy/tsuquyomi', {'for': 'typescript'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-autocmd FileType typescript nmap <silent> gd :TsuDefinition<CR>
+au FileType typescript nmap <silent> gd :TsuDefinition<CR>
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 
@@ -145,21 +149,20 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'wellsjo/vim-save-cursor-position'
 
 " Linting
 Plug 'dense-analysis/ale'
 let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier', 'tslint']
-\}
+      \   'javascript': ['prettier'],
+      \   'typescript': ['prettier', 'tslint']
+      \}
 let g:ale_linters = {
-\   'javascript': ['flow'],
-\   'go': ['go build'],
-\}
+      \   'javascript': ['flow'],
+      \   'go': ['go build'],
+      \}
 
 Plug 'ntpeters/vim-better-whitespace'
-highlight ExtraWhitespace ctermbg=red
+hi ExtraWhitespace ctermbg=red
 
 Plug 'easymotion/vim-easymotion'
 map <Leader> <Plug>(easymotion-prefix)
@@ -173,9 +176,6 @@ nnoremap \ :NERDTreeTabsToggle<Cr>
 nnoremap \| :NERDTreeFind<Cr>
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
-
-" mkdir -p for creating files
-Plug 'DataWraith/auto_mkdir'
 
 " Buffers
 Plug 'jlanzarotta/bufexplorer'
@@ -203,7 +203,7 @@ let g:taboo_tab_format=' %N. %f %m '
 Plug 'mhinz/vim-startify'
 
 " Search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': 'FZF' }
 nnoremap <c-t> :FZF<cr>
 
 " Open Recent Files
@@ -213,14 +213,10 @@ let MRU_Window_Height = 15
 nnoremap mr :MRU<cr>
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'on': ['Gbrowse', 'Gblame'] }
 
 " Show Deltas
-if has('nvim') || has('patch-8.0.902')
-  Plug 'mhinz/vim-signify'
-else
-  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
+Plug 'mhinz/vim-signify'
 let g:signify_sign_show_text = 0
 
 " NOTE: Requires local config, used for gitlab access token
@@ -234,8 +230,8 @@ Plug 'wellsjo/wellsokai.vim'
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'true'
@@ -279,4 +275,4 @@ call plug#end()
 
 " Call functions that need Plug loaded...
 
-colorscheme wellsokai
+colo wellsokai
