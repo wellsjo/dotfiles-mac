@@ -119,13 +119,14 @@ Plug 'chr4/nginx.vim'
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 au FileType go nmap gim :GoImports<CR>
+au FileType go nmap gb :GoBuild<CR>
 " By default, 'gd' does go-def in the same buffer, so we disable
 " the default and make our own use go-def-tab.
 let g:go_def_mapping_enabled = 0
 au FileType go nmap <silent> gd <Plug>(go-def-tab)
 let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 0
-let g:go_imports_autosave = 1
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 0
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
@@ -172,10 +173,23 @@ map <Leader> <Plug>(easymotion-prefix)
 " Nerd Tree (file explorer)
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeTabsToggle', 'NERDTreeFind'] }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeTabsToggle', 'NERDTreeFind'] }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 nnoremap \ :NERDTreeTabsToggle<Cr>
 nnoremap \| :NERDTreeFind<Cr>
 let NERDTreeShowHidden=0
 let NERDTreeCascadeSingleChildDir=0
+let g:NERDTreeIndicatorMapCustom = {
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ 'Ignored'   : '☒',
+      \ "Unknown"   : "?"
+      \ }
 
 " Buffers
 Plug 'jlanzarotta/bufexplorer'
