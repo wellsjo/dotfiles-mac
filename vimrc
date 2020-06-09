@@ -10,7 +10,7 @@ set term=screen-256color
 set background=dark
 
 " Go back to where you left off when opening files
-au BufReadPost * if line("'\"") | execute("normal `\"") | endif
+" au BufReadPost * if line("'\"") | execute("normal `\"") | endif
 
 " Search and highlight words under cursor (toggle)
 imap <c-f> <c-x><c-f>
@@ -21,7 +21,8 @@ imap <c-h> <c-x><c-h>
 nnoremap <c-h> :set hlsearch!<CR>
 
 " Quit
-nnoremap <leader>q :q<CR>
+map <leader>q :q<CR>
+map <leader>Q :qa<CR>
 
 " Write
 nnoremap <leader>f :w<CR>
@@ -117,7 +118,7 @@ Plug 'gf3/peg.vim'
 Plug 'chr4/nginx.vim'
 
 " Golang
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 au FileType go nmap gim :GoImports<CR>
 au FileType go nmap gb :GoBuild<CR>
 " By default, 'gd' does go-def in the same buffer, so we disable
@@ -125,7 +126,7 @@ au FileType go nmap gb :GoBuild<CR>
 let g:go_def_mapping_enabled = 0
 au FileType go nmap <silent> gd <Plug>(go-def-tab)
 let g:go_fmt_command = "goimports"
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
 
 " JavaScript

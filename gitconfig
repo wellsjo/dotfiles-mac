@@ -6,3 +6,5 @@
 	options = --highlight --line-numbers
 [pager]
 	branch = false
+[url "git@github.com:"]
+	insteadOf = https://github.com/
