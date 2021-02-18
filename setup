@@ -54,8 +54,11 @@ setup_vim() {
 }
 
 setup_tmux() {
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
+  # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  git clone https://github.com/tmux-plugins/tpm tpm-tmp
+  mv tpm-tmp ~/.tmux/plugins/tmp
+  rm -f tpm-tmp
+  # symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
 }
 
 setup_git() {

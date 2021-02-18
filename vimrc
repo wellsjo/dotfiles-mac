@@ -105,6 +105,14 @@ if &term =~ '^screen'
   set ttymouse=xterm2
 endif
 
+" When editing a file, always jump to the last cursor position
+if has("autocmd")
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal g'\"" |
+  \ endif
+endif
+
 " ====== PLUGINS (Plugged) =====
 
 call plug#begin('~/.vim/plugged')
@@ -144,6 +152,10 @@ au FileType typescript nmap <silent> gd :TsuDefinition<CR>
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
 
+" Python
+Plug 'vim-python/python-syntax'
+let g:python_highlight_all = 1
+
 " ===== Text Editing =====
 
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -156,12 +168,16 @@ Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
 let g:ale_fixers = {
       \   'javascript': ['prettier'],
-      \   'typescript': ['prettier', 'tslint']
+      \   'typescript': ['prettier', 'tslint'],
+      \   'python': ['autopep8', 'reorder-python-imports'],
       \}
 let g:ale_linters = {
-      \   'javascript': ['flow'],
+      \   'typescript': ['tslint', 'tsserver'],
+      \   'javascript': ['prettier'],
       \   'go': ['go build'],
       \}
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
 
 Plug 'ntpeters/vim-better-whitespace'
 hi ExtraWhitespace ctermbg=red
@@ -214,9 +230,6 @@ Plug 'gcmt/taboo.vim'
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
 
-" Start Screen
-Plug 'mhinz/vim-startify'
-
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': 'FZF' }
 nnoremap <c-t> :FZF<cr>
@@ -231,7 +244,7 @@ nnoremap mr :MRU<cr>
 Plug 'tpope/vim-fugitive', { 'on': ['Gbrowse', 'Gblame'] }
 
 " Show Deltas
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify', { 'commit': 'd80e507' }
 let g:signify_sign_show_text = 0
 
 " NOTE: Requires local config, used for gitlab access token
@@ -242,6 +255,18 @@ endif
 
 " ===== Styling =====
 Plug 'wellsjo/wellsokai.vim'
+Plug 'NLKNguyen/papercolor-theme'
+function SwitchToLight()
+  set background=light
+  colo PaperColor
+endfunction
+command! SwitchToLight call SwitchToLight()
+
+function SwitchToDark()
+  set background=dark
+  colo wellsokai
+endfunction
+command! SwitchToDark call SwitchToDark()
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {

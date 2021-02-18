@@ -9,13 +9,14 @@
 ### Dependencies
 - oh-my-zsh
 - Homebrew
-  - vim
-  - tmux
-  - icdiff
-  - htop
-  - go
-  - nodejs
-  - pure (https://github.com/sindresorhus/pure)
+- vim
+- tmux (brew)
+- tpm https://github.com/tmux-plugins/tpm
+- icdiff (pip)
+- htop (brew)
+- go (brew)
+- nodejs (nvm)
+- pure (https://github.com/sindresorhus/pure)
 
 ### Install
 Paste this in the terminal
