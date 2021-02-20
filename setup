@@ -46,6 +46,10 @@ clean_symlinks() {
   find -L . -maxdepth 1 -type l -exec rm -- {} +
 }
 
+setup_prompt() {
+  npm install --global pure-prompt
+}
+
 # Install vim and plugins
 setup_vim() {
   symlink ${dir}/vimrc ${HOME}/.vimrc
@@ -54,11 +58,11 @@ setup_vim() {
 }
 
 setup_tmux() {
-  # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  git clone https://github.com/tmux-plugins/tpm tpm-tmp
-  mv tpm-tmp ~/.tmux/plugins/tmp
-  rm -f tpm-tmp
-  # symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
+  rm -rf ~/.tmux/plugins
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  symlink ${dir}/tmux/tmux.conf ${HOME}/.tmux.conf
+  ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 }
 
 setup_git() {
@@ -77,3 +81,4 @@ setup_vim
 setup_git
 setup_zsh
 setup_tmux
+setup_prompt
