@@ -3,6 +3,7 @@ let mapleader=" "
 syntax on
 set number
 set autoindent
+set ignorecase
 filetype plugin indent on
 let t_Co=256
 let g:netrw_dirhistmax = 0
@@ -51,6 +52,8 @@ nnoremap N Nzz
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Move windiws with j, k, o, p
 map <silent> <C-o> :wincmd h<CR>
@@ -68,8 +71,6 @@ nnoremap s :%s/\<<C-r><C-w>\>/
 set showcmd
 
 " Search
-" Case-insensitive search
-set ignorecase
 " Case-sensitive search when using caps
 set smartcase
 " Show match while typing pattern
@@ -127,12 +128,17 @@ Plug 'chr4/nginx.vim'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-au FileType go nmap gim :GoImports<CR>
-au FileType go nmap gb :GoBuild<CR>
+function GoFix()
+  GoImports
+  GoFmt
+endfunction
+au FileType go nmap goi :call GoFix()<CR>
+au FileType go nmap gob :GoBuild<CR>
+au FileType go nmap got :GoTest<CR>
 " By default, 'gd' does go-def in the same buffer, so we disable
 " the default and make our own use go-def-tab.
-let g:go_def_mapping_enabled = 0
-au FileType go nmap <silent> gd <Plug>(go-def-tab)
+" let g:go_def_mapping_enabled = 0
+" au FileType go nmap <silent> gd <Plug>(go-def-tab)
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
@@ -232,7 +238,7 @@ let g:taboo_tab_format=' %N. %f %m '
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': 'FZF' }
-nnoremap <c-t> :FZF<cr>
+autocmd VimEnter * noremap F :FZF<cr>
 
 " Open Recent Files
 Plug 'vim-scripts/mru.vim'
