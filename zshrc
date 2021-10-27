@@ -65,7 +65,6 @@ plugins=(
   sublime
   tmux
   urltools
-  zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,5 +96,8 @@ alias gc="git commit -m"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Make it so that git autocomplete never makes remote calls for auto-complete
+__git_heads_remote() {}
 
 # zprof
