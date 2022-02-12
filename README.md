@@ -17,6 +17,7 @@
 - go (brew)
 - nodejs (nvm)
 - pure (https://github.com/sindresorhus/pure)
+- gotags
 
 ### Install
 Paste this in the terminal
