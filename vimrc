@@ -175,6 +175,7 @@ Plug 'dense-analysis/ale'
 let g:ale_fixers = {
       \   'javascript': ['prettier'],
       \   'typescript': ['prettier', 'tslint'],
+      \   'json': ['prettier'],
       \   'python': ['autopep8', 'reorder-python-imports'],
       \}
 let g:ale_linters = {
@@ -192,6 +193,10 @@ Plug 'easymotion/vim-easymotion'
 map <Leader> <Plug>(easymotion-prefix)
 
 " ===== Editor =====
+
+" Tags
+Plug 'preservim/tagbar'
+nmap T :TagbarToggle<CR>
 
 " Nerd Tree (file explorer)
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeTabsToggle', 'NERDTreeFind'] }
@@ -238,7 +243,7 @@ let g:taboo_tab_format=' %N. %f %m '
 
 " Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': 'FZF' }
-autocmd VimEnter * noremap F :FZF<cr>
+" autocmd VimEnter * noremap f :FZF<cr>
 
 " Open Recent Files
 Plug 'vim-scripts/mru.vim'
@@ -250,7 +255,8 @@ nnoremap mr :MRU<cr>
 Plug 'tpope/vim-fugitive', { 'on': ['Gbrowse', 'Gblame'] }
 
 " Show Deltas
-Plug 'mhinz/vim-signify', { 'commit': 'd80e507' }
+" Plug 'mhinz/vim-signify', { 'commit': 'd80e507' }
+Plug 'mhinz/vim-signify'
 let g:signify_sign_show_text = 0
 
 " NOTE: Requires local config, used for gitlab access token
@@ -276,7 +282,7 @@ command! SwitchToDark call SwitchToDark()
 
 " Color Schemes
 Plug 'prettier/vim-prettier', {
-      \ 'do': 'yarn install',
+      \ 'do': 'yarn install --frozen-lockfile --production',
       \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#single_quote = 'true'

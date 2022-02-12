@@ -58,7 +58,7 @@ plugins=(
   iterm2
   jsontools
   npm
-  osx
+  macos
   pip
   ripgrep
   safe-paste
