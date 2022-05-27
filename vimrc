@@ -26,7 +26,7 @@ map <leader>q :q<CR>
 map <leader>Q :qa<CR>
 
 " Write
-nnoremap <leader>f :w<CR>
+nnoremap <leader>w :w<CR>
 
 " Quick way to format a file
 nnoremap <leader>g gg=G''zz
@@ -36,7 +36,7 @@ inoremap jj <esc>:w<CR>
 " Stop editing in place with 'jk'
 inoremap jk <esc>:<cr><right>
 
-" Quickly switch tabs
+" Switch tabs with gr instead of gT
 nnoremap gr gT
 
 " Arrow keys to resize windows
@@ -142,6 +142,7 @@ au FileType go nmap got :GoTest<CR>
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 0
 let g:go_imports_autosave = 0
+" let g:go_def_mapping_enabled=0
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
@@ -190,9 +191,12 @@ Plug 'ntpeters/vim-better-whitespace'
 hi ExtraWhitespace ctermbg=red
 
 Plug 'easymotion/vim-easymotion'
-map <Leader> <Plug>(easymotion-prefix)
+map <Leader><Leader> <Plug>(easymotion-prefix)
 
 " ===== Editor =====
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Tags
 Plug 'preservim/tagbar'
@@ -240,10 +244,6 @@ nnoremap <silent> <c-u> :call smooth_scroll#up(15, 20, 2)<cr>
 Plug 'gcmt/taboo.vim'
 let g:taboo_modified_tab_flag="+"
 let g:taboo_tab_format=' %N. %f %m '
-
-" Search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': 'FZF' }
-" autocmd VimEnter * noremap f :FZF<cr>
 
 " Open Recent Files
 Plug 'vim-scripts/mru.vim'
