@@ -100,4 +100,6 @@ export NVM_DIR="$HOME/.nvm"
 # Make it so that git autocomplete never makes remote calls for auto-complete
 __git_heads_remote() {}
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # zprof
