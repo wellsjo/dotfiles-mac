@@ -8,10 +8,6 @@ ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/wells/.oh-my-zsh"
 
-# Prompt https://github.com/sindresorhus/pure
-autoload -U promptinit; promptinit
-prompt pure
-
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
@@ -39,7 +35,6 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 plugins=(
   git
   alias-finder
-  # aws
   brew
   colored-man-pages
   colorize
@@ -50,7 +45,6 @@ plugins=(
   emoji
   encode64
   extract
-  fzf
   git-extras
   git
   golang
@@ -90,16 +84,27 @@ alias gc="git commit -m"
 # Load local profile
 [ -f ~/.localprofile ] && source ~/.localprofile
 
-# Load FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Make it so that git autocomplete never makes remote calls for auto-complete
 __git_heads_remote() {}
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Prompt https://github.com/sindresorhus/pure
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit
+promptinit
 
-# zprof
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+# change the path color
+zstyle :prompt:pure:path color white
+zstyle :prompt:pure:git:branch color yellow
+
+# change the color for both `prompt:success` and `prompt:error`
+zstyle ':prompt:pure:prompt:*' color cyan
+
+# turn on git stash status
+zstyle :prompt:pure:git:stash show yes
+
+prompt pure
