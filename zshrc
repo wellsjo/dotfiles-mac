@@ -54,11 +54,11 @@ plugins=(
   npm
   macos
   pip
-  ripgrep
   safe-paste
   sublime
   tmux
   urltools
+  fzf-zsh-plugin
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,3 +108,6 @@ zstyle ':prompt:pure:prompt:*' color cyan
 zstyle :prompt:pure:git:stash show yes
 
 prompt pure
+
+# "\e[1;3C": forward-word
+# "\e[1;3D": backward-word
