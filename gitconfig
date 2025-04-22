@@ -8,9 +8,6 @@
 	branch = false
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[user]
-	name = Wells Johnston
-	email = wellsjohnston@gmail.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
