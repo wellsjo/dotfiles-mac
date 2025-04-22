@@ -81,6 +81,13 @@ alias gl="git --no-pager log --oneline -n 5"
 alias gll="git --no-pager log --oneline -n 25"
 alias gc="git commit -m"
 
+# delete every local branch except master or main
+git-delete-branches() {
+git branch --format="%(refname:short)" \
+  | grep -Ev '^(master|main)$' \
+  | xargs -r git branch -D         # use -d instead of -D for a safe delete
+}
+
 # Load local profile
 [ -f ~/.localprofile ] && source ~/.localprofile
 
